@@ -1,0 +1,140 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    @apply font-body text-gray-800 bg-brand-cream;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4 { @apply font-display; }
+}
+
+@layer components {
+
+  /* ── Glass card ── */
+  .glass-card {
+    @apply bg-white border border-gray-100 shadow-card rounded-2xl;
+  }
+
+  /* ── Section wrappers ── */
+  .section     { @apply py-16 px-4 sm:px-6 lg:px-8; }
+  .container-lg { @apply max-w-7xl mx-auto; }
+
+  /* ── Gradient text ── */
+  .gradient-text {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, #1A4731, #C9A052);
+  }
+
+  /* ── Gold underline ── */
+  .gold-underline {
+    @apply relative inline-block;
+  }
+  .gold-underline::after {
+    content: '';
+    @apply absolute bottom-0 left-0 w-full h-0.5 bg-brand-gold;
+  }
+
+  /* ── Section heading ── */
+  .section-tag {
+    @apply inline-flex items-center gap-2 text-brand-gold text-xs font-bold uppercase tracking-[0.2em] mb-3;
+  }
+  .section-tag::before {
+    content: '';
+    @apply block w-8 h-px bg-brand-gold;
+  }
+  .section-tag::after {
+    content: '';
+    @apply block w-8 h-px bg-brand-gold;
+  }
+
+  /* ── Skeleton loader ── */
+  .skeleton { @apply animate-pulse bg-gray-200 rounded; }
+
+  /* ── Status badge ── */
+  .badge {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold uppercase tracking-wide;
+  }
+
+  /* ── Form inputs ── */
+  .input-field {
+    @apply w-full rounded-xl border border-gray-200 bg-white px-4 py-3 text-sm
+           placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-brand-green/30
+           focus:border-brand-green transition-all duration-200 text-gray-800;
+  }
+  .label      { @apply block text-sm font-semibold text-gray-700 mb-1.5; }
+  .error-msg  { @apply text-red-500 text-xs mt-1; }
+
+  /* ── Scrollbar ── */
+  ::-webkit-scrollbar       { width: 6px; height: 6px; }
+  ::-webkit-scrollbar-track { @apply bg-gray-100; }
+  ::-webkit-scrollbar-thumb { @apply bg-brand-green/40 rounded-full; }
+  ::-webkit-scrollbar-thumb:hover { @apply bg-brand-green/70; }
+
+  /* ── Admin sidebar ── */
+  .admin-sidebar {
+    @apply fixed top-0 left-0 h-full w-64 bg-brand-green text-white z-40 flex flex-col shadow-2xl;
+  }
+  .admin-main  { @apply ml-64 min-h-screen bg-gray-50; }
+
+  /* ── Data table ── */
+  .data-table             { @apply w-full text-sm text-left; }
+  .data-table thead tr    { @apply bg-brand-green/5 border-b border-gray-200; }
+  .data-table thead th    { @apply px-4 py-3 font-semibold text-gray-600 uppercase text-xs tracking-wide; }
+  .data-table tbody tr    { @apply border-b border-gray-100 hover:bg-brand-cream transition-colors duration-150; }
+  .data-table tbody td    { @apply px-4 py-3.5; }
+
+  /* ── Hero overlay ── */
+  .hero-overlay {
+    background: linear-gradient(
+      160deg,
+      rgba(26, 71, 49, 0.92) 0%,
+      rgba(26, 71, 49, 0.80) 40%,
+      rgba(45, 106, 79, 0.70) 70%,
+      rgba(201, 160, 82, 0.50) 100%
+    );
+  }
+
+  /* ── Cause card colour variants ── */
+  .cause-card-education { @apply border-t-4 border-brand-green; }
+  .cause-card-health    { @apply border-t-4 border-brand-mid; }
+  .cause-card-marriage  { @apply border-t-4 border-brand-gold; }
+
+  /* ── Image frame ── */
+  .img-frame {
+    @apply rounded-2xl overflow-hidden shadow-card;
+  }
+  .img-frame img {
+    @apply w-full h-full object-cover transition-transform duration-500 group-hover:scale-105;
+  }
+
+  /* ── Divider ornament ── */
+  .ornament-divider {
+    @apply flex items-center gap-4 my-10;
+  }
+  .ornament-divider::before,
+  .ornament-divider::after {
+    content: '';
+    @apply flex-1 h-px bg-gradient-to-r from-transparent via-brand-gold/40 to-transparent;
+  }
+}
+
+@layer utilities {
+  .animate-delay-100 { animation-delay: 100ms; }
+  .animate-delay-200 { animation-delay: 200ms; }
+  .animate-delay-300 { animation-delay: 300ms; }
+  .animate-delay-400 { animation-delay: 400ms; }
+
+  /* Fix: prevent white-out on button click */
+  .btn-no-flash {
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+  }
+}
