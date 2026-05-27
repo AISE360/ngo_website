@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 import { Gem, CheckCircle, XCircle, ArrowRight } from 'lucide-react'
 import { Button } from '../../components/ui/Button'
 import { formatINR } from '../../utils/formatCurrency'
-import marriageImg from '../../assets/ngo_marriage.png'
+import marriageImg from '../../assets/ngo_marriage.webp'
 
 const eligibilityYes = [
   'Must be a registered member for ≥ 1 year',

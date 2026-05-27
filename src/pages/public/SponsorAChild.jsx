@@ -3,7 +3,7 @@ import { GraduationCap } from 'lucide-react'
 import { useBeneficiaries } from '../../hooks/useBeneficiaries'
 import { Badge } from '../../components/ui/Badge'
 import { SponsorForm } from '../../components/forms/SponsorForm'
-import sponsorImg from '../../assets/ngo_sponsor.png'
+import sponsorImg from '../../assets/ngo_sponsor.webp'
 
 export default function SponsorAChild() {
   const [params] = useSearchParams()

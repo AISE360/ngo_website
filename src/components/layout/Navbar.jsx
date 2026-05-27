@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { Link, NavLink } from 'react-router-dom'
 import { Menu, X } from 'lucide-react'
 import { Button } from '../ui/Button'
-import logo from '../../assets/logo.png'
+import logo from '../../assets/logo.webp'
 
 const navLinks = [
   { to: '/',               label: 'Home' },

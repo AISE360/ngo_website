@@ -1,6 +1,6 @@
 import { Phone, Mail, MapPin, MessageCircle, Clock } from 'lucide-react'
 import { Button } from '../../components/ui/Button'
-import communityImg from '../../assets/ngo_community.png'
+import communityImg from '../../assets/ngo_community.webp'
 
 const contactDetails = [
   { icon: MapPin, label: 'Address',      value: '123 Welfare Colony, Tolichowki, Hyderabad – 500008' },

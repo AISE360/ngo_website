@@ -4,13 +4,13 @@ import { Button } from '../../components/ui/Button'
 import { StatCard } from '../../components/ui/StatCard'
 
 // Images
-import heroBg          from '../../assets/ngo_hero_main.png'
-import educationImg    from '../../assets/hero_education.png'
-import healthImg       from '../../assets/ngo_health.png'
-import marriageImg     from '../../assets/ngo_marriage.png'
-import communityImg    from '../../assets/ngo_community.png'
-import donateImg       from '../../assets/ngo_donate.png'
-import sponsorImg      from '../../assets/ngo_sponsor.png'
+import heroBg          from '../../assets/ngo_hero_main.webp'
+import educationImg    from '../../assets/hero_education.webp'
+import healthImg       from '../../assets/ngo_health.webp'
+import marriageImg     from '../../assets/ngo_marriage.webp'
+import communityImg    from '../../assets/ngo_community.webp'
+import donateImg       from '../../assets/ngo_donate.webp'
+import sponsorImg      from '../../assets/ngo_sponsor.webp'
 
 const stats = [
   { title: 'Community Members',  value: '165+',  subtitle: 'Registered families',      icon: Users,        color: 'navy' },

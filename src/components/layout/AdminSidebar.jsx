@@ -5,7 +5,7 @@ import {
 } from 'lucide-react'
 import { useAuthContext } from '../../context/AuthContext'
 import toast from 'react-hot-toast'
-import logo from '../../assets/logo.png'
+import logo from '../../assets/logo.webp'
 
 const navItems = [
   { to: '/admin/dashboard',      icon: LayoutDashboard, label: 'Dashboard' },

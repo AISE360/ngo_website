@@ -1,6 +1,6 @@
 import { CaseSubmitForm } from '../../components/forms/CaseSubmitForm'
 import { FileText, Clock, CheckCircle } from 'lucide-react'
-import educationImg from '../../assets/hero_education.png'
+import educationImg from '../../assets/hero_education.webp'
 
 const steps = [
   { icon: FileText,    title: 'Fill the Form',    desc: 'Provide beneficiary details and describe the case clearly.' },

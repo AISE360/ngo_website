@@ -3,8 +3,8 @@ import { GraduationCap, BookOpen, ArrowRight } from 'lucide-react'
 import { useBeneficiaries } from '../../hooks/useBeneficiaries'
 import { Badge } from '../../components/ui/Badge'
 import { Button } from '../../components/ui/Button'
-import educationImg from '../../assets/hero_education.png'
-import sponsorImg   from '../../assets/ngo_sponsor.png'
+import educationImg from '../../assets/hero_education.webp'
+import sponsorImg   from '../../assets/ngo_sponsor.webp'
 
 export default function Education() {
   const { beneficiaries, loading } = useBeneficiaries('education')

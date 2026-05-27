@@ -1,7 +1,7 @@
 import { useSearchParams } from 'react-router-dom'
 import { Shield, Smartphone, CheckCircle } from 'lucide-react'
 import { DonationForm } from '../../components/forms/DonationForm'
-import donateImg from '../../assets/ngo_donate.png'
+import donateImg from '../../assets/ngo_donate.webp'
 
 const presets = [500, 1000, 2500, 5000, 10000]
 

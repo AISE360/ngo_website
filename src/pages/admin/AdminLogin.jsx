@@ -7,7 +7,7 @@ import toast from 'react-hot-toast'
 import { Eye, EyeOff } from 'lucide-react'
 import { useAuthContext } from '../../context/AuthContext'
 import { Button } from '../../components/ui/Button'
-import logo from '../../assets/logo.png'
+import logo from '../../assets/logo.webp'
 
 const schema = z.object({
   email:    z.string().email('Enter a valid email'),

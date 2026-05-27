@@ -4,7 +4,7 @@ import { useCases } from '../../hooks/useCases'
 import { Badge } from '../../components/ui/Badge'
 import { Button } from '../../components/ui/Button'
 import { formatINR } from '../../utils/formatCurrency'
-import healthImg from '../../assets/ngo_health.png'
+import healthImg from '../../assets/ngo_health.webp'
 
 const covered = [
   { icon: Stethoscope, label: 'Hospitalization',  desc: 'Room, ICU, surgery costs' },

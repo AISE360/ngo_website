@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import { Phone, Mail, MapPin, Facebook, Instagram, Youtube } from 'lucide-react'
-import logo from '../../assets/logo.png'
+import logo from '../../assets/logo.webp'
 
 const causes = [
   { to: '/education',     label: 'Education Support' },

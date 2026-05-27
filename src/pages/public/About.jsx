@@ -1,5 +1,5 @@
 import { Target, Eye, Users, Award } from 'lucide-react'
-import communityImg from '../../assets/ngo_community.png'
+import communityImg from '../../assets/ngo_community.webp'
 
 const values = [
   { icon: Target, title: 'Our Mission', desc: 'To uplift underprivileged families through transparent, community-driven education, health, and welfare programmes.' },
