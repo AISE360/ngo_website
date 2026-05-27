@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { ArrowRight, GraduationCap, Heart, Gem, Users, HandHeart, BookOpen, Stethoscope } from 'lucide-react'
+import { ArrowRight, GraduationCap, Heart, Gem, Users, HandHeart, BookOpen, Stethoscope, MapPin } from 'lucide-react'
 import { Button } from '../../components/ui/Button'
 import { StatCard } from '../../components/ui/StatCard'
 
@@ -115,10 +115,17 @@ export default function Home() {
         <div className="flex gap-8 text-white text-sm font-semibold whitespace-nowrap animate-[marquee_25s_linear_infinite]"
           style={{ animation: 'marquee 25s linear infinite' }}>
           {[...Array(4)].flatMap(() => [
-            '📚 Education Support', '❤️ Health Fund', '💍 Marriage Assistance',
-            '🌱 Sponsor a Child', '🤝 Community Welfare', '🕌 Serving Hyderabad',
-          ]).map((item, i) => (
-            <span key={i} className="flex-shrink-0 mx-6">{item}</span>
+            { icon: BookOpen, label: 'Education Support' },
+            { icon: Heart, label: 'Health Fund' },
+            { icon: Gem, label: 'Marriage Assistance' },
+            { icon: HandHeart, label: 'Sponsor a Child' },
+            { icon: Users, label: 'Community Welfare' },
+            { icon: MapPin, label: 'Serving Hyderabad' },
+          ]).map(({ icon: Icon, label }, i) => (
+            <span key={i} className="flex-shrink-0 mx-6 inline-flex items-center gap-2">
+              <Icon className="w-4 h-4 text-white/90" />
+              <span>{label}</span>
+            </span>
           ))}
         </div>
       </div>
