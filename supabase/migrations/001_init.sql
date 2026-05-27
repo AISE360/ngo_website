@@ -125,33 +125,42 @@ alter table sponsors      enable row level security;
 alter table donations     enable row level security;
 
 -- Public: insert only (no auth required)
-create policy if not exists "public_submit_case"
+drop policy if exists "public_submit_case" on cases;
+create policy "public_submit_case"
   on cases for insert with check (true);
 
-create policy if not exists "public_donate"
+drop policy if exists "public_donate" on donations;
+create policy "public_donate"
   on donations for insert with check (true);
 
 -- Public: read beneficiaries (for sponsor-a-child page)
-create policy if not exists "public_read_beneficiaries"
+drop policy if exists "public_read_beneficiaries" on beneficiaries;
+create policy "public_read_beneficiaries"
   on beneficiaries for select using (status in ('active','verified'));
 
 -- Authenticated staff: full access
-create policy if not exists "staff_all_members"
+drop policy if exists "staff_all_members" on members;
+create policy "staff_all_members"
   on members for all using (auth.role() = 'authenticated');
 
-create policy if not exists "staff_all_benef"
+drop policy if exists "staff_all_benef" on beneficiaries;
+create policy "staff_all_benef"
   on beneficiaries for all using (auth.role() = 'authenticated');
 
-create policy if not exists "staff_all_cases"
+drop policy if exists "staff_all_cases" on cases;
+create policy "staff_all_cases"
   on cases for all using (auth.role() = 'authenticated');
 
-create policy if not exists "staff_all_sponsors"
+drop policy if exists "staff_all_sponsors" on sponsors;
+create policy "staff_all_sponsors"
   on sponsors for all using (auth.role() = 'authenticated');
 
-create policy if not exists "staff_all_donations"
+drop policy if exists "staff_all_donations" on donations;
+create policy "staff_all_donations"
   on donations for all using (auth.role() = 'authenticated');
 
-create policy if not exists "staff_profiles"
+drop policy if exists "staff_profiles" on profiles;
+create policy "staff_profiles"
   on profiles for select using (auth.uid() = id);
 
 -- ═══════════════════════════════

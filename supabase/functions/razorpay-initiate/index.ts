@@ -56,7 +56,10 @@ serve(async (req: Request) => {
       headers: { ...corsHeaders, 'Content-Type': 'application/json' },
     })
   } catch (err) {
-    return new Response(JSON.stringify({ error: err.message }), {
+    // Log the full error server-side for diagnostics, but return a generic
+    // message to the client to avoid leaking sensitive details.
+    console.error('[razorpay-initiate] error:', err)
+    return new Response(JSON.stringify({ error: 'Internal server error' }), {
       status:  500,
       headers: { ...corsHeaders, 'Content-Type': 'application/json' },
     })
