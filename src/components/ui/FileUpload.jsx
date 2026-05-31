@@ -62,3 +62,4 @@ export function FileUpload({ onFile, accept = '*', maxSizeMB = 5, label = 'Uploa
     </div>
   )
 }
+

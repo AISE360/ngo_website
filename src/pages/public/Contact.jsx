@@ -12,13 +12,13 @@ const contactDetails = [
 export default function Contact() {
   return (
     <div className="bg-brand-cream">
-      {/* Header with image */}
-      <div className="relative py-16 text-white overflow-hidden">
+      {/* Header */}
+      <div className="relative py-20 text-white overflow-hidden">
         <img src={communityImg} alt="Contact" className="absolute inset-0 w-full h-full object-cover object-top" />
         <div className="absolute inset-0 bg-brand-green/88" />
         <div className="relative z-10 container-lg px-4 text-center">
-          <h1 className="font-display text-4xl sm:text-5xl font-bold">Get in Touch</h1>
-          <p className="text-green-100 mt-4 max-w-xl mx-auto text-sm leading-relaxed">
+          <h1 className="font-display display-xl text-white">Get in Touch</h1>
+          <p className="font-body body-base text-green-100 mt-4 max-w-xl mx-auto font-light">
             Have a question, want to volunteer, or need urgent assistance? We respond within 24 hours.
           </p>
         </div>
@@ -30,8 +30,8 @@ export default function Contact() {
 
             {/* Contact info */}
             <div>
-              <p className="section-tag">Reach Us</p>
-              <h2 className="font-display text-xl font-bold text-brand-green mb-6">Contact Information</h2>
+              <span className="eyebrow">Reach us</span>
+              <h2 className="font-display display-md text-brand-green mb-6">Contact Information</h2>
               <div className="space-y-4">
                 {contactDetails.map(({ icon: Icon, label, value, href }, i) => (
                   <div key={i} className="glass-card p-4 flex items-start gap-4 cause-card-education">
@@ -39,17 +39,16 @@ export default function Contact() {
                       <Icon className="w-5 h-5 text-brand-green" />
                     </div>
                     <div>
-                      <p className="text-xs text-gray-400 font-medium uppercase tracking-wide">{label}</p>
+                      <p className="font-body text-xs text-gray-400 font-semibold uppercase tracking-wider">{label}</p>
                       {href
-                        ? <a href={href} className="text-sm font-medium text-brand-green hover:text-brand-mid transition-colors">{value}</a>
-                        : <p className="text-sm font-medium text-brand-green">{value}</p>
+                        ? <a href={href} className="font-body body-sm font-medium text-brand-green hover:text-brand-mid transition-colors">{value}</a>
+                        : <p className="font-body body-sm font-medium text-brand-green">{value}</p>
                       }
                     </div>
                   </div>
                 ))}
               </div>
 
-              {/* WhatsApp CTA */}
               <a
                 href="https://wa.me/919876543210?text=Hello%2C%20I%20have%20a%20query%20about%20Al-Huda%20Welfare%20Society"
                 target="_blank"
@@ -63,10 +62,10 @@ export default function Contact() {
               </a>
             </div>
 
-            {/* Contact form */}
+            {/* Form */}
             <div className="glass-card p-7 cause-card-education">
-              <p className="section-tag">Send a Message</p>
-              <h2 className="font-display text-xl font-bold text-brand-green mb-5">Write to Us</h2>
+              <span className="eyebrow">Send a message</span>
+              <h2 className="font-display display-sm text-brand-green mb-5">Write to Us</h2>
               <form className="space-y-4" onSubmit={e => { e.preventDefault(); alert('Thank you! We will respond within 24 hours.') }}>
                 <div>
                   <label className="label">Your Name</label>
@@ -83,10 +82,10 @@ export default function Contact() {
                 <Button type="submit" className="w-full" size="lg">Send Message</Button>
               </form>
             </div>
+
           </div>
         </div>
       </section>
     </div>
   )
 }
-

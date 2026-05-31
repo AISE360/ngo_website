@@ -41,8 +41,8 @@ export default function HealthFund() {
       {/* Fund progress */}
       <section className="section bg-white">
         <div className="container-lg max-w-2xl mx-auto text-center">
-          <p className="section-tag justify-center">Current Status</p>
-          <h2 className="font-display text-2xl font-bold text-brand-green mb-2">Quarterly Fund Goal</h2>
+          <span className="eyebrow">Current Status</span>
+            $2 className="font-display text-2xl font-bold text-brand-green mb-2">Quarterly Fund Goal</h2>
           <p className="text-gray-500 text-sm mb-6">Updated monthly based on contributions and disbursements</p>
           <div className="glass-card p-8 border-t-4 border-brand-green">
             <div className="flex justify-between text-sm font-semibold text-gray-600 mb-2">
@@ -69,8 +69,8 @@ export default function HealthFund() {
       <section className="section bg-brand-cream">
         <div className="container-lg">
           <div className="text-center mb-10">
-            <p className="section-tag justify-center">Coverage</p>
-            <h2 className="font-display text-2xl font-bold text-brand-green">What the Fund Covers</h2>
+            <span className="eyebrow">Coverage</span>
+            $2 className="font-display text-2xl font-bold text-brand-green">What the Fund Covers</h2>
           </div>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-6">
             {covered.map(({ icon: Icon, label, desc }, i) => (
@@ -90,8 +90,8 @@ export default function HealthFund() {
       {!loading && healthCases.length > 0 && (
         <section className="section bg-white">
           <div className="container-lg">
-            <p className="section-tag">Recent Work</p>
-            <h2 className="font-display text-2xl font-bold text-brand-green mb-6">Recently Supported Cases</h2>
+            <span className="eyebrow">Recent Work</span>
+            $2 className="font-display text-2xl font-bold text-brand-green mb-6">Recently Supported Cases</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
               {healthCases.map(c => (
                 <div key={c.id} className="glass-card p-5 cause-card-health">
@@ -121,4 +121,5 @@ export default function HealthFund() {
     </div>
   )
 }
+
 

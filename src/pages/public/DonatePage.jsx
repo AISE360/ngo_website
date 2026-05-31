@@ -39,8 +39,8 @@ export default function DonatePage() {
         <div className="container-lg max-w-lg mx-auto">
           <div className="glass-card p-8 cause-card-education">
             <div className="text-center mb-6">
-              <p className="section-tag justify-center">Support Our Work</p>
-              <h2 className="font-display text-xl font-bold text-brand-green">Choose an Amount</h2>
+              <span className="eyebrow">Support Our Work</span>
+            $2 className="font-display text-xl font-bold text-brand-green">Choose an Amount</h2>
             </div>
             <DonationForm defaultAmount={defaultAmount} defaultPurpose={defaultPurpose} presets={presets} />
           </div>
@@ -64,4 +64,5 @@ export default function DonatePage() {
     </div>
   )
 }
+
 

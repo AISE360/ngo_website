@@ -40,8 +40,8 @@ export default function MarriageFund() {
       {/* About */}
       <section className="section bg-white">
         <div className="container-lg max-w-3xl mx-auto text-center">
-          <p className="section-tag justify-center">About This Fund</p>
-          <h2 className="font-display text-2xl font-bold text-brand-green mb-4">Celebrate with Dignity, Not Debt</h2>
+          <span className="eyebrow">About This Fund</span>
+            $2 className="font-display text-2xl font-bold text-brand-green mb-4">Celebrate with Dignity, Not Debt</h2>
           <p className="text-gray-600 text-sm leading-relaxed">
             Our Marriage Assistance Fund provides ₹51,000 to eligible member families to help cover the costs of their daughters' or sisters' weddings. We believe marriages should be joyful celebrations — not sources of debt and stress.
           </p>
@@ -52,8 +52,8 @@ export default function MarriageFund() {
       <section className="section bg-brand-cream">
         <div className="container-lg max-w-3xl mx-auto">
           <div className="text-center mb-8">
-            <p className="section-tag justify-center">Requirements</p>
-            <h2 className="font-display text-2xl font-bold text-brand-green">Eligibility Criteria</h2>
+            <span className="eyebrow">Requirements</span>
+            $2 className="font-display text-2xl font-bold text-brand-green">Eligibility Criteria</h2>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             <div className="glass-card p-7 cause-card-health">
@@ -92,8 +92,8 @@ export default function MarriageFund() {
       <section className="section bg-white">
         <div className="container-lg max-w-3xl mx-auto">
           <div className="text-center mb-8">
-            <p className="section-tag justify-center">Process</p>
-            <h2 className="font-display text-2xl font-bold text-brand-green">How to Apply</h2>
+            <span className="eyebrow">Process</span>
+            $2 className="font-display text-2xl font-bold text-brand-green">How to Apply</h2>
           </div>
           <div className="space-y-4">
             {[
@@ -120,4 +120,5 @@ export default function MarriageFund() {
     </div>
   )
 }
+
 

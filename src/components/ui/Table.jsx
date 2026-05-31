@@ -44,3 +44,4 @@ export function Table({ columns, data, loading, emptyMessage = 'No data found.' 
     </div>
   )
 }
+

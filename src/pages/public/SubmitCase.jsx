@@ -43,8 +43,8 @@ export default function SubmitCase() {
           {/* Form */}
           <div className="glass-card p-8 max-w-2xl mx-auto cause-card-education">
             <div className="text-center mb-6">
-              <p className="section-tag justify-center">Application Form</p>
-              <h2 className="font-display text-xl font-bold text-brand-green">Case Submission</h2>
+              <span className="eyebrow">Application Form</span>
+            $2 className="font-display text-xl font-bold text-brand-green">Case Submission</h2>
             </div>
             <CaseSubmitForm />
           </div>
@@ -53,4 +53,5 @@ export default function SubmitCase() {
     </div>
   )
 }
+
 

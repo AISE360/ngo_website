@@ -39,8 +39,8 @@ export default function Education() {
               <img src={sponsorImg} alt="Children studying" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
             </div>
             <div>
-              <p className="section-tag">How It Works</p>
-              <h2 className="font-display text-2xl font-bold text-brand-green mb-6">Three Simple Steps to Sponsor</h2>
+              <span className="eyebrow">How It Works</span>
+            $2 className="font-display text-2xl font-bold text-brand-green mb-6">Three Simple Steps to Sponsor</h2>
               <div className="space-y-5">
                 {[
                   { step: '01', title: 'Choose a Child', desc: 'Browse verified profiles below and select a child whose story resonates with you.' },
@@ -69,8 +69,8 @@ export default function Education() {
         <div className="container-lg">
           <div className="flex items-center justify-between mb-8 flex-wrap gap-4">
             <div>
-              <p className="section-tag">Open Profiles</p>
-              <h2 className="font-display text-2xl font-bold text-brand-green">Children Awaiting Sponsors</h2>
+              <span className="eyebrow">Open Profiles</span>
+            $2 className="font-display text-2xl font-bold text-brand-green">Children Awaiting Sponsors</h2>
               <p className="text-gray-500 text-sm mt-1">Verified by our education committee</p>
             </div>
             <Link to="/sponsor">
@@ -117,4 +117,5 @@ export default function Education() {
     </div>
   )
 }
+
 

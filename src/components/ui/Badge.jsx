@@ -28,3 +28,4 @@ export function Badge({ label, variant, className = '' }) {
     </span>
   )
 }
+

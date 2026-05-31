@@ -20,13 +20,12 @@ const team = [
 export default function About() {
   return (
     <div className="bg-brand-cream">
-      {/* Page header */}
-      <div className="bg-brand-green py-16 text-white text-center px-4 relative overflow-hidden">
+      {/* Header */}
+      <div className="bg-brand-green py-20 text-white text-center px-4 relative overflow-hidden">
         <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'radial-gradient(circle at 70% 50%, #C9A052 0%, transparent 60%)' }} />
         <div className="relative z-10">
-          <p className="section-tag text-brand-gold justify-center">Who We Are</p>
-          <h1 className="font-display text-4xl sm:text-5xl font-bold mt-2">About Al-Huda Welfare Society</h1>
-          <p className="text-green-200 mt-4 max-w-xl mx-auto text-sm leading-relaxed">
+          <h1 className="font-display display-xl text-white">About Al-Huda Welfare Society</h1>
+          <p className="font-body body-base text-green-200 mt-4 max-w-xl mx-auto font-light">
             A grassroots non-profit born from the belief that communities can lift each other up.
           </p>
         </div>
@@ -37,12 +36,12 @@ export default function About() {
         <div className="container-lg">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {values.map(({ icon: Icon, title, desc }, i) => (
-              <div key={i} className="glass-card p-6 hover:shadow-card-hover transition-all animate-slide-up border-t-4 border-brand-gold" style={{ animationDelay: `${i * 80}ms` }}>
-                <div className="w-12 h-12 rounded-xl bg-brand-green/10 flex items-center justify-center mb-4">
-                  <Icon className="w-6 h-6 text-brand-green" />
+              <div key={i} className="glass-card p-6 hover:shadow-[0_8px_32px_rgba(26,71,49,0.12)] transition-all border-t-4 border-brand-gold">
+                <div className="w-11 h-11 rounded-xl bg-brand-green/10 flex items-center justify-center mb-4">
+                  <Icon className="w-5 h-5 text-brand-green" />
                 </div>
-                <h3 className="font-display font-bold text-brand-green mb-2">{title}</h3>
-                <p className="text-gray-500 text-sm leading-relaxed">{desc}</p>
+                <h3 className="font-display display-sm text-brand-green mb-2">{title}</h3>
+                <p className="font-body body-sm text-gray-500 leading-relaxed">{desc}</p>
               </div>
             ))}
           </div>
@@ -54,19 +53,21 @@ export default function About() {
         <div className="container-lg">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
-              <p className="section-tag">Our Journey</p>
-              <h2 className="font-display text-3xl font-bold text-brand-green mb-5">
-                From 12 Families to 165+ — A Decade of Service
+              <span className="eyebrow">Our journey</span>
+              <h2 className="font-display display-lg text-brand-green mb-5">
+                From 12 families to 165+ — a decade of service
               </h2>
-              <div className="space-y-4 text-gray-600 text-sm leading-relaxed">
+              <div className="space-y-4 font-body body-base text-gray-600">
                 <p>Al-Huda Welfare Society was founded in 2010 by a group of 12 families in Hyderabad who noticed that community members were struggling with educational expenses, unexpected medical bills, and the financial burden of marriages.</p>
                 <p>What started as an informal monthly collection of ₹200 per family has grown into a structured welfare organisation supporting 165 member families and hundreds of beneficiaries across Telangana.</p>
                 <p>We operate on a <strong className="text-brand-green">zero-overhead model</strong> — every rupee collected goes directly to a beneficiary. Administrative costs are covered by voluntary contributions from founding members.</p>
-                <p className="italic text-brand-gold font-semibold">"هدىٌ للإنسان .. عطاءٌ بلا حدود" — Guidance for humanity, giving without limits.</p>
+                <p className="italic text-brand-gold font-semibold">"هدىٌ للإنسان .. عطاءٌ بلا حدود"
+                  <span className="block font-body font-normal text-gray-400 not-italic mt-0.5 body-xs">Guidance for humanity, giving without limits.</span>
+                </p>
               </div>
             </div>
-            <div className="group img-frame aspect-[4/3]">
-              <img src={communityImg} alt="Community gathering" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+            <div className="img-frame aspect-[4/3] shadow-[0_4px_32px_rgba(26,71,49,0.1)]">
+              <img src={communityImg} alt="Community gathering" className="w-full h-full object-cover" />
             </div>
           </div>
         </div>
@@ -75,19 +76,19 @@ export default function About() {
       {/* Team */}
       <section className="section bg-white">
         <div className="container-lg">
-          <div className="text-center mb-12">
-            <p className="section-tag justify-center">Leadership</p>
-            <h2 className="font-display text-3xl font-bold text-brand-green">Management Committee</h2>
-            <p className="text-gray-500 mt-2 text-sm">Elected annually by the 165-member community</p>
+          <div className="mb-10">
+            <span className="eyebrow">Leadership</span>
+            <h2 className="font-display display-lg text-brand-green">Management Committee</h2>
+            <p className="font-body body-sm text-gray-400 mt-1">Elected annually by the 165-member community</p>
           </div>
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-6">
             {team.map(({ name, role, initials }, i) => (
-              <div key={i} className="text-center animate-fade-in group" style={{ animationDelay: `${i * 80}ms` }}>
-                <div className="w-16 h-16 rounded-2xl bg-brand-green mx-auto flex items-center justify-center text-white font-bold text-lg mb-3 shadow-card group-hover:bg-brand-gold transition-colors duration-300">
+              <div key={i} className="text-center group">
+                <div className="w-14 h-14 rounded-2xl bg-brand-green mx-auto flex items-center justify-center text-white font-semibold text-base mb-3 shadow-sm group-hover:bg-brand-gold transition-colors duration-300">
                   {initials}
                 </div>
-                <p className="font-semibold text-brand-green text-sm">{name}</p>
-                <p className="text-gray-400 text-xs mt-0.5">{role}</p>
+                <p className="font-body font-semibold text-brand-green body-sm">{name}</p>
+                <p className="font-body text-gray-400 body-xs mt-0.5">{role}</p>
               </div>
             ))}
           </div>
@@ -96,4 +97,3 @@ export default function About() {
     </div>
   )
 }
-
