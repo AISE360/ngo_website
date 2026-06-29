@@ -2,7 +2,8 @@ import { useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { ArrowRight, ArrowUpRight, Users, BookOpen, Heart, HandHeart } from 'lucide-react'
 import { Button } from '../../components/ui/Button'
-import CountUp from 'react-countup'
+import CountUpModule from 'react-countup'
+const CountUp = CountUpModule.default || CountUpModule
 import { useInView } from 'react-intersection-observer'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Autoplay, Pagination } from 'swiper/modules'
@@ -10,13 +11,13 @@ import Typed from 'typed.js'
 import 'swiper/css'
 import 'swiper/css/pagination'
 
-import heroBg       from '../../assets/ngo_hero_main.png'
-import educationImg from '../../assets/hero_education.png'
-import healthImg    from '../../assets/ngo_health.png'
-import marriageImg  from '../../assets/ngo_marriage.png'
-import communityImg from '../../assets/ngo_community.png'
-import donateImg    from '../../assets/ngo_donate.png'
-import sponsorImg   from '../../assets/ngo_sponsor.png'
+import heroBg       from '../../assets/ngo_hero_main.webp'
+import educationImg from '../../assets/hero_education.webp'
+import healthImg    from '../../assets/ngo_health.webp'
+import marriageImg  from '../../assets/ngo_marriage.webp'
+import communityImg from '../../assets/ngo_community.webp'
+import donateImg    from '../../assets/ngo_donate.webp'
+import sponsorImg   from '../../assets/ngo_sponsor.webp'
 
 const testimonials = [
   {
@@ -47,9 +48,9 @@ function StatItem({ end, suffix = '', label, icon: Icon, delay = 0 }) {
       <div className="w-12 h-12 rounded-2xl bg-white/10 flex items-center justify-center mx-auto mb-4">
         <Icon className="w-5 h-5 text-brand-gold" />
       </div>
-      <p className="font-display text-white font-bold" style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', lineHeight: 1.1 }}>
+      <div className="font-display text-white font-bold" style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', lineHeight: 1.1 }}>
         {inView ? <CountUp end={end} duration={2.5} suffix={suffix} /> : `0${suffix}`}
-      </p>
+      </div>
       <p className="font-body text-white/50 mt-2 text-sm">{label}</p>
     </div>
   )

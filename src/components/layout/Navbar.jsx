@@ -34,10 +34,10 @@ export function Navbar() {
 
   return (
     <header
-      className={`fixed top-0 inset-x-0 z-50 transition-all duration-500 ${
+      className={`fixed top-0 inset-x-0 z-50 transition-all duration-500 bg-brand-green ${
         scrolled
-          ? 'glass-dark shadow-nav border-b border-white/5'
-          : 'bg-transparent'
+          ? 'shadow-lg border-b border-white/5'
+          : 'shadow-md'
       }`}
     >
       <div className="container-lg flex items-center justify-between px-5 sm:px-6 h-[72px]">
@@ -75,8 +75,8 @@ export function Navbar() {
               className={({ isActive }) =>
                 `relative px-3.5 py-2 rounded-lg text-[13px] font-medium transition-all duration-300 whitespace-nowrap ${
                   isActive
-                    ? 'text-white bg-white/15'
-                    : 'text-white/70 hover:text-white hover:bg-white/8'
+                    ? 'text-brand-gold bg-white/10'
+                    : 'text-white hover:text-brand-gold hover:bg-white/10'
                 }`
               }
             >
