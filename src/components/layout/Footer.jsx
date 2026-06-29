@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
-import { Phone, Mail, MapPin, Facebook, Instagram, Youtube } from 'lucide-react'
-import logo from '../../assets/logo.webp'
+import { Phone, Mail, MapPin, ArrowUpRight } from 'lucide-react'
+import logo from '../../assets/logo.png'
 
 const causes = [
   { to: '/education',     label: 'Education Support' },
@@ -20,47 +20,39 @@ const quickLinks = [
 
 export function Footer() {
   return (
-    <footer className="bg-brand-green text-white">
-      <div className="container-lg px-4 sm:px-6 py-14">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
+    <footer className="bg-brand-charcoal text-white relative overflow-hidden">
+      {/* Decorative top accent */}
+      <div className="h-1 bg-gradient-to-r from-brand-green via-brand-gold to-brand-green" />
+
+      <div className="container-lg px-5 sm:px-6 pt-16 pb-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-10">
 
           {/* Brand */}
-          <div className="space-y-5">
+          <div className="space-y-5 lg:col-span-1" data-aos="fade-up">
             <div className="flex items-center gap-3">
-              <img src={logo} alt="Al-Huda" className="h-14 w-14 rounded-xl object-contain bg-white p-1 shadow-sm" />
+              <img src={logo} alt="Al-Huda" className="h-12 w-12 rounded-xl object-contain bg-white p-1 shadow-sm" />
               <div>
-                <span className="block font-display font-bold text-white text-base leading-tight">Al-Huda Welfare Society</span>
-                <span className="block text-xs text-brand-gold leading-tight mt-0.5">هدىٌ للإنسان .. عطاءٌ بلا حدود</span>
+                <span className="block font-display font-bold text-white text-base leading-tight">Al-Huda</span>
+                <span className="block text-xs text-white/40 leading-tight mt-0.5 font-body">Welfare Society</span>
               </div>
             </div>
-            <p className="text-sm text-green-200 leading-relaxed">
-              Empowering 165+ families through education, healthcare, and marriage support since 2010.
+            <p className="text-sm text-white/50 leading-relaxed max-w-xs">
+              Empowering 165+ families through education, healthcare, and marriage support since 2010 in Hyderabad.
             </p>
-            <div className="flex gap-3">
-              {[
-                { icon: Facebook,  href: '#' },
-                { icon: Instagram, href: '#' },
-                { icon: Youtube,   href: '#' },
-              ].map(({ icon: Icon, href }, i) => (
-                <a
-                  key={i}
-                  href={href}
-                  className="w-9 h-9 rounded-lg bg-white/10 hover:bg-brand-gold flex items-center justify-center transition-colors duration-200 btn-no-flash"
-                >
-                  <Icon className="w-4 h-4" />
-                </a>
-              ))}
-            </div>
+            <p className="text-sm text-brand-gold/80 italic font-display">
+              "هدىٌ للإنسان .. عطاءٌ بلا حدود"
+            </p>
           </div>
 
           {/* Our Causes */}
-          <div>
-            <h4 className="font-semibold text-brand-gold mb-4 text-sm uppercase tracking-wider">Our Causes</h4>
-            <ul className="space-y-2.5">
+          <div data-aos="fade-up" data-aos-delay="100">
+            <h4 className="font-body font-semibold text-white/90 mb-5 text-sm tracking-wide uppercase">Our Causes</h4>
+            <ul className="space-y-3">
               {causes.map(({ to, label }) => (
                 <li key={to}>
-                  <Link to={to} className="text-sm text-green-200 hover:text-white hover:pl-1 transition-all duration-200">
-                    → {label}
+                  <Link to={to} className="group text-sm text-white/50 hover:text-brand-gold transition-all duration-300 flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-brand-gold/40 group-hover:bg-brand-gold transition-colors flex-shrink-0" />
+                    {label}
                   </Link>
                 </li>
               ))}
@@ -68,13 +60,14 @@ export function Footer() {
           </div>
 
           {/* Quick Links */}
-          <div>
-            <h4 className="font-semibold text-brand-gold mb-4 text-sm uppercase tracking-wider">Quick Links</h4>
-            <ul className="space-y-2.5">
+          <div data-aos="fade-up" data-aos-delay="200">
+            <h4 className="font-body font-semibold text-white/90 mb-5 text-sm tracking-wide uppercase">Quick Links</h4>
+            <ul className="space-y-3">
               {quickLinks.map(({ to, label }) => (
                 <li key={to}>
-                  <Link to={to} className="text-sm text-green-200 hover:text-white hover:pl-1 transition-all duration-200">
-                    → {label}
+                  <Link to={to} className="group text-sm text-white/50 hover:text-brand-gold transition-all duration-300 flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-brand-gold/40 group-hover:bg-brand-gold transition-colors flex-shrink-0" />
+                    {label}
                   </Link>
                 </li>
               ))}
@@ -82,33 +75,46 @@ export function Footer() {
           </div>
 
           {/* Contact */}
-          <div>
-            <h4 className="font-semibold text-brand-gold mb-4 text-sm uppercase tracking-wider">Contact Us</h4>
-            <ul className="space-y-3">
+          <div data-aos="fade-up" data-aos-delay="300">
+            <h4 className="font-body font-semibold text-white/90 mb-5 text-sm tracking-wide uppercase">Contact Us</h4>
+            <ul className="space-y-4">
               {[
-                { icon: MapPin, text: '123 Welfare Colony, Hyderabad, Telangana 500001' },
+                { icon: MapPin, text: 'Welfare Colony, Hyderabad, Telangana' },
                 { icon: Phone,  text: '+91 98765 43210',          href: 'tel:+919876543210' },
                 { icon: Mail,   text: 'info@alhudawelfare.org',   href: 'mailto:info@alhudawelfare.org' },
               ].map(({ icon: Icon, text, href }, i) => (
                 <li key={i} className="flex items-start gap-3">
-                  <Icon className="w-4 h-4 text-brand-gold mt-0.5 flex-shrink-0" />
+                  <div className="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <Icon className="w-3.5 h-3.5 text-brand-gold/70" />
+                  </div>
                   {href
-                    ? <a href={href} className="text-sm text-green-200 hover:text-white transition-colors">{text}</a>
-                    : <span className="text-sm text-green-200">{text}</span>
+                    ? <a href={href} className="text-sm text-white/50 hover:text-white transition-colors">{text}</a>
+                    : <span className="text-sm text-white/50">{text}</span>
                   }
                 </li>
               ))}
             </ul>
           </div>
         </div>
+
+        {/* Donate CTA in footer */}
+        <div className="mt-14 p-6 rounded-2xl bg-white/5 border border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4" data-aos="fade-up">
+          <div>
+            <p className="font-display text-lg font-bold text-white">Ready to make a difference?</p>
+            <p className="text-sm text-white/40 mt-1">100% of your donation reaches the beneficiary.</p>
+          </div>
+          <Link to="/donate" className="group">
+            <span className="inline-flex items-center gap-2 bg-brand-gold hover:bg-brand-gold/90 text-white px-6 py-3 rounded-xl font-semibold text-sm transition-all duration-300 shadow-gold hover:shadow-lg">
+              Donate Now
+              <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+            </span>
+          </Link>
+        </div>
       </div>
 
-      {/* Gold divider */}
-      <div className="h-px bg-gradient-to-r from-transparent via-brand-gold/40 to-transparent" />
-
       {/* Bottom bar */}
-      <div className="py-4 px-4 sm:px-6">
-        <div className="container-lg flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-green-400">
+      <div className="border-t border-white/10">
+        <div className="container-lg px-5 sm:px-6 py-5 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-white/30">
           <p>© {new Date().getFullYear()} Al-Huda Welfare Society. All rights reserved.</p>
           <p>Registered NGO · Hyderabad, Telangana</p>
         </div>
@@ -116,4 +122,3 @@ export function Footer() {
     </footer>
   )
 }
-

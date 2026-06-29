@@ -4,66 +4,94 @@
 
 @layer base {
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  html { scroll-behavior: smooth; }
+  html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+  }
 
   body {
-    @apply font-body text-gray-800 bg-brand-cream;
+    @apply font-body text-brand-charcoal;
+    background-color: #FAF7F2;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     font-size: 16px;
     line-height: 1.7;
+    overflow-x: hidden;
   }
 
-  /* Headings use display font with more natural sizing */
-  h1 { @apply font-display font-semibold; letter-spacing: -0.01em; }
-  h2 { @apply font-display font-semibold; letter-spacing: -0.01em; }
-  h3 { @apply font-display font-medium; }
+  h1 { @apply font-display font-bold; letter-spacing: -0.02em; }
+  h2 { @apply font-display font-bold; letter-spacing: -0.02em; }
+  h3 { @apply font-display font-semibold; letter-spacing: -0.01em; }
   h4 { @apply font-body font-semibold; }
 
-  p { @apply font-body; line-height: 1.75; }
+  p { @apply font-body; line-height: 1.8; }
 
-  a { @apply transition-colors duration-200; }
+  a { @apply transition-all duration-300; }
+
+  ::selection {
+    background: rgba(201, 160, 82, 0.3);
+    color: #1A4731;
+  }
 }
 
 @layer components {
 
   /* ── Cards ── */
-  .glass-card {
-    @apply bg-white border border-gray-100 rounded-2xl;
-    box-shadow: 0 2px 16px 0 rgba(26, 71, 49, 0.06);
+  .card {
+    @apply bg-white rounded-2xl border border-gray-100/80;
+    box-shadow: 0 2px 20px 0 rgba(0,0,0,0.04);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .card:hover {
+    box-shadow: 0 20px 50px 0 rgba(26,71,49,0.12);
+    transform: translateY(-4px);
+  }
+
+  .card-flat {
+    @apply bg-white rounded-2xl border border-gray-100/60;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
   }
 
   /* ── Section wrappers ── */
-  .section      { @apply py-16 px-4 sm:px-6 lg:px-8; }
+  .section      { @apply py-20 md:py-28 px-5 sm:px-6 lg:px-8; }
   .container-lg { @apply max-w-7xl mx-auto; }
 
-  /* ── Eyebrow label — simple, clean, no dashes ── */
-  .eyebrow {
-    @apply text-brand-gold text-xs font-semibold uppercase tracking-[0.18em] block mb-3;
+  /* ── Section label — refined, minimal ── */
+  .section-label {
+    @apply inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-brand-gold mb-4;
+  }
+  .section-label::before {
+    content: '';
+    @apply w-8 h-px bg-brand-gold;
   }
 
   /* ── Skeleton ── */
-  .skeleton { @apply animate-pulse bg-gray-100 rounded-lg; }
+  .skeleton {
+    @apply rounded-2xl;
+    background: linear-gradient(90deg, #f0ede8 25%, #e8e4dc 50%, #f0ede8 75%);
+    background-size: 200% 100%;
+    animation: shimmer 2s infinite;
+  }
 
   /* ── Status badge ── */
   .badge {
-    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium capitalize;
+    @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-medium capitalize;
   }
 
   /* ── Form inputs ── */
   .input-field {
-    @apply w-full rounded-xl border border-gray-200 bg-white px-4 py-3 text-sm font-body
-           placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-brand-green/25
-           focus:border-brand-green transition-all duration-200 text-gray-800;
+    @apply w-full rounded-xl border border-gray-200 bg-white px-4 py-3.5 text-sm font-body
+           placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-brand-green/20
+           focus:border-brand-green transition-all duration-300 text-brand-charcoal;
   }
-  .label     { @apply block text-sm font-semibold text-gray-700 mb-1.5 font-body; }
-  .error-msg { @apply text-red-500 text-xs mt-1; }
+  .label     { @apply block text-sm font-semibold text-brand-slate mb-2 font-body; }
+  .error-msg { @apply text-red-500 text-xs mt-1.5; }
 
   /* ── Scrollbar ── */
-  ::-webkit-scrollbar       { width: 5px; }
-  ::-webkit-scrollbar-track { @apply bg-gray-50; }
-  ::-webkit-scrollbar-thumb { @apply bg-brand-green/30 rounded-full; }
-  ::-webkit-scrollbar-thumb:hover { @apply bg-brand-green/50; }
+  ::-webkit-scrollbar       { width: 6px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { @apply bg-brand-green/20 rounded-full; }
+  ::-webkit-scrollbar-thumb:hover { @apply bg-brand-green/40; }
 
   /* ── Admin layout ── */
   .admin-sidebar { @apply fixed top-0 left-0 h-full w-64 bg-brand-green text-white z-40 flex flex-col; }
@@ -76,51 +104,88 @@
   .data-table tbody tr { @apply border-b border-gray-100 hover:bg-brand-cream/60 transition-colors; }
   .data-table tbody td { @apply px-4 py-3.5; }
 
-  /* ── Hero overlay ── */
+  /* ── Hero overlay — more cinematic ── */
   .hero-overlay {
     background: linear-gradient(
       160deg,
-      rgba(26, 71, 49, 0.93) 0%,
-      rgba(26, 71, 49, 0.82) 45%,
-      rgba(45, 106, 79, 0.68) 100%
+      rgba(26, 71, 49, 0.95) 0%,
+      rgba(26, 71, 49, 0.85) 40%,
+      rgba(44, 44, 44, 0.80) 100%
     );
   }
 
-  /* ── Cause card top borders ── */
+  /* ── Page header overlay ── */
+  .page-header-overlay {
+    background: linear-gradient(
+      180deg,
+      rgba(26, 71, 49, 0.92) 0%,
+      rgba(26, 71, 49, 0.85) 100%
+    );
+  }
+
+  /* ── Image frame ── */
+  .img-frame {
+    @apply rounded-2xl overflow-hidden;
+    position: relative;
+  }
+  .img-frame img {
+    transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .img-frame:hover img {
+    transform: scale(1.04);
+  }
+
+  /* ── Decorative elements ── */
+  .organic-blob {
+    border-radius: 60% 40% 55% 45% / 50% 60% 40% 50%;
+  }
+
+  /* ── Divider ── */
+  .gold-divider {
+    @apply h-px;
+    background: linear-gradient(90deg, transparent, rgba(201,160,82,0.4), transparent);
+  }
+
+  /* ── Cause card accents ── */
   .cause-card-education { @apply border-t-4 border-brand-green; }
   .cause-card-health    { @apply border-t-4 border-brand-mid; }
   .cause-card-marriage  { @apply border-t-4 border-brand-gold; }
-
-  /* ── Image frame ── */
-  .img-frame { @apply rounded-2xl overflow-hidden; }
-
-  /* ── Pull quote / block quote styling ── */
-  .quote-mark {
-    @apply font-display text-brand-gold/30 text-8xl leading-none select-none;
-    font-size: 6rem;
-    line-height: 1;
-  }
 }
 
 @layer utilities {
-  /* Prevent tap flash on mobile */
   .btn-no-flash {
     -webkit-tap-highlight-color: transparent;
     -webkit-touch-callout: none;
   }
 
-  /* Font size adjustments for Cormorant (it runs small) */
-  .display-xl  { font-size: clamp(2.4rem, 5vw, 4rem);   line-height: 1.15; letter-spacing: -0.02em; }
-  .display-lg  { font-size: clamp(2rem, 3.5vw, 3rem);   line-height: 1.2;  letter-spacing: -0.01em; }
-  .display-md  { font-size: clamp(1.6rem, 2.5vw, 2.2rem); line-height: 1.25; }
-  .display-sm  { font-size: clamp(1.25rem, 2vw, 1.6rem);  line-height: 1.3; }
+  /* Typography scale */
+  .display-xl  { font-size: clamp(2.5rem, 5.5vw, 4.5rem);  line-height: 1.1; letter-spacing: -0.03em; }
+  .display-lg  { font-size: clamp(2rem, 4vw, 3.2rem);      line-height: 1.15; letter-spacing: -0.02em; }
+  .display-md  { font-size: clamp(1.6rem, 3vw, 2.4rem);    line-height: 1.2; letter-spacing: -0.01em; }
+  .display-sm  { font-size: clamp(1.25rem, 2vw, 1.75rem);   line-height: 1.25; }
 
-  .body-lg   { font-size: 1.0625rem; line-height: 1.75; }
-  .body-base { font-size: 0.9375rem; line-height: 1.75; }
+  .body-lg   { font-size: 1.125rem;  line-height: 1.8; }
+  .body-base { font-size: 1rem;      line-height: 1.8; }
   .body-sm   { font-size: 0.875rem;  line-height: 1.7; }
   .body-xs   { font-size: 0.8125rem; line-height: 1.6; }
 
-  .animate-delay-100 { animation-delay: 100ms; }
-  .animate-delay-200 { animation-delay: 200ms; }
-  .animate-delay-300 { animation-delay: 300ms; }
+  /* Glassmorphism */
+  .glass {
+    background: rgba(255,255,255,0.7);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+  }
+  .glass-dark {
+    background: rgba(26,71,49,0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+  }
+
+  /* Text gradient */
+  .text-gradient-gold {
+    background: linear-gradient(135deg, #C9A052, #E8C87A);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
 }
