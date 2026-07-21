@@ -137,6 +137,10 @@ drop policy if exists "public_donate" on donations;
 create policy "public_donate"
   on donations for insert with check (true);
 
+drop policy if exists "public_sponsor" on sponsors;
+create policy "public_sponsor"
+  on sponsors for insert with check (true);
+
 -- Public: read beneficiaries (for sponsor-a-child page)
 drop policy if exists "public_read_beneficiaries" on beneficiaries;
 create policy "public_read_beneficiaries"
