@@ -129,6 +129,10 @@ drop policy if exists "public_submit_case" on cases;
 create policy "public_submit_case"
   on cases for insert with check (true);
 
+drop policy if exists "public_submit_beneficiary" on beneficiaries;
+create policy "public_submit_beneficiary"
+  on beneficiaries for insert with check (true);
+
 drop policy if exists "public_donate" on donations;
 create policy "public_donate"
   on donations for insert with check (true);
