@@ -1,0 +1,75 @@
+- generic [ref=f14e26]:
+  - complementary [ref=f14e27]:
+    - generic [ref=f14e29]:
+      - img "Al-Huda" [ref=f14e30]
+      - generic [ref=f14e31]:
+        - paragraph [ref=f14e32]: Al-Huda Admin
+        - paragraph [ref=f14e33]: Welfare Society
+    - navigation [ref=f14e34]:
+      - link "Dashboard" [ref=f14e35] [cursor=pointer]:
+        - /url: /admin/dashboard
+      - link "Members" [active] [ref=f14e44] [cursor=pointer]:
+        - /url: /admin/members
+      - link "Cases" [ref=f14e53] [cursor=pointer]:
+        - /url: /admin/cases
+      - link "Beneficiaries" [ref=f14e60] [cursor=pointer]:
+        - /url: /admin/beneficiaries
+      - link "Sponsors" [ref=f14e68] [cursor=pointer]:
+        - /url: /admin/sponsors
+      - link "Donations" [ref=f14e77] [cursor=pointer]:
+        - /url: /admin/donations
+    - generic [ref=f14e83]:
+      - generic [ref=f14e84]:
+        - generic [ref=f14e85]: A
+        - generic [ref=f14e86]:
+          - paragraph [ref=f14e87]: admin@alhudawelfare.org
+          - paragraph [ref=f14e88]: Staff
+      - button "Sign Out" [ref=f14e89] [cursor=pointer]
+  - main [ref=f14e93]:
+    - generic [ref=f14e195]:
+      - generic [ref=f14e196]:
+        - generic [ref=f14e197]:
+          - heading "Members" [level=1] [ref=f14e198]
+          - paragraph [ref=f14e199]: Community roster — 3 members
+        - button [ref=f14e200] [cursor=pointer]
+      - textbox "Search name, phone, group…" [ref=f14e207]
+      - table [ref=f14e210]:
+        - rowgroup [ref=f14e211]:
+          - row [ref=f14e212]:
+            - columnheader "Name" [ref=f14e213]
+            - columnheader "Phone" [ref=f14e214]
+            - columnheader "WA Group" [ref=f14e215]
+            - columnheader "Joined" [ref=f14e216]
+            - columnheader "Status" [ref=f14e217]
+            - columnheader "Actions" [ref=f14e218]
+        - rowgroup [ref=f14e219]:
+          - row [ref=f14e220]:
+            - cell "al huda" [ref=f14e221]
+            - cell "+919191919192" [ref=f14e222]
+            - cell "Group C" [ref=f14e223]
+            - cell "05 Jul 2026" [ref=f14e224]
+            - cell "active" [ref=f14e225]
+            - cell [ref=f14e227]:
+              - generic [ref=f14e228]:
+                - button [ref=f14e229] [cursor=pointer]
+                - button [ref=f14e233] [cursor=pointer]
+          - row [ref=f14e237]:
+            - cell "apne ko" [ref=f14e238]
+            - cell "+919191919191" [ref=f14e239]
+            - cell "Group B" [ref=f14e240]
+            - cell "20 Jul 2026" [ref=f14e241]
+            - cell "active" [ref=f14e242]
+            - cell [ref=f14e244]:
+              - generic [ref=f14e245]:
+                - button [ref=f14e246] [cursor=pointer]
+                - button [ref=f14e250] [cursor=pointer]
+          - row [ref=f14e254]:
+            - cell "Mohammad Ali" [ref=f14e255]
+            - cell "+91992223344" [ref=f14e256]
+            - cell "Group A" [ref=f14e257]
+            - cell "21 Jul 2026" [ref=f14e258]
+            - cell "active" [ref=f14e259]
+            - cell [ref=f14e261]:
+              - generic [ref=f14e262]:
+                - button [ref=f14e263] [cursor=pointer]
+                - button [ref=f14e267] [cursor=pointer]

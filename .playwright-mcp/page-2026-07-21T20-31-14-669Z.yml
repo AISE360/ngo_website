@@ -1,0 +1,190 @@
+- generic [ref=f7e3]:
+  - banner [ref=f7e4]:
+    - generic [ref=f7e5]:
+      - link "Al-Huda Welfare Society Al-Huda Welfare Society" [ref=f7e6] [cursor=pointer]:
+        - /url: /
+        - img "Al-Huda Welfare Society" [ref=f7e8]
+        - generic [ref=f7e9]:
+          - generic [ref=f7e10]: Al-Huda
+          - generic [ref=f7e11]: Welfare Society
+      - button "Open menu" [ref=f7e12] [cursor=pointer]
+    - generic [ref=f7e14]:
+      - link "Home" [ref=f7e15] [cursor=pointer]:
+        - /url: /
+      - link "About" [ref=f7e16] [cursor=pointer]:
+        - /url: /about
+      - link "Education" [ref=f7e17] [cursor=pointer]:
+        - /url: /education
+      - link "Health Fund" [ref=f7e18] [cursor=pointer]:
+        - /url: /health
+      - link "Marriage Fund" [ref=f7e19] [cursor=pointer]:
+        - /url: /marriage-fund
+      - link "Gallery" [ref=f7e20] [cursor=pointer]:
+        - /url: /gallery
+      - link "Contact" [ref=f7e21] [cursor=pointer]:
+        - /url: /contact
+      - generic [ref=f7e22]:
+        - link [ref=f7e23] [cursor=pointer]:
+          - /url: /donate
+          - button "Donate Now" [ref=f7e24]
+        - link [ref=f7e25] [cursor=pointer]:
+          - /url: /submit-case
+          - button "Submit a Case" [ref=f7e26]
+  - main [ref=f7e27]:
+    - generic [ref=f7e28]:
+      - generic [ref=f7e32]:
+        - generic [ref=f7e33]: About Us
+        - heading "Al-Huda Welfare Society" [level=1] [ref=f7e34]
+        - paragraph [ref=f7e35]: A grassroots non-profit born from the belief that communities can lift each other up.
+      - generic [ref=f7e38]:
+        - generic [ref=f7e39]:
+          - heading "Our Mission" [level=3] [ref=f7e45]
+          - paragraph [ref=f7e46]: To uplift underprivileged families through transparent, community-driven education, health, and welfare programmes.
+        - generic [ref=f7e47]:
+          - heading "Our Vision" [level=3] [ref=f7e52]
+          - paragraph [ref=f7e53]: A society where every child has access to education, every family has healthcare, and no one faces life events alone.
+        - generic [ref=f7e54]:
+          - heading "Community" [level=3] [ref=f7e61]
+          - paragraph [ref=f7e62]: 165 active members from the Hyderabad region who contribute monthly and volunteer their time and skills.
+        - generic [ref=f7e63]:
+          - heading "Since 2010" [level=3] [ref=f7e68]
+          - paragraph [ref=f7e69]: Over a decade of consistent service, building trust with donors and beneficiaries across Telangana.
+      - generic [ref=f7e72]:
+        - generic [ref=f7e73]:
+          - generic [ref=f7e74]: Our journey
+          - heading "From 12 families to 165+ — a decade of service" [level=2] [ref=f7e75]
+          - generic [ref=f7e76]:
+            - paragraph [ref=f7e77]: Al-Huda Welfare Society was founded in 2010 by a group of 12 families in Hyderabad who noticed that community members were struggling with educational expenses, unexpected medical bills, and the financial burden of marriages.
+            - paragraph [ref=f7e78]: What started as an informal monthly collection of ₹200 per family has grown into a structured welfare organisation supporting 165 member families and hundreds of beneficiaries across Telangana.
+            - paragraph [ref=f7e79]:
+              - text: We operate on a
+              - strong [ref=f7e80]: zero-overhead model
+              - text: — every rupee collected goes directly to a beneficiary. Administrative costs are covered by voluntary contributions from founding members.
+        - img "Community gathering" [ref=f7e83]
+      - generic [ref=f7e85]:
+        - generic [ref=f7e86]:
+          - generic [ref=f7e87]: Milestones
+          - heading "Our Journey Through The Years" [level=2] [ref=f7e88]
+        - generic [ref=f7e91]:
+          - generic [ref=f7e92]:
+            - generic [ref=f7e93]: "10"
+            - generic [ref=f7e94]:
+              - paragraph [ref=f7e95]: "2010"
+              - paragraph [ref=f7e96]: Founded by 12 families with a ₹200/month collection
+          - generic [ref=f7e97]:
+            - generic [ref=f7e98]: "14"
+            - generic [ref=f7e99]:
+              - paragraph [ref=f7e100]: "2014"
+              - paragraph [ref=f7e101]: Grew to 50 member families, launched education programme
+          - generic [ref=f7e102]:
+            - generic [ref=f7e103]: "17"
+            - generic [ref=f7e104]:
+              - paragraph [ref=f7e105]: "2017"
+              - paragraph [ref=f7e106]: Health fund established after community medical emergencies
+          - generic [ref=f7e107]:
+            - generic [ref=f7e108]: "19"
+            - generic [ref=f7e109]:
+              - paragraph [ref=f7e110]: "2019"
+              - paragraph [ref=f7e111]: Marriage assistance programme launched with ₹51,000 per family
+          - generic [ref=f7e112]:
+            - generic [ref=f7e113]: "24"
+            - generic [ref=f7e114]:
+              - paragraph [ref=f7e115]: "2024"
+              - paragraph [ref=f7e116]: 165+ member families, 480+ children educated to date
+      - generic [ref=f7e118]:
+        - generic [ref=f7e119]:
+          - generic [ref=f7e120]: Leadership
+          - heading "Management Committee" [level=2] [ref=f7e121]
+          - paragraph [ref=f7e122]: Elected annually by the 165-member community
+        - generic [ref=f7e123]:
+          - generic [ref=f7e124]:
+            - generic [ref=f7e125]: MF
+            - paragraph [ref=f7e126]: Mohammed Farooq
+            - paragraph [ref=f7e127]: President
+          - generic [ref=f7e128]:
+            - generic [ref=f7e129]: AR
+            - paragraph [ref=f7e130]: Abdul Rahman
+            - paragraph [ref=f7e131]: Secretary
+          - generic [ref=f7e132]:
+            - generic [ref=f7e133]: KH
+            - paragraph [ref=f7e134]: Khalid Hussain
+            - paragraph [ref=f7e135]: Treasurer
+          - generic [ref=f7e136]:
+            - generic [ref=f7e137]: NB
+            - paragraph [ref=f7e138]: Naseema Begum
+            - paragraph [ref=f7e139]: Welfare Head
+          - generic [ref=f7e140]:
+            - generic [ref=f7e141]: IS
+            - paragraph [ref=f7e142]: Imran Sheikh
+            - paragraph [ref=f7e143]: Education Head
+          - generic [ref=f7e144]:
+            - generic [ref=f7e145]: SF
+            - paragraph [ref=f7e146]: Saba Fatima
+            - paragraph [ref=f7e147]: Health Co-ord.
+  - contentinfo [ref=f7e148]:
+    - generic [ref=f7e150]:
+      - generic [ref=f7e151]:
+        - generic [ref=f7e152]:
+          - generic [ref=f7e153]:
+            - img "Al-Huda" [ref=f7e154]
+            - generic [ref=f7e155]:
+              - generic [ref=f7e156]: Al-Huda
+              - generic [ref=f7e157]: Welfare Society
+          - paragraph [ref=f7e158]: Empowering 165+ families through education, healthcare, and marriage support since 2010 in Hyderabad.
+          - paragraph [ref=f7e159]: "\"هدىٌ للإنسان .. عطاءٌ بلا حدود\""
+        - generic [ref=f7e160]:
+          - heading "Our Causes" [level=4] [ref=f7e161]
+          - list [ref=f7e162]:
+            - listitem [ref=f7e163]:
+              - link "Education Support" [ref=f7e164] [cursor=pointer]:
+                - /url: /education
+            - listitem [ref=f7e166]:
+              - link "Health Fund" [ref=f7e167] [cursor=pointer]:
+                - /url: /health
+            - listitem [ref=f7e169]:
+              - link "Marriage Fund" [ref=f7e170] [cursor=pointer]:
+                - /url: /marriage-fund
+            - listitem [ref=f7e172]:
+              - link "Sponsor a Child" [ref=f7e173] [cursor=pointer]:
+                - /url: /sponsor
+        - generic [ref=f7e175]:
+          - heading "Quick Links" [level=4] [ref=f7e176]
+          - list [ref=f7e177]:
+            - listitem [ref=f7e178]:
+              - link "About Us" [ref=f7e179] [cursor=pointer]:
+                - /url: /about
+            - listitem [ref=f7e181]:
+              - link "Gallery" [ref=f7e182] [cursor=pointer]:
+                - /url: /gallery
+            - listitem [ref=f7e184]:
+              - link "Submit a Case" [ref=f7e185] [cursor=pointer]:
+                - /url: /submit-case
+            - listitem [ref=f7e187]:
+              - link "Donate Now" [ref=f7e188] [cursor=pointer]:
+                - /url: /donate
+            - listitem [ref=f7e190]:
+              - link "Contact" [ref=f7e191] [cursor=pointer]:
+                - /url: /contact
+            - listitem [ref=f7e193]:
+              - link "Staff Login" [ref=f7e194] [cursor=pointer]:
+                - /url: /admin/login
+        - generic [ref=f7e196]:
+          - heading "Contact Us" [level=4] [ref=f7e197]
+          - list [ref=f7e198]:
+            - listitem [ref=f7e199]:
+              - generic [ref=f7e204]: Welfare Colony, Hyderabad, Telangana
+            - listitem [ref=f7e205]:
+              - link "+91 98765 43210" [ref=f7e209] [cursor=pointer]:
+                - /url: tel:+919876543210
+            - listitem [ref=f7e210]:
+              - link "info@alhudawelfare.org" [ref=f7e215] [cursor=pointer]:
+                - /url: mailto:info@alhudawelfare.org
+      - generic [ref=f7e216]:
+        - generic [ref=f7e217]:
+          - paragraph [ref=f7e218]: Ready to make a difference?
+          - paragraph [ref=f7e219]: 100% of your donation reaches the beneficiary.
+        - link [ref=f7e220] [cursor=pointer]:
+          - /url: /donate
+    - generic [ref=f7e226]:
+      - paragraph [ref=f7e227]: © 2026 Al-Huda Welfare Society. All rights reserved.
+      - paragraph [ref=f7e228]: Registered NGO · Hyderabad, Telangana

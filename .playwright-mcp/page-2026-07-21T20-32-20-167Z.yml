@@ -1,0 +1,91 @@
+- generic [ref=f14e2]:
+  - generic [ref=f14e26]:
+    - complementary [ref=f14e27]:
+      - generic [ref=f14e29]:
+        - img "Al-Huda" [ref=f14e30]
+        - generic [ref=f14e31]:
+          - paragraph [ref=f14e32]: Al-Huda Admin
+          - paragraph [ref=f14e33]: Welfare Society
+      - navigation [ref=f14e34]:
+        - link "Dashboard" [ref=f14e35] [cursor=pointer]:
+          - /url: /admin/dashboard
+        - link "Members" [ref=f14e44] [cursor=pointer]:
+          - /url: /admin/members
+        - link "Cases" [ref=f14e53] [cursor=pointer]:
+          - /url: /admin/cases
+        - link "Beneficiaries" [ref=f14e60] [cursor=pointer]:
+          - /url: /admin/beneficiaries
+        - link "Sponsors" [ref=f14e68] [cursor=pointer]:
+          - /url: /admin/sponsors
+        - link "Donations" [ref=f14e77] [cursor=pointer]:
+          - /url: /admin/donations
+      - generic [ref=f14e83]:
+        - generic [ref=f14e84]:
+          - generic [ref=f14e85]: A
+          - generic [ref=f14e86]:
+            - paragraph [ref=f14e87]: admin@alhudawelfare.org
+            - paragraph [ref=f14e88]: Staff
+        - button "Sign Out" [ref=f14e89] [cursor=pointer]
+    - main [ref=f14e93]:
+      - generic [ref=f14e94]:
+        - generic [ref=f14e95]:
+          - heading "Dashboard" [level=1] [ref=f14e96]
+          - paragraph [ref=f14e97]: Overview of all welfare activities
+        - generic [ref=f14e98]:
+          - generic [ref=f14e101]:
+            - paragraph [ref=f14e102]: Total Members
+            - paragraph [ref=f14e103]: "3"
+          - generic [ref=f14e112]:
+            - paragraph [ref=f14e113]: Pending Cases
+            - paragraph [ref=f14e114]: "3"
+            - paragraph [ref=f14e115]: Need review
+          - generic [ref=f14e122]:
+            - paragraph [ref=f14e123]: Active Sponsors
+            - paragraph [ref=f14e124]: "0"
+          - generic [ref=f14e133]:
+            - paragraph [ref=f14e134]: Total Donations
+            - paragraph [ref=f14e135]: ₹0
+        - generic [ref=f14e139]:
+          - generic [ref=f14e140]:
+            - heading "Recent Cases" [level=2] [ref=f14e141]
+            - generic [ref=f14e142]: 3 total
+          - table [ref=f14e144]:
+            - rowgroup [ref=f14e145]:
+              - row [ref=f14e146]:
+                - columnheader "Beneficiary" [ref=f14e147]
+                - columnheader "Type" [ref=f14e148]
+                - columnheader "Amount Req." [ref=f14e149]
+                - columnheader "Status" [ref=f14e150]
+                - columnheader "Submitted" [ref=f14e151]
+            - rowgroup [ref=f14e152]:
+              - row [ref=f14e153]:
+                - cell "gold badi" [ref=f14e154]
+                - cell "education" [ref=f14e155]
+                - cell "₹12,425" [ref=f14e157]
+                - cell "submitted" [ref=f14e158]
+                - cell "21 Jul 2026" [ref=f14e160]
+              - row [ref=f14e161]:
+                - cell "apne ko" [ref=f14e162]
+                - cell "education" [ref=f14e163]
+                - cell "₹98,989" [ref=f14e165]
+                - cell "submitted" [ref=f14e166]
+                - cell "21 Jul 2026" [ref=f14e168]
+              - row [ref=f14e169]:
+                - cell "—" [ref=f14e170]
+                - cell "education" [ref=f14e171]
+                - cell "₹100" [ref=f14e173]
+                - cell "submitted" [ref=f14e174]
+                - cell "02 Jul 2026" [ref=f14e176]
+        - generic [ref=f14e177]:
+          - generic [ref=f14e178]:
+            - heading "Recent Donations" [level=2] [ref=f14e179]
+            - generic [ref=f14e180]: success
+          - table [ref=f14e182]:
+            - rowgroup [ref=f14e183]:
+              - row [ref=f14e184]:
+                - columnheader "Donor" [ref=f14e185]
+                - columnheader "Amount" [ref=f14e186]
+                - columnheader "Purpose" [ref=f14e187]
+                - columnheader "Date" [ref=f14e188]
+            - rowgroup
+  - status [ref=f14e194]: Welcome back!

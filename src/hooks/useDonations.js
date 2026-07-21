@@ -49,8 +49,19 @@ export function useDonations(filters = {}) {
   }, [fetchDonations])
 
   async function create(payload) {
-    const { data, error } = await supabase.from('donations').insert(payload).select().single()
-    if (!error && data) setDonations(prev => [data, ...prev])
+    const { data, error } = await supabase.rpc('submit_donation', {
+      p_amount:        payload.amount,
+      p_donor_name:    payload.donor_name ?? null,
+      p_donor_email:   payload.donor_email ?? null,
+      p_purpose:       payload.purpose ?? 'general',
+      p_payment_method: payload.payment_method ?? 'other',
+      p_status:        payload.status ?? 'pending',
+      p_currency:      payload.currency ?? 'INR',
+    })
+    if (!error && data) {
+      const { data: newRow } = await supabase.from('donations').select('*, cases(case_type, status)').eq('id', data.id).single()
+      if (newRow) setDonations(prev => [newRow, ...prev])
+    }
     return { data, error }
   }
 

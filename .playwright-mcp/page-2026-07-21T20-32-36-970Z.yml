@@ -1,0 +1,78 @@
+- generic [ref=f14e26]:
+  - complementary [ref=f14e27]:
+    - generic [ref=f14e29]:
+      - img "Al-Huda" [ref=f14e30]
+      - generic [ref=f14e31]:
+        - paragraph [ref=f14e32]: Al-Huda Admin
+        - paragraph [ref=f14e33]: Welfare Society
+    - navigation [ref=f14e34]:
+      - link "Dashboard" [ref=f14e35] [cursor=pointer]:
+        - /url: /admin/dashboard
+      - link "Members" [ref=f14e44] [cursor=pointer]:
+        - /url: /admin/members
+      - link "Cases" [active] [ref=f14e53] [cursor=pointer]:
+        - /url: /admin/cases
+      - link "Beneficiaries" [ref=f14e60] [cursor=pointer]:
+        - /url: /admin/beneficiaries
+      - link "Sponsors" [ref=f14e68] [cursor=pointer]:
+        - /url: /admin/sponsors
+      - link "Donations" [ref=f14e77] [cursor=pointer]:
+        - /url: /admin/donations
+    - generic [ref=f14e83]:
+      - generic [ref=f14e84]:
+        - generic [ref=f14e85]: A
+        - generic [ref=f14e86]:
+          - paragraph [ref=f14e87]: admin@alhudawelfare.org
+          - paragraph [ref=f14e88]: Staff
+      - button "Sign Out" [ref=f14e89] [cursor=pointer]
+  - main [ref=f14e93]:
+    - generic [ref=f14e271]:
+      - generic [ref=f14e272]:
+        - heading "Cases" [level=1] [ref=f14e273]
+        - paragraph [ref=f14e274]: Review and manage aid requests
+      - generic [ref=f14e275]:
+        - button "all" [ref=f14e276] [cursor=pointer]
+        - button "submitted" [ref=f14e277] [cursor=pointer]
+        - button "under review" [ref=f14e278] [cursor=pointer]
+        - button "approved" [ref=f14e279] [cursor=pointer]
+        - button "disbursed" [ref=f14e280] [cursor=pointer]
+        - button "rejected" [ref=f14e281] [cursor=pointer]
+      - textbox "Search beneficiary…" [ref=f14e286]
+      - table [ref=f14e289]:
+        - rowgroup [ref=f14e290]:
+          - row [ref=f14e291]:
+            - columnheader "Beneficiary" [ref=f14e292]
+            - columnheader "Type" [ref=f14e293]
+            - columnheader "Requested" [ref=f14e294]
+            - columnheader "Approved" [ref=f14e295]
+            - columnheader "Status" [ref=f14e296]
+            - columnheader "Date" [ref=f14e297]
+            - columnheader "Actions" [ref=f14e298]
+        - rowgroup [ref=f14e299]:
+          - row [ref=f14e300]:
+            - cell "gold badi" [ref=f14e301]
+            - cell "education" [ref=f14e302]
+            - cell "₹12,425" [ref=f14e304]
+            - cell "—" [ref=f14e305]
+            - cell "submitted" [ref=f14e306]
+            - cell "21 Jul 2026" [ref=f14e308]
+            - cell [ref=f14e309]:
+              - button [ref=f14e310] [cursor=pointer]
+          - row [ref=f14e314]:
+            - cell "apne ko" [ref=f14e315]
+            - cell "education" [ref=f14e316]
+            - cell "₹98,989" [ref=f14e318]
+            - cell "—" [ref=f14e319]
+            - cell "submitted" [ref=f14e320]
+            - cell "21 Jul 2026" [ref=f14e322]
+            - cell [ref=f14e323]:
+              - button [ref=f14e324] [cursor=pointer]
+          - row [ref=f14e328]:
+            - cell "—" [ref=f14e329]
+            - cell "education" [ref=f14e330]
+            - cell "₹100" [ref=f14e332]
+            - cell "—" [ref=f14e333]
+            - cell "submitted" [ref=f14e334]
+            - cell "02 Jul 2026" [ref=f14e336]
+            - cell [ref=f14e337]:
+              - button [ref=f14e338] [cursor=pointer]

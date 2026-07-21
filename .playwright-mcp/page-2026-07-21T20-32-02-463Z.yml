@@ -1,0 +1,162 @@
+- generic [ref=f13e2]:
+  - generic [ref=f13e3]:
+    - banner [ref=f13e4]:
+      - generic [ref=f13e5]:
+        - link "Al-Huda Welfare Society Al-Huda Welfare Society" [ref=f13e6] [cursor=pointer]:
+          - /url: /
+          - img "Al-Huda Welfare Society" [ref=f13e8]
+          - generic [ref=f13e9]:
+            - generic [ref=f13e10]: Al-Huda
+            - generic [ref=f13e11]: Welfare Society
+        - button "Open menu" [ref=f13e12] [cursor=pointer]
+      - generic [ref=f13e14]:
+        - link "Home" [ref=f13e15] [cursor=pointer]:
+          - /url: /
+        - link "About" [ref=f13e16] [cursor=pointer]:
+          - /url: /about
+        - link "Education" [ref=f13e17] [cursor=pointer]:
+          - /url: /education
+        - link "Health Fund" [ref=f13e18] [cursor=pointer]:
+          - /url: /health
+        - link "Marriage Fund" [ref=f13e19] [cursor=pointer]:
+          - /url: /marriage-fund
+        - link "Gallery" [ref=f13e20] [cursor=pointer]:
+          - /url: /gallery
+        - link "Contact" [ref=f13e21] [cursor=pointer]:
+          - /url: /contact
+        - generic [ref=f13e22]:
+          - link [ref=f13e23] [cursor=pointer]:
+            - /url: /donate
+            - button "Donate Now" [ref=f13e24]
+          - link [ref=f13e25] [cursor=pointer]:
+            - /url: /submit-case
+            - button "Submit a Case" [ref=f13e26]
+    - main [ref=f13e27]:
+      - generic [ref=f13e28]:
+        - generic [ref=f13e29]:
+          - img "Donate" [ref=f13e30]
+          - generic [ref=f13e32]:
+            - heading "Make a Donation" [level=1] [ref=f13e33]
+            - paragraph [ref=f13e34]: Every rupee reaches the beneficiary. Safe, transparent, and tax-deductible under 80G.
+            - generic [ref=f13e35]:
+              - generic [ref=f13e36]: 100% Secure
+              - generic [ref=f13e39]: UPI / Card / Net Banking
+              - generic [ref=f13e42]: Instant Receipt
+        - generic [ref=f13e47]:
+          - generic [ref=f13e48]:
+            - generic [ref=f13e49]:
+              - text: Support Our Work
+              - heading "Choose an Amount" [level=2] [ref=f13e50]
+            - generic [ref=f13e51]:
+              - generic [ref=f13e52]:
+                - paragraph [ref=f13e53]: Select Amount
+                - generic [ref=f13e54]:
+                  - button "₹500" [ref=f13e55] [cursor=pointer]
+                  - button "₹1,000" [ref=f13e56] [cursor=pointer]
+                  - button "₹2,500" [ref=f13e57] [cursor=pointer]
+                  - button "₹5,000" [ref=f13e58] [cursor=pointer]
+                  - button "₹10,000" [ref=f13e59] [cursor=pointer]
+              - generic [ref=f13e60]:
+                - generic [ref=f13e61]: Custom Amount (₹)
+                - spinbutton "Enter amount" [ref=f13e62]: "1000"
+              - generic [ref=f13e63]:
+                - generic [ref=f13e64]:
+                  - generic [ref=f13e65]: Your Name *
+                  - textbox "Mohammed Ali" [ref=f13e66]: Test Donor
+                - generic [ref=f13e67]:
+                  - generic [ref=f13e68]: Email (optional)
+                  - textbox "you@example.com" [ref=f13e69]: test@example.com
+              - generic [ref=f13e70]:
+                - generic [ref=f13e71]:
+                  - generic [ref=f13e72]: Donate For
+                  - combobox [ref=f13e73]:
+                    - option "General Fund"
+                    - option "Education" [selected]
+                    - option "Health"
+                    - option "Marriage Fund"
+                    - option "Child Sponsorship"
+                - generic [ref=f13e74]:
+                  - generic [ref=f13e75]: Payment Method
+                  - combobox [ref=f13e76]:
+                    - option "UPI" [selected]
+                    - option "Debit / Credit Card"
+                    - option "Net Banking"
+                    - option "Cash"
+                    - option "Cheque"
+                    - option "Other"
+              - button "Donate ₹1,000" [ref=f13e77] [cursor=pointer]
+              - paragraph [ref=f13e78]: Secure payment · No hidden fees · Instant receipt on email
+          - generic [ref=f13e79]:
+            - paragraph [ref=f13e80]: Direct UPI Transfer
+            - paragraph [ref=f13e81]: alhuda@upi
+            - paragraph [ref=f13e82]: Send to this UPI ID and WhatsApp the screenshot to confirm
+            - link "Send screenshot on WhatsApp →" [ref=f13e83] [cursor=pointer]:
+              - /url: https://wa.me/919876543210
+    - contentinfo [ref=f13e84]:
+      - generic [ref=f13e86]:
+        - generic [ref=f13e87]:
+          - generic [ref=f13e88]:
+            - generic [ref=f13e89]:
+              - img "Al-Huda" [ref=f13e90]
+              - generic [ref=f13e91]:
+                - generic [ref=f13e92]: Al-Huda
+                - generic [ref=f13e93]: Welfare Society
+            - paragraph [ref=f13e94]: Empowering 165+ families through education, healthcare, and marriage support since 2010 in Hyderabad.
+            - paragraph [ref=f13e95]: "\"هدىٌ للإنسان .. عطاءٌ بلا حدود\""
+          - generic [ref=f13e96]:
+            - heading "Our Causes" [level=4] [ref=f13e97]
+            - list [ref=f13e98]:
+              - listitem [ref=f13e99]:
+                - link "Education Support" [ref=f13e100] [cursor=pointer]:
+                  - /url: /education
+              - listitem [ref=f13e102]:
+                - link "Health Fund" [ref=f13e103] [cursor=pointer]:
+                  - /url: /health
+              - listitem [ref=f13e105]:
+                - link "Marriage Fund" [ref=f13e106] [cursor=pointer]:
+                  - /url: /marriage-fund
+              - listitem [ref=f13e108]:
+                - link "Sponsor a Child" [ref=f13e109] [cursor=pointer]:
+                  - /url: /sponsor
+          - generic [ref=f13e111]:
+            - heading "Quick Links" [level=4] [ref=f13e112]
+            - list [ref=f13e113]:
+              - listitem [ref=f13e114]:
+                - link "About Us" [ref=f13e115] [cursor=pointer]:
+                  - /url: /about
+              - listitem [ref=f13e117]:
+                - link "Gallery" [ref=f13e118] [cursor=pointer]:
+                  - /url: /gallery
+              - listitem [ref=f13e120]:
+                - link "Submit a Case" [ref=f13e121] [cursor=pointer]:
+                  - /url: /submit-case
+              - listitem [ref=f13e123]:
+                - link "Donate Now" [ref=f13e124] [cursor=pointer]:
+                  - /url: /donate
+              - listitem [ref=f13e126]:
+                - link "Contact" [ref=f13e127] [cursor=pointer]:
+                  - /url: /contact
+              - listitem [ref=f13e129]:
+                - link "Staff Login" [ref=f13e130] [cursor=pointer]:
+                  - /url: /admin/login
+          - generic [ref=f13e132]:
+            - heading "Contact Us" [level=4] [ref=f13e133]
+            - list [ref=f13e134]:
+              - listitem [ref=f13e135]:
+                - generic [ref=f13e140]: Welfare Colony, Hyderabad, Telangana
+              - listitem [ref=f13e141]:
+                - link "+91 98765 43210" [ref=f13e145] [cursor=pointer]:
+                  - /url: tel:+919876543210
+              - listitem [ref=f13e146]:
+                - link "info@alhudawelfare.org" [ref=f13e151] [cursor=pointer]:
+                  - /url: mailto:info@alhudawelfare.org
+        - generic [ref=f13e152]:
+          - generic [ref=f13e153]:
+            - paragraph [ref=f13e154]: Ready to make a difference?
+            - paragraph [ref=f13e155]: 100% of your donation reaches the beneficiary.
+          - link [ref=f13e156] [cursor=pointer]:
+            - /url: /donate
+      - generic [ref=f13e162]:
+        - paragraph [ref=f13e163]: © 2026 Al-Huda Welfare Society. All rights reserved.
+        - paragraph [ref=f13e164]: Registered NGO · Hyderabad, Telangana
+  - status [ref=f13e170]: new row violates row-level security policy for table "donations"

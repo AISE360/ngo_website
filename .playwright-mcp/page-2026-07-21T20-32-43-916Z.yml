@@ -1,0 +1,76 @@
+- generic [ref=f14e26]:
+  - complementary [ref=f14e27]:
+    - generic [ref=f14e29]:
+      - img "Al-Huda" [ref=f14e30]
+      - generic [ref=f14e31]:
+        - paragraph [ref=f14e32]: Al-Huda Admin
+        - paragraph [ref=f14e33]: Welfare Society
+    - navigation [ref=f14e34]:
+      - link "Dashboard" [ref=f14e35] [cursor=pointer]:
+        - /url: /admin/dashboard
+      - link "Members" [ref=f14e44] [cursor=pointer]:
+        - /url: /admin/members
+      - link "Cases" [ref=f14e53] [cursor=pointer]:
+        - /url: /admin/cases
+      - link "Beneficiaries" [active] [ref=f14e60] [cursor=pointer]:
+        - /url: /admin/beneficiaries
+      - link "Sponsors" [ref=f14e68] [cursor=pointer]:
+        - /url: /admin/sponsors
+      - link "Donations" [ref=f14e77] [cursor=pointer]:
+        - /url: /admin/donations
+    - generic [ref=f14e83]:
+      - generic [ref=f14e84]:
+        - generic [ref=f14e85]: A
+        - generic [ref=f14e86]:
+          - paragraph [ref=f14e87]: admin@alhudawelfare.org
+          - paragraph [ref=f14e88]: Staff
+      - button "Sign Out" [ref=f14e89] [cursor=pointer]
+  - main [ref=f14e93]:
+    - generic [ref=f14e342]:
+      - generic [ref=f14e344]:
+        - heading "Beneficiaries" [level=1] [ref=f14e345]
+        - paragraph [ref=f14e346]: All registered aid recipients
+      - generic [ref=f14e347]:
+        - button "All" [ref=f14e348] [cursor=pointer]
+        - button "education" [ref=f14e349] [cursor=pointer]
+        - button "health" [ref=f14e350] [cursor=pointer]
+        - button "marriage" [ref=f14e351] [cursor=pointer]
+      - textbox "Search name…" [ref=f14e356]
+      - table [ref=f14e359]:
+        - rowgroup [ref=f14e360]:
+          - row [ref=f14e361]:
+            - columnheader "Name" [ref=f14e362]
+            - columnheader "Age" [ref=f14e363]
+            - columnheader "Gender" [ref=f14e364]
+            - columnheader "Category" [ref=f14e365]
+            - columnheader "Status" [ref=f14e366]
+            - columnheader "Added" [ref=f14e367]
+            - columnheader "View" [ref=f14e368]
+        - rowgroup [ref=f14e369]:
+          - row [ref=f14e370]:
+            - cell "gold badi" [ref=f14e371]
+            - cell "23" [ref=f14e378]
+            - cell "male" [ref=f14e379]
+            - cell "education" [ref=f14e380]
+            - cell "pending" [ref=f14e382]
+            - cell "21 Jul 2026" [ref=f14e384]
+            - cell [ref=f14e385]:
+              - button [ref=f14e386] [cursor=pointer]
+          - row [ref=f14e390]:
+            - cell "apne ko" [ref=f14e391]
+            - cell "23" [ref=f14e398]
+            - cell "male" [ref=f14e399]
+            - cell "education" [ref=f14e400]
+            - cell "pending" [ref=f14e402]
+            - cell "21 Jul 2026" [ref=f14e404]
+            - cell [ref=f14e405]:
+              - button [ref=f14e406] [cursor=pointer]
+          - row [ref=f14e410]:
+            - cell "SQL Test" [ref=f14e411]
+            - cell "—" [ref=f14e418]
+            - cell "—" [ref=f14e419]
+            - cell "education" [ref=f14e420]
+            - cell "pending" [ref=f14e422]
+            - cell "21 Jul 2026" [ref=f14e424]
+            - cell [ref=f14e425]:
+              - button [ref=f14e426] [cursor=pointer]

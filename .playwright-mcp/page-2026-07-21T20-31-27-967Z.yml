@@ -1,0 +1,103 @@
+- generic [ref=f11e3]:
+  - banner [ref=f11e4]:
+    - generic [ref=f11e5]:
+      - link "Al-Huda Welfare Society Al-Huda Welfare Society" [ref=f11e6] [cursor=pointer]:
+        - /url: /
+        - img "Al-Huda Welfare Society" [ref=f11e8]
+        - generic [ref=f11e9]:
+          - generic [ref=f11e10]: Al-Huda
+          - generic [ref=f11e11]: Welfare Society
+      - button "Open menu" [ref=f11e12] [cursor=pointer]
+    - generic [ref=f11e14]:
+      - link "Home" [ref=f11e15] [cursor=pointer]:
+        - /url: /
+      - link "About" [ref=f11e16] [cursor=pointer]:
+        - /url: /about
+      - link "Education" [ref=f11e17] [cursor=pointer]:
+        - /url: /education
+      - link "Health Fund" [ref=f11e18] [cursor=pointer]:
+        - /url: /health
+      - link "Marriage Fund" [ref=f11e19] [cursor=pointer]:
+        - /url: /marriage-fund
+      - link "Gallery" [ref=f11e20] [cursor=pointer]:
+        - /url: /gallery
+      - link "Contact" [ref=f11e21] [cursor=pointer]:
+        - /url: /contact
+      - generic [ref=f11e22]:
+        - link [ref=f11e23] [cursor=pointer]:
+          - /url: /donate
+          - button "Donate Now" [ref=f11e24]
+        - link [ref=f11e25] [cursor=pointer]:
+          - /url: /submit-case
+          - button "Submit a Case" [ref=f11e26]
+  - main [ref=f11e27]:
+    - generic [ref=f11e28]:
+      - heading "Our Gallery" [level=1] [ref=f11e29]
+      - paragraph [ref=f11e30]: Moments of impact — events, beneficiary visits, and community gatherings.
+  - contentinfo [ref=f11e42]:
+    - generic [ref=f11e44]:
+      - generic [ref=f11e45]:
+        - generic [ref=f11e46]:
+          - generic [ref=f11e47]:
+            - img "Al-Huda" [ref=f11e48]
+            - generic [ref=f11e49]:
+              - generic [ref=f11e50]: Al-Huda
+              - generic [ref=f11e51]: Welfare Society
+          - paragraph [ref=f11e52]: Empowering 165+ families through education, healthcare, and marriage support since 2010 in Hyderabad.
+          - paragraph [ref=f11e53]: "\"هدىٌ للإنسان .. عطاءٌ بلا حدود\""
+        - generic [ref=f11e54]:
+          - heading "Our Causes" [level=4] [ref=f11e55]
+          - list [ref=f11e56]:
+            - listitem [ref=f11e57]:
+              - link "Education Support" [ref=f11e58] [cursor=pointer]:
+                - /url: /education
+            - listitem [ref=f11e60]:
+              - link "Health Fund" [ref=f11e61] [cursor=pointer]:
+                - /url: /health
+            - listitem [ref=f11e63]:
+              - link "Marriage Fund" [ref=f11e64] [cursor=pointer]:
+                - /url: /marriage-fund
+            - listitem [ref=f11e66]:
+              - link "Sponsor a Child" [ref=f11e67] [cursor=pointer]:
+                - /url: /sponsor
+        - generic [ref=f11e69]:
+          - heading "Quick Links" [level=4] [ref=f11e70]
+          - list [ref=f11e71]:
+            - listitem [ref=f11e72]:
+              - link "About Us" [ref=f11e73] [cursor=pointer]:
+                - /url: /about
+            - listitem [ref=f11e75]:
+              - link "Gallery" [ref=f11e76] [cursor=pointer]:
+                - /url: /gallery
+            - listitem [ref=f11e78]:
+              - link "Submit a Case" [ref=f11e79] [cursor=pointer]:
+                - /url: /submit-case
+            - listitem [ref=f11e81]:
+              - link "Donate Now" [ref=f11e82] [cursor=pointer]:
+                - /url: /donate
+            - listitem [ref=f11e84]:
+              - link "Contact" [ref=f11e85] [cursor=pointer]:
+                - /url: /contact
+            - listitem [ref=f11e87]:
+              - link "Staff Login" [ref=f11e88] [cursor=pointer]:
+                - /url: /admin/login
+        - generic [ref=f11e90]:
+          - heading "Contact Us" [level=4] [ref=f11e91]
+          - list [ref=f11e92]:
+            - listitem [ref=f11e93]:
+              - generic [ref=f11e98]: Welfare Colony, Hyderabad, Telangana
+            - listitem [ref=f11e99]:
+              - link "+91 98765 43210" [ref=f11e103] [cursor=pointer]:
+                - /url: tel:+919876543210
+            - listitem [ref=f11e104]:
+              - link "info@alhudawelfare.org" [ref=f11e109] [cursor=pointer]:
+                - /url: mailto:info@alhudawelfare.org
+      - generic [ref=f11e110]:
+        - generic [ref=f11e111]:
+          - paragraph [ref=f11e112]: Ready to make a difference?
+          - paragraph [ref=f11e113]: 100% of your donation reaches the beneficiary.
+        - link [ref=f11e114] [cursor=pointer]:
+          - /url: /donate
+    - generic [ref=f11e120]:
+      - paragraph [ref=f11e121]: © 2026 Al-Huda Welfare Society. All rights reserved.
+      - paragraph [ref=f11e122]: Registered NGO · Hyderabad, Telangana

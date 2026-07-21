@@ -35,8 +35,18 @@ export function useSponsors() {
   }, [fetchSponsors])
 
   async function create(payload) {
-    const { data, error } = await supabase.from('sponsors').insert(payload).select().single()
-    if (!error && data) setSponsors(prev => [data, ...prev])
+    const { data, error } = await supabase.rpc('submit_sponsor', {
+      p_donor_name:     payload.donor_name,
+      p_donor_email:    payload.donor_email ?? null,
+      p_donor_phone:    payload.donor_phone ?? null,
+      p_amount_per_year: payload.amount_per_year ?? null,
+      p_notes:          payload.notes ?? null,
+      p_beneficiary_id: payload.beneficiary_id ?? null,
+    })
+    if (!error && data) {
+      const { data: newRow } = await supabase.from('sponsors').select('*, beneficiaries(full_name, category, photo_url)').eq('id', data.sponsor_id).single()
+      if (newRow) setSponsors(prev => [newRow, ...prev])
+    }
     return { data, error }
   }
 

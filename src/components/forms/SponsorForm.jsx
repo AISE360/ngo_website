@@ -3,7 +3,6 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
 import toast from 'react-hot-toast'
 import { useSponsors } from '../../hooks/useSponsors'
-import { useDonations } from '../../hooks/useDonations'
 import { Button } from '../ui/Button'
 
 const schema = z.object({
@@ -16,7 +15,6 @@ const schema = z.object({
 
 export function SponsorForm({ beneficiaryId, beneficiaryName }) {
   const { create: createSponsor }   = useSponsors()
-  const { create: createDonation }  = useDonations()
 
   const { register, handleSubmit, reset, formState: { errors, isSubmitting } } = useForm({
     resolver: zodResolver(schema),
@@ -24,24 +22,11 @@ export function SponsorForm({ beneficiaryId, beneficiaryName }) {
   })
 
   async function onSubmit(data) {
-    // 1. Create sponsor record
     const { error: se } = await createSponsor({
       ...data,
       beneficiary_id: beneficiaryId ?? null,
-      is_active: true,
     })
     if (se) { toast.error(se.message); return }
-
-    // 2. Create corresponding donation record
-    const { error: de } = await createDonation({
-      donor_name:    data.donor_name,
-      donor_email:   data.donor_email,
-      amount:        data.amount_per_year,
-      purpose:       'sponsor',
-      payment_method:'other',
-      status:        'pending',
-    })
-    if (de) { toast.error(de.message); return }
 
     toast.success(`Thank you, ${data.donor_name}! Your sponsorship has been registered. Our team will contact you within 24 hours.`)
     reset()

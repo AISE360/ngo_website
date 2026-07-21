@@ -1,0 +1,58 @@
+- generic [ref=f14e26]:
+  - complementary [ref=f14e27]:
+    - generic [ref=f14e29]:
+      - img "Al-Huda" [ref=f14e30]
+      - generic [ref=f14e31]:
+        - paragraph [ref=f14e32]: Al-Huda Admin
+        - paragraph [ref=f14e33]: Welfare Society
+    - navigation [ref=f14e34]:
+      - link "Dashboard" [ref=f14e35] [cursor=pointer]:
+        - /url: /admin/dashboard
+      - link "Members" [ref=f14e44] [cursor=pointer]:
+        - /url: /admin/members
+      - link "Cases" [ref=f14e53] [cursor=pointer]:
+        - /url: /admin/cases
+      - link "Beneficiaries" [ref=f14e60] [cursor=pointer]:
+        - /url: /admin/beneficiaries
+      - link "Sponsors" [ref=f14e68] [cursor=pointer]:
+        - /url: /admin/sponsors
+      - link "Donations" [active] [ref=f14e77] [cursor=pointer]:
+        - /url: /admin/donations
+    - generic [ref=f14e83]:
+      - generic [ref=f14e84]:
+        - generic [ref=f14e85]: A
+        - generic [ref=f14e86]:
+          - paragraph [ref=f14e87]: admin@alhudawelfare.org
+          - paragraph [ref=f14e88]: Staff
+      - button "Sign Out" [ref=f14e89] [cursor=pointer]
+  - main [ref=f14e93]:
+    - generic [ref=f14e438]:
+      - generic [ref=f14e439]:
+        - generic [ref=f14e440]:
+          - heading "Donations" [level=1] [ref=f14e441]
+          - paragraph [ref=f14e442]: Transaction log
+        - button [ref=f14e443] [cursor=pointer]
+      - generic [ref=f14e448]:
+        - generic [ref=f14e451]:
+          - paragraph [ref=f14e452]: Total Received
+          - paragraph [ref=f14e453]: ₹0
+        - generic [ref=f14e459]:
+          - paragraph [ref=f14e460]: Transactions
+          - paragraph [ref=f14e461]: "0"
+        - generic [ref=f14e467]:
+          - paragraph [ref=f14e468]: Average Donation
+          - paragraph [ref=f14e469]: ₹0
+      - generic [ref=f14e473]:
+        - generic [ref=f14e474]:
+          - button "all" [ref=f14e475] [cursor=pointer]
+          - button "success" [ref=f14e476] [cursor=pointer]
+          - button "pending" [ref=f14e477] [cursor=pointer]
+          - button "failed" [ref=f14e478] [cursor=pointer]
+        - generic [ref=f14e479]:
+          - button "all" [ref=f14e480] [cursor=pointer]
+          - button "general" [ref=f14e481] [cursor=pointer]
+          - button "education" [ref=f14e482] [cursor=pointer]
+          - button "health" [ref=f14e483] [cursor=pointer]
+          - button "marriage" [ref=f14e484] [cursor=pointer]
+          - button "sponsor" [ref=f14e485] [cursor=pointer]
+      - paragraph [ref=f14e488]: No donations found.

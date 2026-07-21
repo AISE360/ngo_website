@@ -1,0 +1,170 @@
+- generic [ref=f10e3]:
+  - banner [ref=f10e4]:
+    - generic [ref=f10e5]:
+      - link "Al-Huda Welfare Society Al-Huda Welfare Society" [ref=f10e6] [cursor=pointer]:
+        - /url: /
+        - img "Al-Huda Welfare Society" [ref=f10e8]
+        - generic [ref=f10e9]:
+          - generic [ref=f10e10]: Al-Huda
+          - generic [ref=f10e11]: Welfare Society
+      - button "Open menu" [ref=f10e12] [cursor=pointer]
+    - generic [ref=f10e14]:
+      - link "Home" [ref=f10e15] [cursor=pointer]:
+        - /url: /
+      - link "About" [ref=f10e16] [cursor=pointer]:
+        - /url: /about
+      - link "Education" [ref=f10e17] [cursor=pointer]:
+        - /url: /education
+      - link "Health Fund" [ref=f10e18] [cursor=pointer]:
+        - /url: /health
+      - link "Marriage Fund" [ref=f10e19] [cursor=pointer]:
+        - /url: /marriage-fund
+      - link "Gallery" [ref=f10e20] [cursor=pointer]:
+        - /url: /gallery
+      - link "Contact" [ref=f10e21] [cursor=pointer]:
+        - /url: /contact
+      - generic [ref=f10e22]:
+        - link [ref=f10e23] [cursor=pointer]:
+          - /url: /donate
+          - button "Donate Now" [ref=f10e24]
+        - link [ref=f10e25] [cursor=pointer]:
+          - /url: /submit-case
+          - button "Submit a Case" [ref=f10e26]
+  - main [ref=f10e27]:
+    - generic [ref=f10e28]:
+      - generic [ref=f10e29]:
+        - img "Marriage fund" [ref=f10e30]
+        - generic [ref=f10e32]:
+          - heading "Marriage Fund" [level=1] [ref=f10e37]
+          - generic [ref=f10e38]:
+            - paragraph [ref=f10e39]: ₹51,000
+            - paragraph [ref=f10e40]: per eligible member family
+      - generic [ref=f10e42]:
+        - text: About This Fund
+        - heading "Celebrate with Dignity, Not Debt" [level=2] [ref=f10e43]
+        - paragraph [ref=f10e44]: Our Marriage Assistance Fund provides ₹51,000 to eligible member families to help cover the costs of their daughters' or sisters' weddings. We believe marriages should be joyful celebrations — not sources of debt and stress.
+      - generic [ref=f10e46]:
+        - generic [ref=f10e47]:
+          - text: Requirements
+          - heading "Eligibility Criteria" [level=2] [ref=f10e48]
+        - generic [ref=f10e49]:
+          - generic [ref=f10e50]:
+            - heading "Who Qualifies" [level=3] [ref=f10e55]
+            - list [ref=f10e56]:
+              - listitem [ref=f10e57]:
+                - generic [ref=f10e58]: ✓
+                - text: Must be a registered member for ≥ 1 year
+              - listitem [ref=f10e59]:
+                - generic [ref=f10e60]: ✓
+                - text: Daughter or sister of an active member
+              - listitem [ref=f10e61]:
+                - generic [ref=f10e62]: ✓
+                - text: Family income ≤ ₹3 lakh per year
+              - listitem [ref=f10e63]:
+                - generic [ref=f10e64]: ✓
+                - text: No outstanding dues to the fund
+              - listitem [ref=f10e65]:
+                - generic [ref=f10e66]: ✓
+                - text: First marriage only
+          - generic [ref=f10e67]:
+            - heading "Not Eligible" [level=3] [ref=f10e73]
+            - list [ref=f10e74]:
+              - listitem [ref=f10e75]:
+                - generic [ref=f10e76]: ✗
+                - text: Second marriages or re-marriages
+              - listitem [ref=f10e77]:
+                - generic [ref=f10e78]: ✗
+                - text: Families with annual income above ₹3 lakh
+              - listitem [ref=f10e79]:
+                - generic [ref=f10e80]: ✗
+                - text: Members with unpaid monthly contributions
+      - generic [ref=f10e82]:
+        - generic [ref=f10e83]:
+          - text: Process
+          - heading "How to Apply" [level=2] [ref=f10e84]
+        - generic [ref=f10e85]:
+          - generic [ref=f10e86]:
+            - generic [ref=f10e87]: "01"
+            - generic [ref=f10e88]:
+              - heading "Submit Application" [level=3] [ref=f10e89]
+              - paragraph [ref=f10e90]: File the marriage fund application with required documents at least 60 days before the wedding date.
+          - generic [ref=f10e91]:
+            - generic [ref=f10e92]: "02"
+            - generic [ref=f10e93]:
+              - heading "Committee Review" [level=3] [ref=f10e94]
+              - paragraph [ref=f10e95]: Our welfare committee verifies eligibility and documents within 2 weeks of submission.
+          - generic [ref=f10e96]:
+            - generic [ref=f10e97]: "03"
+            - generic [ref=f10e98]:
+              - heading "Disbursement" [level=3] [ref=f10e99]
+              - paragraph [ref=f10e100]: ₹51,000 is transferred directly to the family 15 days before the wedding.
+        - link [ref=f10e102] [cursor=pointer]:
+          - /url: /submit-case
+          - button "Apply for Marriage Fund" [ref=f10e103]
+  - contentinfo [ref=f10e106]:
+    - generic [ref=f10e108]:
+      - generic [ref=f10e109]:
+        - generic [ref=f10e110]:
+          - generic [ref=f10e111]:
+            - img "Al-Huda" [ref=f10e112]
+            - generic [ref=f10e113]:
+              - generic [ref=f10e114]: Al-Huda
+              - generic [ref=f10e115]: Welfare Society
+          - paragraph [ref=f10e116]: Empowering 165+ families through education, healthcare, and marriage support since 2010 in Hyderabad.
+          - paragraph [ref=f10e117]: "\"هدىٌ للإنسان .. عطاءٌ بلا حدود\""
+        - generic [ref=f10e118]:
+          - heading "Our Causes" [level=4] [ref=f10e119]
+          - list [ref=f10e120]:
+            - listitem [ref=f10e121]:
+              - link "Education Support" [ref=f10e122] [cursor=pointer]:
+                - /url: /education
+            - listitem [ref=f10e124]:
+              - link "Health Fund" [ref=f10e125] [cursor=pointer]:
+                - /url: /health
+            - listitem [ref=f10e127]:
+              - link "Marriage Fund" [ref=f10e128] [cursor=pointer]:
+                - /url: /marriage-fund
+            - listitem [ref=f10e130]:
+              - link "Sponsor a Child" [ref=f10e131] [cursor=pointer]:
+                - /url: /sponsor
+        - generic [ref=f10e133]:
+          - heading "Quick Links" [level=4] [ref=f10e134]
+          - list [ref=f10e135]:
+            - listitem [ref=f10e136]:
+              - link "About Us" [ref=f10e137] [cursor=pointer]:
+                - /url: /about
+            - listitem [ref=f10e139]:
+              - link "Gallery" [ref=f10e140] [cursor=pointer]:
+                - /url: /gallery
+            - listitem [ref=f10e142]:
+              - link "Submit a Case" [ref=f10e143] [cursor=pointer]:
+                - /url: /submit-case
+            - listitem [ref=f10e145]:
+              - link "Donate Now" [ref=f10e146] [cursor=pointer]:
+                - /url: /donate
+            - listitem [ref=f10e148]:
+              - link "Contact" [ref=f10e149] [cursor=pointer]:
+                - /url: /contact
+            - listitem [ref=f10e151]:
+              - link "Staff Login" [ref=f10e152] [cursor=pointer]:
+                - /url: /admin/login
+        - generic [ref=f10e154]:
+          - heading "Contact Us" [level=4] [ref=f10e155]
+          - list [ref=f10e156]:
+            - listitem [ref=f10e157]:
+              - generic [ref=f10e162]: Welfare Colony, Hyderabad, Telangana
+            - listitem [ref=f10e163]:
+              - link "+91 98765 43210" [ref=f10e167] [cursor=pointer]:
+                - /url: tel:+919876543210
+            - listitem [ref=f10e168]:
+              - link "info@alhudawelfare.org" [ref=f10e173] [cursor=pointer]:
+                - /url: mailto:info@alhudawelfare.org
+      - generic [ref=f10e174]:
+        - generic [ref=f10e175]:
+          - paragraph [ref=f10e176]: Ready to make a difference?
+          - paragraph [ref=f10e177]: 100% of your donation reaches the beneficiary.
+        - link [ref=f10e178] [cursor=pointer]:
+          - /url: /donate
+    - generic [ref=f10e184]:
+      - paragraph [ref=f10e185]: © 2026 Al-Huda Welfare Society. All rights reserved.
+      - paragraph [ref=f10e186]: Registered NGO · Hyderabad, Telangana

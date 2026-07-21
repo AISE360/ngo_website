@@ -1,0 +1,16 @@
+- generic [ref=f14e492]:
+  - generic [ref=f14e493]:
+    - img "Al-Huda" [ref=f14e494]
+    - heading "Staff Login" [level=1] [ref=f14e495]
+    - paragraph [ref=f14e496]: Al-Huda Welfare Society Admin
+  - generic [ref=f14e498]:
+    - generic [ref=f14e499]:
+      - generic [ref=f14e500]: Email Address
+      - textbox "admin@alhudawelfare.org" [ref=f14e501]
+    - generic [ref=f14e502]:
+      - generic [ref=f14e503]: Password
+      - generic [ref=f14e504]:
+        - textbox "••••••••" [ref=f14e505]
+        - button [ref=f14e506] [cursor=pointer]
+    - button "Sign In" [ref=f14e510] [cursor=pointer]
+  - paragraph [ref=f14e511]: Access restricted to authorised staff only.
