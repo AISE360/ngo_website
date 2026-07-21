@@ -8,11 +8,11 @@ import { Button } from '../ui/Button'
 const schema = z.object({
   full_name: z.string().min(2, 'Full name required'),
   age: z.preprocess(
-    val => (val === '' || val === undefined || val === null ? undefined : Number(val)),
+    val => (val === '' || val === undefined || val === null || (typeof val === 'number' && Number.isNaN(val)) ? undefined : Number(val)),
     z.number().int('Age must be a whole number').min(1, 'Age must be at least 1').max(120, 'Invalid age').optional()
   ),
   gender: z.preprocess(
-    val => (val === '' || val === undefined || val === null ? undefined : val),
+    val => (val === '' || val === undefined || val === null ? undefined : String(val)),
     z.enum(['male', 'female', 'other']).optional()
   ),
   category: z.enum(['education', 'health', 'marriage'], { required_error: 'Select a category' }),
@@ -20,7 +20,7 @@ const schema = z.object({
   guardian: z.string().optional(),
   guardian_phone: z.string().optional(),
   amount_requested: z.preprocess(
-    val => (val === '' || val === undefined || val === null ? undefined : Number(val)),
+    val => (val === '' || val === undefined || val === null || (typeof val === 'number' && Number.isNaN(val)) ? undefined : Number(val)),
     z.number().positive('Enter a valid positive amount').optional()
   ),
   description: z.string().min(10, 'Please describe the case (min 10 chars)'),
@@ -48,9 +48,9 @@ export function CaseSubmitForm() {
         .select('id')
         .single()
 
-      if (be) {
+      if (be || !benef || !benef.id) {
         console.error('Beneficiary insert error:', be)
-        toast.error('Submission failed: ' + be.message)
+        toast.error('Submission failed: ' + (be?.message || 'Could not create beneficiary record'))
         return
       }
 
@@ -72,7 +72,7 @@ export function CaseSubmitForm() {
       reset()
     } catch (err) {
       console.error('Unexpected case submission error:', err)
-      toast.error('An unexpected error occurred: ' + (err.message || 'Please try again.'))
+      toast.error('An unexpected error occurred: ' + (err?.message || 'Please try again.'))
     }
   }
 
