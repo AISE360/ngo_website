@@ -1,13 +1,12 @@
 import { useSponsors } from '../../hooks/useSponsors'
 import { Table } from '../../components/ui/Table'
 import { Badge } from '../../components/ui/Badge'
-import { Button } from '../../components/ui/Button'
 import { formatINR } from '../../utils/formatCurrency'
-import { format } from 'date-fns'
+import { formatDate } from '../../utils/formatDate'
 import toast from 'react-hot-toast'
 
 export default function Sponsors() {
-  const { sponsors, loading, toggleActive } = useSponsors()
+  const { sponsors, loading, error, toggleActive, refetch } = useSponsors()
 
   async function handleToggle(s) {
     const { error } = await toggleActive(s.id, s.is_active)
@@ -23,7 +22,7 @@ export default function Sponsors() {
       render: v => v ? <span className="text-brand-blue text-sm">{v.full_name}</span> : '—'
     },
     { key: 'amount_per_year', label: 'Amount/yr', render: v => v ? formatINR(v) : '—' },
-    { key: 'start_date', label: 'Since', render: v => v ? format(new Date(v), 'MMM yyyy') : '—' },
+    { key: 'start_date', label: 'Since', render: v => formatDate(v, 'MMM yyyy') },
     {
       key: 'is_active', label: 'Status',
       render: (v, row) => (
@@ -48,9 +47,8 @@ export default function Sponsors() {
       </div>
 
       <div className="glass-card overflow-hidden">
-        <Table columns={columns} data={sponsors} loading={loading} emptyMessage="No sponsors yet." />
+        <Table columns={columns} data={sponsors} loading={loading} error={error} onRetry={refetch} emptyMessage="No sponsors yet." />
       </div>
     </div>
   )
 }
-

@@ -7,22 +7,36 @@ export function useCases(status = null) {
   const [error,   setError]   = useState(null)
 
   const fetchCases = useCallback(async () => {
-    setLoading(true)
-    setError(null)
-    let query = supabase
-      .from('cases')
-      .select('*, beneficiaries(full_name, category, photo_url)')
-      .order('submitted_at', { ascending: false })
+    try {
+      let query = supabase
+        .from('cases')
+        .select('*, beneficiaries(full_name, category, photo_url)')
+        .order('submitted_at', { ascending: false })
 
-    if (status) query = query.eq('status', status)
+      if (status) query = query.eq('status', status)
 
-    const { data, error } = await query
-    if (error) setError(error.message)
-    else setCases(data ?? [])
-    setLoading(false)
+      const { data, error } = await query
+      if (error) {
+        setError(error.message)
+      } else {
+        setError(null)
+        setCases(data ?? [])
+      }
+    } catch (err) {
+      setError(err.message || 'Failed to fetch cases')
+    } finally {
+      setLoading(false)
+    }
   }, [status])
 
-  useEffect(() => { fetchCases() }, [fetchCases])
+  useEffect(() => {
+    fetchCases()
+  }, [fetchCases])
+
+  const refetch = useCallback(() => {
+    setLoading(true)
+    fetchCases()
+  }, [fetchCases])
 
   async function updateStatus(id, newStatus, verifiedBy) {
     const { error } = await supabase
@@ -37,9 +51,9 @@ export function useCases(status = null) {
 
   async function createCase(payload) {
     const { data, error } = await supabase.from('cases').insert(payload).select().single()
-    if (!error) setCases(prev => [data, ...prev])
+    if (!error && data) setCases(prev => [data, ...prev])
     return { data, error }
   }
 
-  return { cases, loading, error, updateStatus, createCase, refetch: fetchCases }
+  return { cases, loading, error, updateStatus, createCase, refetch }
 }

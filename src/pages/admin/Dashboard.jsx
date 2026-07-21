@@ -1,4 +1,4 @@
-import { Users, FileText, UserCheck, HeartHandshake, DollarSign, Clock } from 'lucide-react'
+import { Users, HeartHandshake, DollarSign, Clock } from 'lucide-react'
 import { StatCard } from '../../components/ui/StatCard'
 import { Badge } from '../../components/ui/Badge'
 import { useCases } from '../../hooks/useCases'
@@ -6,7 +6,7 @@ import { useDonations } from '../../hooks/useDonations'
 import { useSponsors } from '../../hooks/useSponsors'
 import { useMembers } from '../../hooks/useMembers'
 import { formatINR } from '../../utils/formatCurrency'
-import { format } from 'date-fns'
+import { formatDate } from '../../utils/formatDate'
 
 export default function Dashboard() {
   const { cases,    loading: lc } = useCases()
@@ -15,7 +15,6 @@ export default function Dashboard() {
   const { members,   loading: lm } = useMembers()
 
   const pending  = cases.filter(c => c.status === 'submitted').length
-  const approved = cases.filter(c => c.status === 'approved').length
   const active   = sponsors.filter(s => s.is_active).length
   const recent   = cases.slice(0, 8)
 
@@ -61,7 +60,7 @@ export default function Dashboard() {
                     <td><Badge label={c.case_type} /></td>
                     <td>{c.amount_requested ? formatINR(c.amount_requested) : '—'}</td>
                     <td><Badge label={c.status} /></td>
-                    <td className="text-gray-400 text-xs">{format(new Date(c.submitted_at), 'dd MMM yyyy')}</td>
+                    <td className="text-gray-400 text-xs">{formatDate(c.submitted_at)}</td>
                   </tr>
                 ))}
               </tbody>
@@ -95,7 +94,7 @@ export default function Dashboard() {
                     <td className="font-medium text-brand-navy">{d.donor_name || 'Anonymous'}</td>
                     <td className="font-bold text-status-approved">{formatINR(d.amount)}</td>
                     <td><Badge label={d.purpose} /></td>
-                    <td className="text-gray-400 text-xs">{format(new Date(d.created_at), 'dd MMM yyyy')}</td>
+                    <td className="text-gray-400 text-xs">{formatDate(d.created_at)}</td>
                   </tr>
                 ))}
               </tbody>
@@ -106,4 +105,3 @@ export default function Dashboard() {
     </div>
   )
 }
-

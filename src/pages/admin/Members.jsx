@@ -9,7 +9,7 @@ import { Table } from '../../components/ui/Table'
 import { Modal } from '../../components/ui/Modal'
 import { Badge } from '../../components/ui/Badge'
 import { Button } from '../../components/ui/Button'
-import { format } from 'date-fns'
+import { formatDate } from '../../utils/formatDate'
 
 const schema = z.object({
   full_name:       z.string().min(2, 'Name required'),
@@ -20,64 +20,8 @@ const schema = z.object({
   is_active:       z.boolean().default(true),
 })
 
-export default function Members() {
-  const { members, loading, create, update, remove } = useMembers()
-  const [search, setSearch]   = useState('')
-  const [modal,  setModal]    = useState(null) // null | 'add' | member-obj
-  const [delId,  setDelId]    = useState(null)
-
-  const { register, handleSubmit, reset, setValue, formState: { errors, isSubmitting } } = useForm({
-    resolver: zodResolver(schema),
-    defaultValues: { is_active: true },
-  })
-
-  const filtered = members.filter(m =>
-    m.full_name.toLowerCase().includes(search.toLowerCase()) ||
-    (m.phone ?? '').includes(search) ||
-    (m.whatsapp_group ?? '').toLowerCase().includes(search.toLowerCase())
-  )
-
-  function openAdd() { reset({ is_active: true }); setModal('add') }
-  function openEdit(m) {
-    reset({ ...m, join_date: m.join_date ?? '' })
-    setModal(m)
-  }
-
-  async function onSubmit(data) {
-    if (modal === 'add') {
-      const { error } = await create(data)
-      error ? toast.error(error.message) : toast.success('Member added!')
-    } else {
-      const { error } = await update(modal.id, data)
-      error ? toast.error(error.message) : toast.success('Member updated!')
-    }
-    setModal(null)
-  }
-
-  async function confirmDelete() {
-    const { error } = await remove(delId)
-    error ? toast.error(error.message) : toast.success('Member removed')
-    setDelId(null)
-  }
-
-  const columns = [
-    { key: 'full_name', label: 'Name', render: v => <span className="font-medium text-brand-navy">{v}</span> },
-    { key: 'phone',         label: 'Phone' },
-    { key: 'whatsapp_group',label: 'WA Group' },
-    { key: 'join_date',     label: 'Joined', render: v => v ? format(new Date(v), 'dd MMM yyyy') : '—' },
-    { key: 'is_active', label: 'Status', render: v => <Badge label={v ? 'active' : 'inactive'} variant={v ? 'approved' : 'inactive'} /> },
-    {
-      key: 'id', label: 'Actions',
-      render: (_, row) => (
-        <div className="flex gap-2">
-          <button onClick={() => openEdit(row)} className="p-1.5 rounded-lg hover:bg-brand-ice text-gray-400 hover:text-brand-blue transition-colors"><Pencil className="w-4 h-4" /></button>
-          <button onClick={() => setDelId(row.id)}  className="p-1.5 rounded-lg hover:bg-red-50 text-gray-400 hover:text-red-500 transition-colors"><Trash2 className="w-4 h-4" /></button>
-        </div>
-      )
-    },
-  ]
-
-  const MemberForm = () => (
+function MemberForm({ modal, register, handleSubmit, onSubmit, errors, isSubmitting }) {
+  return (
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
       <div className="grid grid-cols-2 gap-4">
         <div className="col-span-2">
@@ -111,6 +55,83 @@ export default function Members() {
       </Button>
     </form>
   )
+}
+
+export default function Members() {
+  const { members, loading, error, create, update, remove, refetch } = useMembers()
+  const [search, setSearch]   = useState('')
+  const [modal,  setModal]    = useState(null) // null | 'add' | member-obj
+  const [delId,  setDelId]    = useState(null)
+
+  const { register, handleSubmit, reset, formState: { errors, isSubmitting } } = useForm({
+    resolver: zodResolver(schema),
+    defaultValues: { is_active: true },
+  })
+
+  const filtered = members.filter(m =>
+    (m.full_name ?? '').toLowerCase().includes(search.toLowerCase()) ||
+    (m.phone ?? '').includes(search) ||
+    (m.whatsapp_group ?? '').toLowerCase().includes(search.toLowerCase())
+  )
+
+  function openAdd() { reset({ is_active: true, full_name: '', phone: '', whatsapp_group: '', join_date: '', notes: '' }); setModal('add') }
+  function openEdit(m) {
+    reset({
+      full_name: m.full_name ?? '',
+      phone: m.phone ?? '',
+      whatsapp_group: m.whatsapp_group ?? '',
+      join_date: m.join_date ?? '',
+      notes: m.notes ?? '',
+      is_active: m.is_active ?? true,
+    })
+    setModal(m)
+  }
+
+  async function onSubmit(data) {
+    if (modal === 'add') {
+      const { error } = await create(data)
+      if (error) {
+        toast.error(error.message)
+        return
+      }
+      toast.success('Member added!')
+    } else {
+      const { error } = await update(modal.id, data)
+      if (error) {
+        toast.error(error.message)
+        return
+      }
+      toast.success('Member updated!')
+    }
+    setModal(null)
+  }
+
+  async function confirmDelete() {
+    const { error } = await remove(delId)
+    if (error) {
+      toast.error(error.message)
+    } else {
+      toast.success('Member removed')
+    }
+    setDelId(null)
+  }
+
+  const columns = [
+    { key: 'full_name', label: 'Name', render: v => <span className="font-medium text-brand-navy">{v}</span> },
+    { key: 'phone',         label: 'Phone' },
+    { key: 'whatsapp_group',label: 'WA Group' },
+    { key: 'join_date',     label: 'Joined', render: v => formatDate(v) },
+    { key: 'is_active', label: 'Status', render: v => <Badge label={v ? 'active' : 'inactive'} variant={v ? 'approved' : 'inactive'} /> },
+    {
+      key: 'id', label: 'Actions',
+      render: (_, row) => (
+        <div className="flex gap-2">
+          <button onClick={() => openEdit(row)} className="p-1.5 rounded-lg hover:bg-brand-ice text-gray-400 hover:text-brand-blue transition-colors"><Pencil className="w-4 h-4" /></button>
+          <button onClick={() => setDelId(row.id)}  className="p-1.5 rounded-lg hover:bg-red-50 text-gray-400 hover:text-red-500 transition-colors"><Trash2 className="w-4 h-4" /></button>
+        </div>
+      )
+    },
+  ]
 
   return (
     <div className="p-6 lg:p-8 space-y-6">
@@ -134,7 +155,7 @@ export default function Members() {
       </div>
 
       <div className="glass-card overflow-hidden">
-        <Table columns={columns} data={filtered} loading={loading} emptyMessage="No members found." />
+        <Table columns={columns} data={filtered} loading={loading} error={error} onRetry={refetch} emptyMessage="No members found." />
       </div>
 
       {/* Add/Edit modal */}
@@ -143,7 +164,14 @@ export default function Members() {
         onClose={() => setModal(null)}
         title={modal === 'add' ? 'Add Member' : 'Edit Member'}
       >
-        <MemberForm />
+        <MemberForm
+          modal={modal}
+          register={register}
+          handleSubmit={handleSubmit}
+          onSubmit={onSubmit}
+          errors={errors}
+          isSubmitting={isSubmitting}
+        />
       </Modal>
 
       {/* Delete confirm */}
@@ -157,4 +185,3 @@ export default function Members() {
     </div>
   )
 }
-

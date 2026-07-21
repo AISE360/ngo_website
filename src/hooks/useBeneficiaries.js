@@ -7,33 +7,47 @@ export function useBeneficiaries(category = null) {
   const [error,         setError]         = useState(null)
 
   const fetchBeneficiaries = useCallback(async () => {
-    setLoading(true)
-    setError(null)
-    let query = supabase
-      .from('beneficiaries')
-      .select('*')
-      .order('created_at', { ascending: false })
+    try {
+      let query = supabase
+        .from('beneficiaries')
+        .select('*')
+        .order('created_at', { ascending: false })
 
-    if (category) query = query.eq('category', category)
+      if (category) query = query.eq('category', category)
 
-    const { data, error } = await query
-    if (error) setError(error.message)
-    else setBeneficiaries(data ?? [])
-    setLoading(false)
+      const { data, error } = await query
+      if (error) {
+        setError(error.message)
+      } else {
+        setError(null)
+        setBeneficiaries(data ?? [])
+      }
+    } catch (err) {
+      setError(err.message || 'Failed to fetch beneficiaries')
+    } finally {
+      setLoading(false)
+    }
   }, [category])
 
-  useEffect(() => { fetchBeneficiaries() }, [fetchBeneficiaries])
+  useEffect(() => {
+    fetchBeneficiaries()
+  }, [fetchBeneficiaries])
+
+  const refetch = useCallback(() => {
+    setLoading(true)
+    fetchBeneficiaries()
+  }, [fetchBeneficiaries])
 
   async function create(payload) {
     const { data, error } = await supabase.from('beneficiaries').insert(payload).select().single()
-    if (!error) setBeneficiaries(prev => [data, ...prev])
+    if (!error && data) setBeneficiaries(prev => [data, ...prev])
     return { data, error }
   }
 
   async function update(id, payload) {
     const { data, error } = await supabase
       .from('beneficiaries').update(payload).eq('id', id).select().single()
-    if (!error) setBeneficiaries(prev => prev.map(b => b.id === id ? data : b))
+    if (!error && data) setBeneficiaries(prev => prev.map(b => b.id === id ? data : b))
     return { data, error }
   }
 
@@ -56,5 +70,5 @@ export function useBeneficiaries(category = null) {
     return { url: publicUrl, error: null }
   }
 
-  return { beneficiaries, loading, error, create, update, remove, uploadPhoto, refetch: fetchBeneficiaries }
+  return { beneficiaries, loading, error, create, update, remove, uploadPhoto, refetch }
 }

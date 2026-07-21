@@ -25,7 +25,7 @@ export function SponsorForm({ beneficiaryId, beneficiaryName }) {
 
   async function onSubmit(data) {
     // 1. Create sponsor record
-    const { data: sponsor, error: se } = await createSponsor({
+    const { error: se } = await createSponsor({
       ...data,
       beneficiary_id: beneficiaryId ?? null,
       is_active: true,

@@ -8,7 +8,7 @@ import { Modal } from '../../components/ui/Modal'
 import { Badge } from '../../components/ui/Badge'
 import { Button } from '../../components/ui/Button'
 import { formatINR } from '../../utils/formatCurrency'
-import { format } from 'date-fns'
+import { formatDate } from '../../utils/formatDate'
 
 const STATUS_OPTIONS = ['all', 'submitted', 'under_review', 'approved', 'disbursed', 'rejected']
 
@@ -16,7 +16,7 @@ export default function Cases() {
   const [filter,  setFilter]  = useState('all')
   const [search,  setSearch]  = useState('')
   const [detail,  setDetail]  = useState(null)
-  const { cases, loading, updateStatus } = useCases(filter === 'all' ? null : filter)
+  const { cases, loading, error, updateStatus, refetch } = useCases(filter === 'all' ? null : filter)
   const { user } = useAuthContext()
 
   const filtered = cases.filter(c =>
@@ -42,7 +42,7 @@ export default function Cases() {
     { key: 'amount_requested', label: 'Requested', render: v => v ? formatINR(v) : '—' },
     { key: 'amount_approved',  label: 'Approved',  render: v => v ? formatINR(v) : '—' },
     { key: 'status', label: 'Status', render: v => <Badge label={v} /> },
-    { key: 'submitted_at', label: 'Date', render: v => format(new Date(v), 'dd MMM yyyy') },
+    { key: 'submitted_at', label: 'Date', render: v => formatDate(v) },
     {
       key: 'id', label: 'Actions',
       render: (_, row) => (
@@ -84,7 +84,7 @@ export default function Cases() {
       </div>
 
       <div className="glass-card overflow-hidden">
-        <Table columns={columns} data={filtered} loading={loading} emptyMessage="No cases found for this filter." />
+        <Table columns={columns} data={filtered} loading={loading} error={error} onRetry={refetch} emptyMessage="No cases found for this filter." />
       </div>
 
       {/* Case detail modal */}
@@ -98,7 +98,7 @@ export default function Cases() {
                 ['Status', detail.status],
                 ['Requested', formatINR(detail.amount_requested)],
                 ['Approved', detail.amount_approved ? formatINR(detail.amount_approved) : 'Not yet'],
-                ['Submitted', format(new Date(detail.submitted_at), 'dd MMM yyyy, HH:mm')],
+                ['Submitted', formatDate(detail.submitted_at, 'dd MMM yyyy, HH:mm')],
               ].map(([k, v], i) => (
                 <div key={i}>
                   <p className="text-xs text-gray-400 uppercase tracking-wide">{k}</p>
@@ -130,4 +130,3 @@ export default function Cases() {
     </div>
   )
 }
-

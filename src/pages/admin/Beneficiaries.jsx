@@ -1,11 +1,11 @@
 import { useState } from 'react'
-import { Search, Plus, Eye, GraduationCap, Heart, Gem } from 'lucide-react'
+import { Search, Eye, GraduationCap, Heart, Gem } from 'lucide-react'
 import { useBeneficiaries } from '../../hooks/useBeneficiaries'
 import { Table } from '../../components/ui/Table'
 import { Modal } from '../../components/ui/Modal'
 import { Badge } from '../../components/ui/Badge'
 import { Button } from '../../components/ui/Button'
-import { format } from 'date-fns'
+import { formatDate } from '../../utils/formatDate'
 import toast from 'react-hot-toast'
 
 const categoryIcons = { education: GraduationCap, health: Heart, marriage: Gem }
@@ -14,10 +14,10 @@ export default function Beneficiaries() {
   const [catFilter, setCatFilter] = useState(null)
   const [search,    setSearch]    = useState('')
   const [detail,    setDetail]    = useState(null)
-  const { beneficiaries, loading, update } = useBeneficiaries(catFilter)
+  const { beneficiaries, loading, error, update, refetch } = useBeneficiaries(catFilter)
 
   const filtered = beneficiaries.filter(b =>
-    b.full_name.toLowerCase().includes(search.toLowerCase())
+    (b.full_name ?? '').toLowerCase().includes(search.toLowerCase())
   )
 
   async function changeStatus(id, status) {
@@ -45,7 +45,7 @@ export default function Beneficiaries() {
     { key: 'gender',   label: 'Gender' },
     { key: 'category', label: 'Category', render: v => <Badge label={v} /> },
     { key: 'status',   label: 'Status',   render: v => <Badge label={v} /> },
-    { key: 'created_at', label: 'Added', render: v => format(new Date(v), 'dd MMM yyyy') },
+    { key: 'created_at', label: 'Added', render: v => formatDate(v) },
     {
       key: 'id', label: 'View',
       render: (_, row) => (
@@ -88,7 +88,7 @@ export default function Beneficiaries() {
       </div>
 
       <div className="glass-card overflow-hidden">
-        <Table columns={columns} data={filtered} loading={loading} emptyMessage="No beneficiaries found." />
+        <Table columns={columns} data={filtered} loading={loading} error={error} onRetry={refetch} emptyMessage="No beneficiaries found." />
       </div>
 
       {/* Detail modal */}
@@ -146,4 +146,3 @@ export default function Beneficiaries() {
     </div>
   )
 }
-

@@ -18,7 +18,7 @@ const PRESET_AMOUNTS = [500, 1000, 2500, 5000, 10000]
 
 export function DonationForm({ defaultAmount = 1000, defaultPurpose = 'general', presets = PRESET_AMOUNTS }) {
   const { create } = useDonations()
-  const [customAmt, setCustomAmt] = useState(defaultAmount)
+  const [, setCustomAmt] = useState(defaultAmount)
 
   const { register, handleSubmit, setValue, watch, reset, formState: { errors, isSubmitting } } = useForm({
     resolver: zodResolver(schema),

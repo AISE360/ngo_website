@@ -1,35 +1,65 @@
 import { useState, useEffect, useCallback } from 'react'
 import { supabase } from '../lib/supabaseClient'
 
+function sanitizeMember(payload) {
+  return {
+    ...payload,
+    join_date: payload.join_date?.trim() ? payload.join_date : null,
+    phone: payload.phone?.trim() ? payload.phone : null,
+    whatsapp_group: payload.whatsapp_group?.trim() ? payload.whatsapp_group : null,
+    notes: payload.notes?.trim() ? payload.notes : null,
+  }
+}
+
 export function useMembers() {
   const [members, setMembers] = useState([])
   const [loading, setLoading] = useState(true)
   const [error,   setError]   = useState(null)
 
   const fetchMembers = useCallback(async () => {
-    setLoading(true)
-    setError(null)
-    const { data, error } = await supabase
-      .from('members')
-      .select('*')
-      .order('full_name', { ascending: true })
-    if (error) setError(error.message)
-    else setMembers(data ?? [])
-    setLoading(false)
+    try {
+      const { data, error } = await supabase
+        .from('members')
+        .select('*')
+        .order('full_name', { ascending: true })
+      if (error) {
+        setError(error.message)
+      } else {
+        setError(null)
+        setMembers(data ?? [])
+      }
+    } catch (err) {
+      setError(err.message || 'Failed to fetch members')
+    } finally {
+      setLoading(false)
+    }
   }, [])
 
-  useEffect(() => { fetchMembers() }, [fetchMembers])
+  useEffect(() => {
+    fetchMembers()
+  }, [fetchMembers])
+
+  const refetch = useCallback(() => {
+    setLoading(true)
+    fetchMembers()
+  }, [fetchMembers])
 
   async function create(payload) {
-    const { data, error } = await supabase.from('members').insert(payload).select().single()
-    if (!error) setMembers(prev => [...prev, data].sort((a, b) => a.full_name.localeCompare(b.full_name)))
+    const cleanPayload = sanitizeMember(payload)
+    const { data, error } = await supabase.from('members').insert(cleanPayload).select().single()
+    if (!error && data) {
+      setMembers(prev => [...prev, data].sort((a, b) => (a.full_name ?? '').localeCompare(b.full_name ?? '')))
+    }
     return { data, error }
   }
 
   async function update(id, payload) {
+    const cleanPayload = sanitizeMember(payload)
     const { data, error } = await supabase
-      .from('members').update(payload).eq('id', id).select().single()
-    if (!error) setMembers(prev => prev.map(m => m.id === id ? data : m))
+      .from('members').update(cleanPayload).eq('id', id).select().single()
+    if (!error && data) {
+      setMembers(prev => prev.map(m => m.id === id ? data : m))
+    }
     return { data, error }
   }
 
@@ -39,5 +69,5 @@ export function useMembers() {
     return { error }
   }
 
-  return { members, loading, error, create, update, remove, refetch: fetchMembers }
+  return { members, loading, error, create, update, remove, refetch }
 }

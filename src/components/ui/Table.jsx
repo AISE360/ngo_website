@@ -1,12 +1,26 @@
-import { ChevronUp, ChevronDown } from 'lucide-react'
-
-export function Table({ columns, data, loading, emptyMessage = 'No data found.' }) {
+export function Table({ columns, data, loading, error, emptyMessage = 'No data found.', onRetry }) {
   if (loading) {
     return (
       <div className="space-y-2 p-4">
         {[...Array(5)].map((_, i) => (
           <div key={i} className="skeleton h-10 w-full" />
         ))}
+      </div>
+    )
+  }
+
+  if (error) {
+    return (
+      <div className="text-center py-12 px-4 text-red-500 space-y-3">
+        <p className="text-sm font-medium">Failed to load data: {error}</p>
+        {onRetry && (
+          <button
+            onClick={onRetry}
+            className="px-3 py-1.5 bg-red-50 hover:bg-red-100 text-red-600 rounded-lg text-xs font-medium transition-colors"
+          >
+            Retry
+          </button>
+        )}
       </div>
     )
   }
@@ -44,4 +58,3 @@ export function Table({ columns, data, loading, emptyMessage = 'No data found.' 
     </div>
   )
 }
-

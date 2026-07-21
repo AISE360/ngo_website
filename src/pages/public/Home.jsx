@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
-import { ArrowRight, ArrowUpRight, Users, BookOpen, Heart, HandHeart } from 'lucide-react'
+import { ArrowRight, Users, BookOpen, Heart, HandHeart } from 'lucide-react'
 import { Button } from '../../components/ui/Button'
 import CountUpModule from 'react-countup'
 const CountUp = CountUpModule.default || CountUpModule

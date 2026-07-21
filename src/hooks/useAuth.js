@@ -9,32 +9,45 @@ export function useAuth() {
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    // Get initial session
-    supabase.auth.getSession().then(({ data: { session } }) => {
-      setSession(session)
-      setUser(session?.user ?? null)
-      if (session?.user) {
-        getUserRole(session.user.id).then(setRole)
-      }
-      setLoading(false)
-    })
+    let mounted = true
 
-    // Listen for auth state changes
-    const { data: { subscription } } = supabase.auth.onAuthStateChange(
-      async (_event, session) => {
+    async function initAuth() {
+      try {
+        const { data: { session } } = await supabase.auth.getSession()
+        if (!mounted) return
         setSession(session)
         setUser(session?.user ?? null)
         if (session?.user) {
           const r = await getUserRole(session.user.id)
-          setRole(r)
-        } else {
-          setRole(null)
+          if (mounted) setRole(r)
         }
-        setLoading(false)
+      } catch (err) {
+        console.error('Auth initialization error:', err)
+      } finally {
+        if (mounted) setLoading(false)
+      }
+    }
+
+    initAuth()
+
+    const { data: { subscription } } = supabase.auth.onAuthStateChange(
+      async (_event, session) => {
+        if (!mounted) return
+        setSession(session)
+        setUser(session?.user ?? null)
+        if (session?.user) {
+          const r = await getUserRole(session.user.id)
+          if (mounted) setRole(r)
+        } else {
+          if (mounted) setRole(null)
+        }
       }
     )
 
-    return () => subscription.unsubscribe()
+    return () => {
+      mounted = false
+      subscription.unsubscribe()
+    }
   }, [])
 
   async function signIn(email, password) {

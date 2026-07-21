@@ -1,13 +1,12 @@
 import { useState } from 'react'
-import { Download } from 'lucide-react'
+import { Download, DollarSign } from 'lucide-react'
 import { useDonations } from '../../hooks/useDonations'
 import { Table } from '../../components/ui/Table'
 import { Badge } from '../../components/ui/Badge'
 import { Button } from '../../components/ui/Button'
 import { StatCard } from '../../components/ui/StatCard'
 import { formatINR } from '../../utils/formatCurrency'
-import { format } from 'date-fns'
-import { DollarSign } from 'lucide-react'
+import { formatDate } from '../../utils/formatDate'
 
 const STATUS_OPTIONS = ['all', 'success', 'pending', 'failed']
 const PURPOSE_OPTIONS = ['all', 'general', 'education', 'health', 'marriage', 'sponsor']
@@ -16,7 +15,7 @@ export default function Donations() {
   const [statusF,  setStatusF]  = useState('all')
   const [purposeF, setPurposeF] = useState('all')
 
-  const { donations, loading, total, exportCSV } = useDonations({
+  const { donations, loading, error, total, exportCSV, refetch } = useDonations({
     status:  statusF  !== 'all' ? statusF  : undefined,
     purpose: purposeF !== 'all' ? purposeF : undefined,
   })
@@ -27,7 +26,7 @@ export default function Donations() {
     const url  = URL.createObjectURL(blob)
     const a    = document.createElement('a')
     a.href     = url
-    a.download = `donations_${format(new Date(), 'yyyy-MM-dd')}.csv`
+    a.download = `donations_${formatDate(new Date(), 'yyyy-MM-dd')}.csv`
     a.click()
     URL.revokeObjectURL(url)
   }
@@ -40,7 +39,7 @@ export default function Donations() {
     { key: 'purpose',      label: 'Purpose',  render: v => <Badge label={v} /> },
     { key: 'payment_method', label: 'Method', render: v => <span className="text-xs text-gray-500 capitalize">{v || '—'}</span> },
     { key: 'status',       label: 'Status',   render: v => <Badge label={v} /> },
-    { key: 'created_at',   label: 'Date',     render: v => format(new Date(v), 'dd MMM yy, HH:mm') },
+    { key: 'created_at',   label: 'Date',     render: v => formatDate(v, 'dd MMM yy, HH:mm') },
   ]
 
   return (
@@ -83,9 +82,8 @@ export default function Donations() {
       </div>
 
       <div className="glass-card overflow-hidden">
-        <Table columns={columns} data={donations} loading={loading} emptyMessage="No donations found." />
+        <Table columns={columns} data={donations} loading={loading} error={error} onRetry={refetch} emptyMessage="No donations found." />
       </div>
     </div>
   )
 }
-
