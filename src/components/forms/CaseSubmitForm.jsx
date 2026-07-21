@@ -26,6 +26,18 @@ const schema = z.object({
   description: z.string().min(10, 'Please describe the case (min 10 chars)'),
 })
 
+const REQUEST_TIMEOUT = 30000
+
+function queryWithTimeout(query, ms = REQUEST_TIMEOUT) {
+  const controller = new AbortController()
+  const timer = setTimeout(() => controller.abort(), ms)
+  const promise = query.abortSignal(controller.signal)
+  return promise.then(
+    result => { clearTimeout(timer); return result },
+    err => { clearTimeout(timer); throw err }
+  )
+}
+
 export function CaseSubmitForm() {
   const { register, handleSubmit, reset, formState: { errors, isSubmitting } } = useForm({
     resolver: zodResolver(schema),
@@ -33,38 +45,23 @@ export function CaseSubmitForm() {
 
   async function onSubmit(data) {
     try {
-      // 1. Insert beneficiary
-      const { data: benef, error: be } = await supabase
-        .from('beneficiaries')
-        .insert({
-          full_name:      data.full_name?.trim(),
-          age:            data.age ?? null,
-          gender:         data.gender || null,
-          category:       data.category,
-          address:        data.address?.trim() || null,
-          guardian:       data.guardian?.trim() || null,
-          guardian_phone: data.guardian_phone?.trim() || null,
+      const { error: rpcError } = await queryWithTimeout(
+        supabase.rpc('submit_case', {
+          p_full_name:        data.full_name?.trim(),
+          p_age:              data.age ?? null,
+          p_gender:           data.gender || null,
+          p_category:         data.category,
+          p_address:          data.address?.trim() || null,
+          p_guardian:         data.guardian?.trim() || null,
+          p_guardian_phone:   data.guardian_phone?.trim() || null,
+          p_amount_requested: data.amount_requested ?? null,
+          p_description:      data.description?.trim(),
         })
-        .select('id')
-        .single()
+      )
 
-      if (be || !benef || !benef.id) {
-        console.error('Beneficiary insert error:', be)
-        toast.error('Submission failed: ' + (be?.message || 'Could not create beneficiary record'))
-        return
-      }
-
-      // 2. Insert case
-      const { error: ce } = await supabase.from('cases').insert({
-        beneficiary_id:   benef.id,
-        case_type:        data.category,
-        amount_requested: data.amount_requested ?? null,
-        description:      data.description?.trim(),
-      })
-
-      if (ce) {
-        console.error('Case insert error:', ce)
-        toast.error('Case submission failed: ' + ce.message)
+      if (rpcError) {
+        console.error('Submission error:', rpcError)
+        toast.error('Submission failed: ' + (rpcError.message || 'Please try again.'))
         return
       }
 
@@ -72,7 +69,11 @@ export function CaseSubmitForm() {
       reset()
     } catch (err) {
       console.error('Unexpected case submission error:', err)
-      toast.error('An unexpected error occurred: ' + (err?.message || 'Please try again.'))
+      if (err?.name === 'AbortError' || err?.message?.includes('aborted')) {
+        toast.error('Request timed out. Please check your internet connection and try again.')
+      } else {
+        toast.error('An unexpected error occurred: ' + (err?.message || 'Please try again.'))
+      }
     }
   }
 

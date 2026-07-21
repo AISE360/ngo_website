@@ -172,6 +172,52 @@ create policy "staff_profiles"
   on profiles for select using (auth.uid() = id);
 
 -- ═══════════════════════════════
+-- RPC FUNCTIONS
+-- ═══════════════════════════════
+
+-- RPC Function: submit_case (atomic insert of beneficiary + case)
+create or replace function public.submit_case(
+  p_full_name        text,
+  p_age              int default null,
+  p_gender           text default null,
+  p_category         text default null,
+  p_address          text default null,
+  p_guardian         text default null,
+  p_guardian_phone   text default null,
+  p_amount_requested numeric default null,
+  p_description      text default null
+)
+returns uuid
+language plpgsql
+security definer
+as $$
+declare
+  v_beneficiary_id uuid;
+  v_case_id        uuid;
+begin
+  insert into public.beneficiaries (
+    full_name, age, gender, category, address, guardian, guardian_phone
+  )
+  values (
+    p_full_name, p_age, p_gender, p_category, p_address, p_guardian, p_guardian_phone
+  )
+  returning id into v_beneficiary_id;
+
+  insert into public.cases (
+    beneficiary_id, case_type, amount_requested, description
+  )
+  values (
+    v_beneficiary_id, p_category, p_amount_requested, p_description
+  )
+  returning id into v_case_id;
+
+  return v_case_id;
+end;
+$$;
+
+grant execute on function public.submit_case to anon, authenticated;
+
+-- ═══════════════════════════════
 -- STORAGE BUCKETS
 -- ═══════════════════════════════
 

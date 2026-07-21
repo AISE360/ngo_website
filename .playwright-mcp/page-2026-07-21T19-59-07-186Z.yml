@@ -1,0 +1,161 @@
+- generic [ref=f1e2]:
+  - generic [ref=f1e3]:
+    - banner [ref=f1e4]:
+      - generic [ref=f1e5]:
+        - link "Al-Huda Welfare Society Al-Huda Welfare Society" [ref=f1e6] [cursor=pointer]:
+          - /url: /
+          - img "Al-Huda Welfare Society" [ref=f1e8]
+          - generic [ref=f1e9]:
+            - generic [ref=f1e10]: Al-Huda
+            - generic [ref=f1e11]: Welfare Society
+        - button "Open menu" [ref=f1e12] [cursor=pointer]
+      - generic [ref=f1e14]:
+        - link "Home" [ref=f1e15] [cursor=pointer]:
+          - /url: /
+        - link "About" [ref=f1e16] [cursor=pointer]:
+          - /url: /about
+        - link "Education" [ref=f1e17] [cursor=pointer]:
+          - /url: /education
+        - link "Health Fund" [ref=f1e18] [cursor=pointer]:
+          - /url: /health
+        - link "Marriage Fund" [ref=f1e19] [cursor=pointer]:
+          - /url: /marriage-fund
+        - link "Gallery" [ref=f1e20] [cursor=pointer]:
+          - /url: /gallery
+        - link "Contact" [ref=f1e21] [cursor=pointer]:
+          - /url: /contact
+        - generic [ref=f1e22]:
+          - link [ref=f1e23] [cursor=pointer]:
+            - /url: /donate
+            - button "Donate Now" [ref=f1e24]
+          - link [ref=f1e25] [cursor=pointer]:
+            - /url: /submit-case
+            - button "Submit a Case" [ref=f1e26]
+    - main [ref=f1e27]:
+      - generic [ref=f1e28]:
+        - generic [ref=f1e29]:
+          - img "Submit a case" [ref=f1e30]
+          - generic [ref=f1e32]:
+            - heading "Submit a Case" [level=1] [ref=f1e33]
+            - paragraph [ref=f1e34]: Anyone can request assistance. Our committee reviews every case with care and urgency.
+        - generic [ref=f1e36]:
+          - generic [ref=f1e37]:
+            - generic [ref=f1e43]:
+              - paragraph [ref=f1e44]: Fill the Form
+              - paragraph [ref=f1e45]: Provide beneficiary details and describe the case clearly.
+            - generic [ref=f1e51]:
+              - paragraph [ref=f1e52]: 48-hr Review
+              - paragraph [ref=f1e53]: Our committee reviews every submission and may request documents.
+            - generic [ref=f1e59]:
+              - paragraph [ref=f1e60]: Decision & Aid
+              - paragraph [ref=f1e61]: You will be notified via WhatsApp once a decision is made.
+          - generic [ref=f1e62]:
+            - generic [ref=f1e63]:
+              - text: Application Form
+              - heading "Case Submission" [level=2] [ref=f1e64]
+            - generic [ref=f1e65]:
+              - generic [ref=f1e66]:
+                - generic [ref=f1e67]:
+                  - generic [ref=f1e68]: Full Name *
+                  - textbox "Beneficiary's name" [ref=f1e69]: Test Beneficiary
+                - generic [ref=f1e70]:
+                  - generic [ref=f1e71]: Age
+                  - spinbutton "25" [ref=f1e72]
+                - generic [ref=f1e73]:
+                  - generic [ref=f1e74]: Gender
+                  - combobox [ref=f1e75]:
+                    - option "Select gender"
+                    - option "Male" [selected]
+                    - option "Female"
+                    - option "Other"
+                - generic [ref=f1e76]:
+                  - generic [ref=f1e77]: Category *
+                  - combobox [ref=f1e78]:
+                    - option "Select category"
+                    - option "Education" [selected]
+                    - option "Health"
+                    - option "Marriage Fund"
+                - generic [ref=f1e79]:
+                  - generic [ref=f1e80]: Address
+                  - textbox "Full address" [ref=f1e81]: 123 Test Street, Hyderabad
+                - generic [ref=f1e82]:
+                  - generic [ref=f1e83]: Guardian Name
+                  - textbox "Parent / guardian" [ref=f1e84]: Test Guardian
+                - generic [ref=f1e85]:
+                  - generic [ref=f1e86]: Guardian Phone
+                  - textbox "+91 98765 43210" [ref=f1e87]: "+919876543210"
+                - generic [ref=f1e88]:
+                  - generic [ref=f1e89]: Amount Needed (₹)
+                  - spinbutton "15000" [ref=f1e90]: "25000"
+              - generic [ref=f1e91]:
+                - generic [ref=f1e92]: Case Description *
+                - textbox "Describe the situation and how the funds will be used…" [ref=f1e93]: This is a test case submission to verify the form is working correctly.
+              - button "Submit Case" [ref=f1e94] [cursor=pointer]
+    - contentinfo [ref=f1e95]:
+      - generic [ref=f1e97]:
+        - generic [ref=f1e98]:
+          - generic [ref=f1e99]:
+            - generic [ref=f1e100]:
+              - img "Al-Huda" [ref=f1e101]
+              - generic [ref=f1e102]:
+                - generic [ref=f1e103]: Al-Huda
+                - generic [ref=f1e104]: Welfare Society
+            - paragraph [ref=f1e105]: Empowering 165+ families through education, healthcare, and marriage support since 2010 in Hyderabad.
+            - paragraph [ref=f1e106]: "\"هدىٌ للإنسان .. عطاءٌ بلا حدود\""
+          - generic [ref=f1e107]:
+            - heading "Our Causes" [level=4] [ref=f1e108]
+            - list [ref=f1e109]:
+              - listitem [ref=f1e110]:
+                - link "Education Support" [ref=f1e111] [cursor=pointer]:
+                  - /url: /education
+              - listitem [ref=f1e113]:
+                - link "Health Fund" [ref=f1e114] [cursor=pointer]:
+                  - /url: /health
+              - listitem [ref=f1e116]:
+                - link "Marriage Fund" [ref=f1e117] [cursor=pointer]:
+                  - /url: /marriage-fund
+              - listitem [ref=f1e119]:
+                - link "Sponsor a Child" [ref=f1e120] [cursor=pointer]:
+                  - /url: /sponsor
+          - generic [ref=f1e122]:
+            - heading "Quick Links" [level=4] [ref=f1e123]
+            - list [ref=f1e124]:
+              - listitem [ref=f1e125]:
+                - link "About Us" [ref=f1e126] [cursor=pointer]:
+                  - /url: /about
+              - listitem [ref=f1e128]:
+                - link "Gallery" [ref=f1e129] [cursor=pointer]:
+                  - /url: /gallery
+              - listitem [ref=f1e131]:
+                - link "Submit a Case" [ref=f1e132] [cursor=pointer]:
+                  - /url: /submit-case
+              - listitem [ref=f1e134]:
+                - link "Donate Now" [ref=f1e135] [cursor=pointer]:
+                  - /url: /donate
+              - listitem [ref=f1e137]:
+                - link "Contact" [ref=f1e138] [cursor=pointer]:
+                  - /url: /contact
+              - listitem [ref=f1e140]:
+                - link "Staff Login" [ref=f1e141] [cursor=pointer]:
+                  - /url: /admin/login
+          - generic [ref=f1e143]:
+            - heading "Contact Us" [level=4] [ref=f1e144]
+            - list [ref=f1e145]:
+              - listitem [ref=f1e146]:
+                - generic [ref=f1e151]: Welfare Colony, Hyderabad, Telangana
+              - listitem [ref=f1e152]:
+                - link "+91 98765 43210" [ref=f1e156] [cursor=pointer]:
+                  - /url: tel:+919876543210
+              - listitem [ref=f1e157]:
+                - link "info@alhudawelfare.org" [ref=f1e162] [cursor=pointer]:
+                  - /url: mailto:info@alhudawelfare.org
+        - generic [ref=f1e163]:
+          - generic [ref=f1e164]:
+            - paragraph [ref=f1e165]: Ready to make a difference?
+            - paragraph [ref=f1e166]: 100% of your donation reaches the beneficiary.
+          - link [ref=f1e167] [cursor=pointer]:
+            - /url: /donate
+      - generic [ref=f1e173]:
+        - paragraph [ref=f1e174]: © 2026 Al-Huda Welfare Society. All rights reserved.
+        - paragraph [ref=f1e175]: Registered NGO · Hyderabad, Telangana
+  - status [ref=f1e181]: Submission failed. The database security policy is not configured. Please contact the administrator.

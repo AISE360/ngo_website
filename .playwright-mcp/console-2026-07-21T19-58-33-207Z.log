@@ -1,0 +1,7 @@
+[    1079ms] [INFO] %cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold @ http://localhost:5173/node_modules/.vite/deps/react-dom-BRJs3cXW.js?v=7a29c24d:17232
+[    1780ms] [WARNING] ⚠️ React Router Future Flag Warning: React Router will begin wrapping state updates in `React.startTransition` in v7. You can use the `v7_startTransition` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_starttransition. @ http://localhost:5173/node_modules/.vite/deps/react-router-dom.js?v=370b955f:3616
+[    1780ms] [WARNING] ⚠️ React Router Future Flag Warning: Relative route resolution within Splat routes is changing in v7. You can use the `v7_relativeSplatPath` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_relativesplatpath. @ http://localhost:5173/node_modules/.vite/deps/react-router-dom.js?v=370b955f:3616
+[   11328ms] [ERROR] Unexpected case submission error: TypeError: promise.finally is not a function
+    at queryWithTimeout (http://localhost:5173/src/components/forms/CaseSubmitForm.jsx?t=1784663041268:34:24)
+    at onSubmit (http://localhost:5173/src/components/forms/CaseSubmitForm.jsx?t=1784663041268:42:45)
+    at http://localhost:5173/node_modules/.vite/deps/react-hook-form.js?v=a4769df6:1814:11 @ http://localhost:5173/src/components/forms/CaseSubmitForm.jsx?t=1784663041268:82
