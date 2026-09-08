@@ -24,7 +24,7 @@ thoughtful-hearts/
 ├── supabase/
 │   ├── migrations/001_init.sql  (base: members/cases/donations/…)
 │   ├── migrations/002_thoughtful_hearts.sql  (programs/gallery/volunteers/contact/csr/blog/stats/newsletter)
-│   └── functions/razorpay-initiate  razorpay-verify  whatsapp-notify
+│   └── functions/whatsapp-notify
 ├── .env.example  netlify.toml  vercel.json
 └── DEPLOYMENT.md
 ```
@@ -36,16 +36,14 @@ thoughtful-hearts/
 3. Storage → public bucket `field` (or reuse `ngo-assets`) → upload `public/field/*` (or keep in repo; Supabase optional).
 4. Functions:
 ```bash
-supabase functions deploy razorpay-initiate
-supabase functions deploy razorpay-verify
 supabase functions deploy whatsapp-notify
-supabase secrets set RAZORPAY_KEY_ID=… RAZORPAY_SECRET=… WA_PHONE_ID=… WA_ACCESS_TOKEN=… ADMIN_WHATSAPP=919876543210
+supabase secrets set WA_PHONE_ID=… WA_ACCESS_TOKEN=… ADMIN_WHATSAPP=919876543210
 ```
 5. `.env.local` from `.env.example`, then `npm install && npm run dev`.
 
-## Razorpay flow
+## Donation flow (no payment gateway)
 
-`DonatePage` → insert `donations(pending)` → `razorpay-initiate` creates order → Checkout (`VITE_RAZORPAY_KEY_ID`) → on success update `donations(success)` → `whatsapp-notify(type=donation)`. Use `razorpay-verify` server-side if you need signature checks.
+`DonatePage` → insert `donations(pending)` → donor pays via UPI/bank transfer → sends screenshot on WhatsApp with Ref → volunteer verifies and marks `success` in `/admin/donations` → `whatsapp-notify(type=donation)` alerts the team on each pledge.
 
 ## Hours / legal placeholders to fix before launch
 

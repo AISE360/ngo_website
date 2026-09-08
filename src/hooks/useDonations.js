@@ -65,9 +65,9 @@ export function useDonations(filters = {}) {
     return { data, error }
   }
 
-  async function updateStatus(id, status, razorpay_payment_id = null) {
+  async function updateStatus(id, status, note = null) {
     const patch = { status }
-    if (razorpay_payment_id) patch.razorpay_payment_id = razorpay_payment_id
+    if (note) patch.notes = note
     const { data, error } = await supabase
       .from('donations').update(patch).eq('id', id).select().single()
     if (!error && data) setDonations(prev => prev.map(d => d.id === id ? data : d))

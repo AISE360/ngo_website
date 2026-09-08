@@ -36,42 +36,26 @@ export default function DonatePage() {
     return PROGRAMS.find((p) => p.slug === form.watch('program'))?.title ?? 'General Fund'
   }, [form.watch('program')])
 
+  const [done, setDone] = useState(null)
+
   const onSubmit = async (data) => {
     setPaying(true)
     try {
-      // 1. create DB record (pending)
+      // Record the pledge; donor pays via UPI / bank transfer, team confirms.
       const { data: row, error } = await supabase.from('donations').insert({
         donor_name: data.name, donor_email: data.email || null, donor_phone: data.phone,
-        amount: data.amount, purpose: data.program, frequency: data.frequency, pan: data.pan || null, status: 'pending',
-      }).select('id').single()
+        amount: data.amount, purpose: data.program, frequency: data.frequency,
+        pan: data.pan || null, payment_method: 'upi', status: 'pending',
+      }).select('id,receipt_no').single()
       if (error) throw error
 
-      // 2. create Razorpay order via Edge Function
-      const { data: order, error: fnError } = await supabase.functions.invoke('razorpay-initiate', {
-        body: { amount: data.amount, currency: 'INR', receipt: `THF-${row?.id ?? Date.now()}` },
-      })
-      if (fnError || !order?.id) throw fnError || new Error('Order failed')
-
-      // 3. open Razorpay checkout
-      const rzp = new window.Razorpay({
-        key: import.meta.env.VITE_RAZORPAY_KEY_ID,
-        amount: order.amount, currency: order.currency, order_id: order.id,
-        name: 'Thoughtful Hearts Foundation', description: programLabel,
-        prefill: { name: data.name, email: data.email, contact: data.phone },
-        theme: { color: '#E86A5E' },
-        handler: async (resp) => {
-          await supabase.from('donations').update({
-            razorpay_order_id: resp.razorpay_order_id, razorpay_payment_id: resp.razorpay_payment_id, status: 'success',
-          }).eq('id', row.id)
-          supabase.functions.invoke('whatsapp-notify', { body: { type: 'donation', ...data, paymentId: resp.razorpay_payment_id } }).catch(() => {})
-          toast.success('Thank you! Receipt will be emailed/WhatsApped shortly.')
-        },
-        modal: { ondismiss: () => setPaying(false) },
-      })
-      rzp.open()
+      supabase.functions.invoke('whatsapp-notify', { body: { type: 'donation', ...data } }).catch(() => {})
+      setDone({ ...data, ref: row?.receipt_no || String(row?.id || '').slice(0, 8).toUpperCase() })
+      toast.success('Thank you! Please complete your transfer below.')
     } catch (e) {
       console.error(e)
-      toast.error('Payment preview mode — connect Supabase + Razorpay keys to go live.')
+      toast.error('Could not save — please check your connection and retry.')
+    } finally {
       setPaying(false)
     }
   }
@@ -124,9 +108,22 @@ export default function DonatePage() {
             </div>
 
             <Button type="submit" variant="coral" size="lg" className="w-full mt-7" loading={paying}>
-              <HeartHandshake className="w-5 h-5" /> Donate ₹{Number(amount || 0).toLocaleString('en-IN')} {form.watch('frequency') === 'monthly' ? '/ month' : ''}
+              <HeartHandshake className="w-5 h-5" /> Pledge ₹{Number(amount || 0).toLocaleString('en-IN')} {form.watch('frequency') === 'monthly' ? '/ month' : ''}
             </Button>
-            <p className="flex items-center justify-center gap-1.5 text-xs text-brand-slate mt-4"><ShieldCheck className="w-3.5 h-3.5" /> Secured by Razorpay • UPI / Cards / Netbanking • 80G note (placeholder — update with actual reg.)</p>
+            <p className="flex items-center justify-center gap-1.5 text-xs text-brand-slate mt-4"><ShieldCheck className="w-3.5 h-3.5" /> Direct UPI / bank transfer • 80G note (placeholder — update with actual reg.)</p>
+
+            {done && (
+              <div className="mt-6 rounded-2xl bg-brand-tealSoft/60 border border-brand-teal/20 p-6" data-aos="fade-up">
+                <h3 className="font-display text-xl text-brand-tealDeep">Shukriya, {done.name}! 🙏</h3>
+                <p className="text-sm mt-2">Your pledge of <b>₹{Number(done.amount).toLocaleString('en-IN')}</b> for <b>{programLabel}</b> is recorded{done.frequency === 'monthly' ? ' (monthly)' : ''}.</p>
+                <p className="text-xs font-mono mt-2 text-brand-slate">Ref: {done.ref}</p>
+                <div className="mt-4 text-sm space-y-1.5">
+                  <p><b>Step 1:</b> Send the amount via UPI to <b className="font-mono">[your-upi-id — editable]</b></p>
+                  <p><b>Step 2:</b> WhatsApp the screenshot to <a className="font-bold text-brand-teal" href="https://wa.me/919876543210">+91 98765 43210</a> with your Ref.</p>
+                </div>
+                <p className="text-xs text-brand-slate mt-3">Our volunteer will confirm and mark your donation received + send receipt.</p>
+              </div>
+            )}
           </form>
 
           <aside className="lg:col-span-2 space-y-5" data-aos="fade-left">
