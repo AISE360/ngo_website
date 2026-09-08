@@ -17,9 +17,9 @@ const CountUp = CountUpModule.default || CountUpModule
 const U = (id, w = 1920) => `https://images.unsplash.com/${id}?q=80&w=${w}&auto=format&fit=crop`
 
 const HERO_SLIDES = [
-  { img: U('photo-1576091160399-112ba8d25d1d'), kicker: 'Medical & Patient Support', title: 'Standing beside patients when it matters most', sub: 'Hospital visits, treatment aid and follow-up care in Kondhwa, Pune.' },
-  { img: U('photo-1584992236310-6edddc08acff'), kicker: 'Women’s Livelihood', title: 'Stitching skills that become income', sub: 'Tailoring, block-printing & embroidery for women’s independence.' },
-  { img: U('photo-1509062522246-3755977927d7'), kicker: 'Youth & Education', title: 'From classrooms to coding labs', sub: 'School outreach, computer skills and art for brighter tomorrows.' },
+  { img: '/home/hero-medical.jpg', kicker: 'Medical & Patient Support', title: 'Standing beside patients when it matters most', sub: 'Hospital visits, treatment aid and follow-up care in Kondhwa, Pune.' },
+  { img: '/home/hero-tailoring.jpg', kicker: 'Women’s Livelihood', title: 'Stitching skills that become income', sub: 'Tailoring, block-printing & embroidery for women’s independence.' },
+  { img: '/home/hero-education.jpg', kicker: 'Youth & Education', title: 'From classrooms to coding labs', sub: 'School outreach, computer skills and art for brighter tomorrows.' },
 ]
 
 // High-quality homepage imagery (Unsplash). Real field photos live on /gallery + program pages.
