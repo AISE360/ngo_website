@@ -1,9 +1,9 @@
+import { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { ArrowRight, HeartHandshake, Users, MapPin, Sparkles, Stethoscope, Scissors, GraduationCap, Code2, Palette } from 'lucide-react'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Autoplay, Pagination, EffectFade } from 'swiper/modules'
 import CountUpModule from 'react-countup'
-import { useInView } from 'react-intersection-observer'
 import { Button } from '../../components/ui/Button'
 import { SectionHeading } from '../../components/ui/SectionHeading'
 import { ParallaxBand } from '../../components/effects/Parallax'
@@ -49,13 +49,32 @@ const HOME_POST_IMAGES = [
 const ICONS = { medical: Stethoscope, livelihood: Scissors, education: GraduationCap, tech: Code2, art: Palette }
 
 function Stat({ end, suffix, label, delay }) {
-  const { ref, inView } = useInView({ threshold: 0.3, triggerOnce: true })
+  const ref = useRef(null)
+  const [inView, setInView] = useState(false)
+
+  useEffect(() => {
+    const el = ref.current
+    if (!el) return
+    if (typeof IntersectionObserver === 'undefined') { setInView(true); return }
+    const obs = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting) { setInView(true); obs.disconnect() } },
+      { threshold: 0.25, rootMargin: '0px 0px -40px 0px' }
+    )
+    obs.observe(el)
+    // Fallback: never leave counters stuck at 0 — if on screen, start anyway
+    const t = setTimeout(() => {
+      const r = el.getBoundingClientRect()
+      if (r.top < window.innerHeight && r.bottom > 0) setInView(true)
+    }, 1800)
+    return () => { obs.disconnect(); clearTimeout(t) }
+  }, [])
+
   return (
     <div ref={ref} className="text-center" data-aos="fade-up" data-aos-delay={delay}>
       <div className="font-display font-bold text-white" style={{ fontSize: 'clamp(2.2rem,4vw,3.2rem)' }}>
         {inView ? <CountUp end={end} duration={2.4} suffix={suffix} /> : `0${suffix}`}
       </div>
-      <p className="text-white/60 text-sm mt-1 max-w-[180px] mx-auto">{label}</p>
+      <p className="text-white/70 text-sm mt-1 max-w-[180px] mx-auto">{label}</p>
     </div>
   )
 }
