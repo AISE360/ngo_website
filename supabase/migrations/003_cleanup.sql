@@ -12,8 +12,19 @@
 --   + the submit_case() RPC that wrote to them.
 -- ═══════════════════════════════════════════════════════
 
--- Drop RPC first (depends on the tables)
-drop function if exists public.submit_case(text,int,text,text,text,text,text,numeric,text);
+-- Drop RPC first (depends on the tables). The DO block removes EVERY
+-- overload, so it never hits "function name is not unique" (42725) even
+-- if an older/different submit_case signature exists in the project.
+do $$
+declare r record;
+begin
+  for r in
+    select oid::regprocedure as sig from pg_proc
+    where proname = 'submit_case' and pronamespace = 'public'::regnamespace
+  loop
+    execute 'drop function if exists ' || r.sig;
+  end loop;
+end $$;
 
 -- Drop tables (policies/triggers on them go away automatically)
 drop table if exists public.cases;
