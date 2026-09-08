@@ -49,7 +49,8 @@ const HOME_POST_IMAGES = [
 
 const ICONS = { medical: Stethoscope, livelihood: Scissors, education: GraduationCap, tech: Code2, art: Palette }
 
-function Stat({ end, suffix, label, delay }) {
+function Stat({ value, end, suffix = '+', label, delay }) {
+  const target = Number(end ?? value ?? 0)
   const ref = useRef(null)
   const [inView, setInView] = useState(false)
 
@@ -59,21 +60,18 @@ function Stat({ end, suffix, label, delay }) {
     if (typeof IntersectionObserver === 'undefined') { setInView(true); return }
     const obs = new IntersectionObserver(
       ([entry]) => { if (entry.isIntersecting) { setInView(true); obs.disconnect() } },
-      { threshold: 0.25, rootMargin: '0px 0px -40px 0px' }
+      { threshold: 0.1 }
     )
     obs.observe(el)
-    // Fallback: never leave counters stuck at 0 — if on screen, start anyway
-    const t = setTimeout(() => {
-      const r = el.getBoundingClientRect()
-      if (r.top < window.innerHeight && r.bottom > 0) setInView(true)
-    }, 1800)
+    // Fallback: never leave counters stuck at 0
+    const t = setTimeout(() => { setInView(true) }, 600)
     return () => { obs.disconnect(); clearTimeout(t) }
   }, [])
 
   return (
     <div ref={ref} className="text-center" data-aos="fade-up" data-aos-delay={delay}>
       <div className="font-display font-bold text-white" style={{ fontSize: 'clamp(2.2rem,4vw,3.2rem)' }}>
-        {inView ? <CountUp end={end} duration={2.4} suffix={suffix} /> : `0${suffix}`}
+        {inView ? <CountUp end={target} duration={2} suffix={suffix} /> : `0${suffix}`}
       </div>
       <p className="text-white/70 text-sm mt-1 max-w-[180px] mx-auto">{label}</p>
     </div>
@@ -85,9 +83,16 @@ export default function Home() {
   const [stats, setStats] = useState(IMPACT_STATS)
   useEffect(() => {
     let live = true
-    supabase.from('impact_stats').select('label,value,suffix').eq('is_active', true).order('sort_order')
+    supabase.from('impact_stats').select('id,label,value,suffix,sort_order').eq('is_active', true).order('sort_order')
       .then(({ data, error }) => {
-        if (live && !error && data && data.length) setStats(data.map((s) => ({ value: Number(s.value) || 0, suffix: s.suffix || '+', label: s.label })))
+        if (live && !error && data && data.length) {
+          setStats(data.map((s) => ({
+            id: s.id,
+            value: Number(s.value) || 0,
+            suffix: s.suffix || '+',
+            label: s.label
+          })))
+        }
       })
     return () => { live = false }
   }, [])
@@ -136,8 +141,8 @@ export default function Home() {
       {/* ── Impact stats ── */}
       <section className="bg-brand-tealDeep relative overflow-hidden">
         <div className="absolute -top-24 -right-24 w-96 h-96 bg-brand-coral/15 rounded-full blur-3xl" />
-        <div className="container-lg px-6 py-16 grid grid-cols-2 lg:grid-cols-4 gap-10">
-          {stats.slice(0, 4).map((s, i) => <Stat key={s.label + i} {...s} delay={i * 100} />)}
+        <div className="container-lg px-6 py-16 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 justify-center">
+          {stats.map((s, i) => <Stat key={s.id || s.label + i} {...s} delay={i * 100} />)}
         </div>
       </section>
 
