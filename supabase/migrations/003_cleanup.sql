@@ -12,7 +12,10 @@
 --   + the submit_case() RPC that wrote to them.
 -- ═══════════════════════════════════════════════════════
 
--- Drop RPC first (depends on the tables). The DO block removes EVERY
+-- Drop FKs FIRST (donations references cases/sponsors), then the tables.
+alter table public.donations drop constraint if exists donations_case_id_fkey;
+
+-- Drop RPC (depends on the tables). The DO block removes EVERY
 -- overload, so it never hits "function name is not unique" (42725) even
 -- if an older/different submit_case signature exists in the project.
 do $$
@@ -31,9 +34,6 @@ drop table if exists public.cases;
 drop table if exists public.sponsors;
 drop table if exists public.beneficiaries;
 drop table if exists public.members;
-
--- Donations: remove FK to cases if it still exists (002 kept it nullable)
-alter table public.donations drop constraint if exists donations_case_id_fkey;
 
 -- Optional: drop old storage buckets ONLY if you created them for Al-Huda
 -- and are sure nothing references them. Do this in Dashboard → Storage,
