@@ -10,11 +10,18 @@ export function useAdminTable(table, { orderBy = 'created_at', ascending = false
   const fetchRows = useCallback(async () => {
     setLoading(true)
     try {
-      const { data, error } = await supabase.from(table).select('*').order(orderBy, { ascending })
+      const timeoutPromise = new Promise((_, reject) =>
+        setTimeout(() => reject(new Error(`Query timed out (10s) loading ${table}. Check Supabase connection.`)), 10000)
+      )
+      const { data, error } = await Promise.race([
+        supabase.from(table).select('*').order(orderBy, { ascending }),
+        timeoutPromise
+      ])
       if (error) throw error
       setRows(data ?? [])
       setError(null)
     } catch (err) {
+      console.error(`[useAdminTable:${table}] error:`, err)
       setError(err.message || `Failed to load ${table}`)
     } finally {
       setLoading(false)

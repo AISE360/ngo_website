@@ -16,13 +16,19 @@ export default function Dashboard() {
   useEffect(() => {
     async function load() {
       try {
-        const [dons, vols, msgs, csr, progs, gal] = await Promise.all([
-          supabase.from('donations').select('id,donor_name,amount,purpose,status,created_at').order('created_at', { ascending: false }).limit(8),
-          supabase.from('volunteers').select('id').eq('status', 'new'),
-          supabase.from('contact_messages').select('id').eq('status', 'new'),
-          supabase.from('csr_inquiries').select('id').eq('status', 'new'),
-          supabase.from('programs').select('id').eq('is_active', true),
-          supabase.from('gallery').select('id').eq('is_active', true),
+        const timeoutPromise = new Promise((_, reject) =>
+          setTimeout(() => reject(new Error('Dashboard query timed out (10s)')), 10000)
+        )
+        const [dons, vols, msgs, csr, progs, gal] = await Promise.race([
+          Promise.all([
+            supabase.from('donations').select('id,donor_name,amount,purpose,status,created_at').order('created_at', { ascending: false }).limit(8),
+            supabase.from('volunteers').select('id').eq('status', 'new'),
+            supabase.from('contact_messages').select('id').eq('status', 'new'),
+            supabase.from('csr_inquiries').select('id').eq('status', 'new'),
+            supabase.from('programs').select('id').eq('is_active', true),
+            supabase.from('gallery').select('id').eq('is_active', true),
+          ]),
+          timeoutPromise
         ])
         const list = dons.data ?? []
         setRecentDonations(list)
@@ -34,14 +40,19 @@ export default function Dashboard() {
           programs: (progs.data ?? []).length,
           gallery: (gal.data ?? []).length,
         })
-        const [vRecent, mRecent] = await Promise.all([
-          supabase.from('volunteers').select('name,interest,created_at').order('created_at', { ascending: false }).limit(5),
-          supabase.from('contact_messages').select('name,message,created_at').order('created_at', { ascending: false }).limit(5),
+        const [vRecent, mRecent] = await Promise.race([
+          Promise.all([
+            supabase.from('volunteers').select('name,interest,created_at').order('created_at', { ascending: false }).limit(5),
+            supabase.from('contact_messages').select('name,message,created_at').order('created_at', { ascending: false }).limit(5),
+          ]),
+          timeoutPromise
         ])
         setRecentJoins([
           ...(vRecent.data ?? []).map((v) => ({ who: v.name, what: `Volunteer • ${v.interest || 'general'}`, when: v.created_at })),
           ...(mRecent.data ?? []).map((m) => ({ who: m.name, what: 'Contact message', when: m.created_at })),
         ].sort((a, b) => new Date(b.when) - new Date(a.when)).slice(0, 6))
+      } catch (err) {
+        console.error('[Dashboard] load error:', err)
       } finally {
         setLoading(false)
       }

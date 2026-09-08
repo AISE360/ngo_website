@@ -11,6 +11,7 @@ export function useDonations(filters = {}) {
   const filterPurpose = filters.purpose ?? null
 
   const fetchDonations = useCallback(async () => {
+    setLoading(true)
     try {
       let query = supabase
         .from('donations')
@@ -20,8 +21,13 @@ export function useDonations(filters = {}) {
       if (filterStatus)  query = query.eq('status', filterStatus)
       if (filterPurpose) query = query.eq('purpose', filterPurpose)
 
-      const { data, error } = await query
+      const timeoutPromise = new Promise((_, reject) =>
+        setTimeout(() => reject(new Error('Database query timed out (10s). Check Supabase database connection and active locks.')), 10000)
+      )
+
+      const { data, error } = await Promise.race([query, timeoutPromise])
       if (error) {
+        console.error('[useDonations] Supabase query error:', error)
         setError(error.message)
       } else {
         setError(null)
@@ -33,6 +39,7 @@ export function useDonations(filters = {}) {
         setTotal(sum)
       }
     } catch (err) {
+      console.error('[useDonations] Fetch caught error:', err)
       setError(err.message || 'Failed to fetch donations')
     } finally {
       setLoading(false)
