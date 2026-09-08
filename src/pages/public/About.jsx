@@ -36,12 +36,16 @@ export default function About() {
 
       <section className="section bg-brand-cream">
         <div className="container-lg">
-          <SectionHeading center eyebrow="Leadership" title="Community-led, volunteer-run" lead="Placeholder cards — replace with real trustee / core-team names, photos and roles before launch." />
+          <SectionHeading center eyebrow="Leadership" title="Founded by volunteers, run by the community" lead="Three founding trustees lead Thoughtful Hearts Foundation's field work in Kondhwa." />
           <div className="grid sm:grid-cols-3 gap-6">
-            {['Founder & Managing Trustee', 'Program Lead — Livelihoods', 'Program Lead — Education & Tech'].map((role, i) => (
+            {[
+              { name: 'Wasim Abdul Rashid Mohammad', role: 'Founder & Managing Trustee', initials: 'WM' },
+              { name: 'Farman Elahi', role: 'Founder Trustee', initials: 'FE' },
+              { name: 'Mohammed Iqbal Kasam', role: 'Founder Trustee', initials: 'MK' },
+            ].map(({ name, role, initials }, i) => (
               <div key={i} className="card p-8 text-center" data-aos="fade-up" data-aos-delay={i * 100}>
-                <div className="w-20 h-20 rounded-full bg-brand-tealSoft mx-auto mb-4 flex items-center justify-center font-display font-bold text-2xl text-brand-tealDeep">TH</div>
-                <p className="font-bold">[ Name ]</p>
+                <div className="w-20 h-20 rounded-full bg-brand-tealDeep mx-auto mb-4 flex items-center justify-center font-display font-bold text-2xl text-white">{initials}</div>
+                <p className="font-bold text-brand-tealDeep">{name}</p>
                 <p className="text-xs font-bold uppercase tracking-[0.16em] text-brand-coralDark mt-1">{role}</p>
               </div>
             ))}
