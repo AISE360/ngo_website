@@ -1,4 +1,4 @@
-# Deployment — Vercel / Netlify + Supabase
+# Deployment — Cloudflare Pages / Vercel / Netlify + Supabase
 
 ## Build
 
@@ -8,6 +8,18 @@ npm install
 npm run build   # → dist/
 npm run preview # local check
 ```
+
+## Cloudflare Pages (recommended — repo is already Cloudflare-prepped)
+
+1. Cloudflare dashboard → **Workers & Pages → Create → Pages → Connect to Git** → pick `AISE360/ngo_website`.
+2. Project name: `thoughtful-hearts` (or any). Production branch: `main`.
+3. Build settings → Framework preset: **Vite**:
+   - Build command: `npm run build`
+   - Build output directory: `dist`
+   - Root directory: `/` (repo root is the app — there is no subfolder)
+4. Environment variables (Pages → Settings → Variables): `VITE_SUPABASE_URL`, `VITE_SUPABASE_PUBLISHABLE_KEY`, `VITE_RAZORPAY_KEY_ID` — set for **Production and Preview**.
+5. Deploy. SPA fallback is handled by `public/_redirects` (`/* → /index.html`), so `/donate`, `/admin/*` etc. work on refresh/share.
+6. Custom domain (optional): Pages → Custom domains → add `thoughtfulhearts.org.in` → add the CNAME Cloudflare shows at your registrar.
 
 ## Vercel
 
