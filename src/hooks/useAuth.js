@@ -31,11 +31,15 @@ export function useAuth() {
           setLoading(false)
         }
 
-        // Fetch role in the background (fire-and-forget).
+        // Defer getUserRole to next tick to avoid supabase-js auth-lock deadlock
         if (session?.user) {
-          getUserRole(session.user.id)
-            .then(r => { if (mounted) setRole(r) })
-            .catch(err => console.error('Role fetch error:', err))
+          const uid = session.user.id
+          setTimeout(() => {
+            if (!mounted) return
+            getUserRole(uid)
+              .then(r => { if (mounted) setRole(r) })
+              .catch(err => console.error('Role fetch error:', err))
+          }, 0)
         } else {
           if (mounted) setRole(null)
         }
@@ -55,8 +59,11 @@ export function useAuth() {
         setSession(stored)
         setUser(stored?.user ?? null)
         if (stored?.user) {
-          const r = await getUserRole(stored.user.id)
-          if (mounted) setRole(r)
+          const uid = stored.user.id
+          setTimeout(() => {
+            if (!mounted) return
+            getUserRole(uid).then(r => { if (mounted) setRole(r) })
+          }, 0)
         }
       } catch {
         // getSession() timed out in fallback — INITIAL_SESSION already
