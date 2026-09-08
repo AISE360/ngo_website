@@ -14,10 +14,36 @@ import 'swiper/css/effect-fade'
 
 const CountUp = CountUpModule.default || CountUpModule
 
+const U = (id, w = 1920) => `https://images.unsplash.com/${id}?q=80&w=${w}&auto=format&fit=crop`
+
 const HERO_SLIDES = [
-  { img: '/field/field-5.jpg', kicker: 'Medical & Patient Support', title: 'Standing beside patients when it matters most', sub: 'Hospital visits, treatment aid and follow-up care in Kondhwa, Pune.' },
-  { img: '/field/field-1.jpg', kicker: 'Women’s Livelihood', title: 'Stitching skills that become income', sub: 'Tailoring, block-printing & embroidery for women’s independence.' },
-  { img: '/field/field-13.jpg', kicker: 'Youth & Education', title: 'From classrooms to coding labs', sub: 'School outreach, computer skills and art for brighter tomorrows.' },
+  { img: U('photo-1576091160399-112ba8d25d1d'), kicker: 'Medical & Patient Support', title: 'Standing beside patients when it matters most', sub: 'Hospital visits, treatment aid and follow-up care in Kondhwa, Pune.' },
+  { img: U('photo-1584992236310-6edddc08acff'), kicker: 'Women’s Livelihood', title: 'Stitching skills that become income', sub: 'Tailoring, block-printing & embroidery for women’s independence.' },
+  { img: U('photo-1509062522246-3755977927d7'), kicker: 'Youth & Education', title: 'From classrooms to coding labs', sub: 'School outreach, computer skills and art for brighter tomorrows.' },
+]
+
+// High-quality homepage imagery (Unsplash). Real field photos live on /gallery + program pages.
+const HOME_PROGRAM_IMAGES = {
+  'medical-support': U('photo-1579684385127-1ef15d508118', 1200),
+  'vocational-training': U('photo-1558769132-cb1aea458c5e', 1200),
+  'school-outreach': U('photo-1427504494785-3a9ca7044f45', 1200),
+  'tech-coding': U('photo-1517694712202-14dd9538aa97', 1200),
+  'art-workshops': U('photo-1513364776144-60967b0f800f', 1200),
+}
+
+const HOME_GALLERY_PREVIEW = [
+  U('photo-1593113598332-cd288d649433', 900),
+  U('photo-1503676260728-1c00da094a0b', 900),
+  U('photo-1531482615713-2afd69097998', 900),
+  U('photo-1542810634-71277d95dcbb', 900),
+  U('photo-1488521787991-ed7bbaae773c', 900),
+  U('photo-1559027615-cd4628902d4a', 900),
+]
+
+const HOME_POST_IMAGES = [
+  U('photo-1558769132-cb1aea458c5e', 900),
+  U('photo-1497486751825-1233686d5d80', 900),
+  U('photo-1576091160399-112ba8d25d1d', 900),
 ]
 
 const ICONS = { medical: Stethoscope, livelihood: Scissors, education: GraduationCap, tech: Code2, art: Palette }
@@ -102,9 +128,9 @@ export default function Home() {
         {/* Who / What / Where — Antara 3-card pattern */}
         <div className="container-lg grid md:grid-cols-3 gap-6 mt-6">
           {[
-            { img: '/field/field-6.jpg', tag: 'Who we are', text: 'A Kondhwa-based social service team of volunteers, mentors & field workers.', to: '/about' },
-            { img: '/field/field-8.jpg', tag: 'What we do', text: '5 programs: medical aid, tailoring, schools, coding & art — all field-first.', to: '/programs' },
-            { img: '/field/field-12.jpg', tag: 'Where we work', text: 'Shivneri Nagar–Kondhwa Khurd, partner schools & hospitals across Pune.', to: '/contact' },
+            { img: U('photo-1593113598332-cd288d649433', 900), tag: 'Who we are', text: 'A Kondhwa-based social service team of volunteers, mentors & field workers.', to: '/about' },
+            { img: U('photo-1427504494785-3a9ca7044f45', 900), tag: 'What we do', text: '5 programs: medical aid, tailoring, schools, coding & art — all field-first.', to: '/programs' },
+            { img: U('photo-1488521787991-ed7bbaae773c', 900), tag: 'Where we work', text: 'Shivneri Nagar–Kondhwa Khurd, partner schools & hospitals across Pune.', to: '/contact' },
           ].map((c, i) => (
             <Link key={i} to={c.to} className="card overflow-hidden group" data-aos="fade-up" data-aos-delay={i * 100}>
               <div className="h-52 overflow-hidden"><img src={c.img} alt={c.tag} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" loading="lazy" /></div>
@@ -119,11 +145,11 @@ export default function Home() {
       </section>
 
       {/* ── Parallax 1 ── */}
-      <ParallaxBand src="/field/field-5.jpg" height="min-h-[62vh]" speed={0.24}>
+      <ParallaxBand src={U('photo-1579684385127-1ef15d508118')} height="min-h-[62vh]" speed={0.24}>
         <div className="container-lg px-6 py-20 max-w-3xl" data-aos="fade-up">
           <p className="eyebrow eyebrow-light">Field diaries</p>
           <h2 className="font-display display-lg text-white text-balance">Care is a knock on the door, a visit to the ward, a follow-up call.</h2>
-          <p className="text-white/70 mt-4 text-lg">Real photography, real people — our hospital visits and ration support for families in distress.</p>
+          <p className="text-white/70 mt-4 text-lg">See real field photos in our gallery — hospital visits and ration support for families in distress.</p>
           <Link to="/programs/medical-support" className="inline-block mt-7"><Button variant="white" size="lg">Support patients <ArrowRight className="w-4 h-4" /></Button></Link>
         </div>
       </ParallaxBand>
@@ -138,7 +164,7 @@ export default function Home() {
               return (
                 <Link key={p.slug} to={`/programs/${p.slug}`} className="card overflow-hidden group" data-aos="fade-up" data-aos-delay={(i % 3) * 100}>
                   <div className="h-56 overflow-hidden relative">
-                    <img src={p.hero} alt={p.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" loading="lazy" />
+                    <img src={HOME_PROGRAM_IMAGES[p.slug] || p.hero} alt={p.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" loading="lazy" />
                     <span className="absolute bottom-4 left-4 text-[11px] font-bold uppercase tracking-[0.16em] bg-white/92 backdrop-blur px-3 py-1.5 rounded-full text-brand-tealDeep">{p.short}</span>
                   </div>
                   <div className="p-6">
@@ -162,7 +188,7 @@ export default function Home() {
       </section>
 
       {/* ── Parallax 2 ── */}
-      <ParallaxBand src="/field/field-1.jpg" height="min-h-[58vh]" scrim="parallax-scrim-coral" speed={0.2}>
+      <ParallaxBand src={U('photo-1556905055-8f358a7a47b2')} height="min-h-[58vh]" scrim="parallax-scrim-coral" speed={0.2}>
         <div className="container-lg px-6 py-20 flex flex-col md:flex-row items-start md:items-center gap-8 justify-between" data-aos="fade-up">
           <div className="max-w-2xl">
             <p className="eyebrow eyebrow-light">Livelihoods</p>
@@ -176,11 +202,11 @@ export default function Home() {
       <section className="section bg-white">
         <div className="container-lg">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-10" data-aos="fade-up">
-            <div><span className="eyebrow">Field photos</span><h2 className="font-display display-lg text-brand-tealDeep">Straight from the field, not stock</h2></div>
-            <Link to="/gallery"><Button variant="outline" size="md">Open gallery <ArrowRight className="w-4 h-4" /></Button></Link>
+            <div><span className="eyebrow">Gallery</span><h2 className="font-display display-lg text-brand-tealDeep">Impact in high definition</h2></div>
+            <Link to="/gallery"><Button variant="outline" size="md">Open real field photos <ArrowRight className="w-4 h-4" /></Button></Link>
           </div>
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-            {['/field/field-2.jpg', '/field/field-8.jpg', '/field/field-13.jpg', '/field/field-6.jpg', '/field/field-10.jpg', '/field/field-3.jpg'].map((src, i) => (
+            {HOME_GALLERY_PREVIEW.map((src, i) => (
               <Link key={i} to="/gallery" className="img-frame aspect-[4/3]" data-aos="fade-up" data-aos-delay={(i % 3) * 100}>
                 <img src={src} alt="field work" className="w-full h-full object-cover" loading="lazy" />
               </Link>
@@ -207,7 +233,7 @@ export default function Home() {
       </section>
 
       {/* ── Donation CTA parallax ── */}
-      <ParallaxBand src="/field/field-6.jpg" height="min-h-[64vh]" speed={0.26}>
+      <ParallaxBand src={U('photo-1559027615-cd4628902d4a')} height="min-h-[64vh]" speed={0.26}>
         <div className="container-md px-6 py-20 text-center" data-aos="fade-up">
           <p className="eyebrow eyebrow-light eyebrow-center justify-center">Support our work</p>
           <h2 className="font-display display-lg text-white">Your ₹500 can keep a patient, student or trainee going.</h2>
@@ -230,7 +256,7 @@ export default function Home() {
           <div className="grid md:grid-cols-3 gap-6">
             {POSTS.map((p, i) => (
               <Link key={p.slug} to={`/blog#${p.slug}`} className="card overflow-hidden group" data-aos="fade-up" data-aos-delay={i * 100}>
-                <div className="h-52 overflow-hidden"><img src={p.image} alt={p.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" loading="lazy" /></div>
+                <div className="h-52 overflow-hidden"><img src={HOME_POST_IMAGES[i % HOME_POST_IMAGES.length]} alt={p.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" loading="lazy" /></div>
                 <div className="p-6">
                   <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-brand-coralDark">{p.tag} • {p.date}</p>
                   <h3 className="font-display text-lg text-brand-tealDeep mt-2 leading-snug">{p.title}</h3>
