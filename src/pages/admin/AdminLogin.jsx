@@ -7,7 +7,6 @@ import toast from 'react-hot-toast'
 import { Eye, EyeOff } from 'lucide-react'
 import { useAuthContext } from '../../context/AuthContext'
 import { Button } from '../../components/ui/Button'
-import logo from '../../assets/logo.webp'
 
 const schema = z.object({
   email:    z.string().email('Enter a valid email'),
@@ -31,16 +30,16 @@ export default function AdminLogin() {
   }
 
   return (
-    <div className="min-h-screen bg-brand-green flex items-center justify-center px-4 relative overflow-hidden">
-      <div className="absolute top-20 right-20 w-72 h-72 bg-brand-gold/10 rounded-full blur-3xl" />
+    <div className="min-h-screen bg-brand-tealDeep flex items-center justify-center px-4 relative overflow-hidden">
+      <div className="absolute top-20 right-20 w-72 h-72 bg-brand-coral/20 rounded-full blur-3xl" />
       <div className="absolute bottom-20 left-20 w-64 h-64 bg-white/5 rounded-full blur-3xl" />
 
       <div className="relative w-full max-w-md">
         {/* Logo */}
         <div className="text-center mb-8">
-          <img src={logo} alt="Al-Huda" className="h-20 w-20 rounded-2xl object-contain bg-white p-1 mx-auto mb-4 shadow-lg" />
+          <img src="/logo.png" alt="Thoughtful Hearts Foundation" className="h-20 w-20 rounded-2xl object-cover bg-white p-1 mx-auto mb-4 shadow-lg" />
           <h1 className="font-display text-2xl font-bold text-white">Staff Login</h1>
-          <p className="text-brand-gold text-sm mt-1">Al-Huda Welfare Society Admin</p>
+          <p className="text-brand-coralLight text-sm mt-1">Thoughtful Hearts Foundation Admin</p>
         </div>
 
         {/* Card */}
@@ -52,7 +51,7 @@ export default function AdminLogin() {
                 {...register('email')}
                 className="input-field"
                 type="email"
-                placeholder="admin@alhudawelfare.org"
+                placeholder="admin@thoughtfulhearts.org.in"
                 autoComplete="email"
                 id="login-email"
               />
@@ -81,13 +80,13 @@ export default function AdminLogin() {
               {errors.password && <p className="error-msg">{errors.password.message}</p>}
             </div>
 
-            <Button type="submit" loading={isSubmitting} className="w-full" size="lg" id="login-submit-btn">
+            <Button type="submit" variant="coral" loading={isSubmitting} className="w-full" size="lg" id="login-submit-btn">
               Sign In
             </Button>
           </form>
         </div>
 
-        <p className="text-center text-green-300 text-xs mt-6">
+        <p className="text-center text-white/50 text-xs mt-6">
           Access restricted to authorised staff only.
         </p>
       </div>

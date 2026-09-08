@@ -51,7 +51,7 @@ export function AdminSidebar({ onMobileClose }) {
               `flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium transition-all duration-200 group btn-no-flash ${
                 isActive
                   ? 'bg-brand-coral text-white shadow-md'
-                  : 'text-green-200 hover:bg-white/10 hover:text-white'
+                  : 'text-white/70 hover:bg-white/10 hover:text-white'
               }`
             }
           >

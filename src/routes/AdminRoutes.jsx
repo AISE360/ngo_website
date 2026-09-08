@@ -10,13 +10,13 @@ export function ProtectedRoute() {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-brand-navy flex items-center justify-center">
+      <div className="min-h-screen bg-brand-tealDeep flex items-center justify-center">
         <div className="flex flex-col items-center gap-4">
-          <svg className="animate-spin h-10 w-10 text-brand-blue" viewBox="0 0 24 24" fill="none">
+          <svg className="animate-spin h-10 w-10 text-brand-coralLight" viewBox="0 0 24 24" fill="none">
             <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"/>
             <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"/>
           </svg>
-          <p className="text-blue-200 text-sm">Authenticating…</p>
+          <p className="text-white/70 text-sm">Authenticating…</p>
         </div>
       </div>
     )
@@ -31,7 +31,7 @@ export function ProtectedRoute() {
         <button
           type="button"
           onClick={() => setSidebarOpen(true)}
-          className="fixed top-4 left-4 z-50 p-2 rounded-lg bg-brand-green text-white md:hidden"
+          className="fixed top-4 left-4 z-50 p-2 rounded-lg bg-brand-tealDeep text-white md:hidden"
           aria-label="Open menu"
         >
           <Menu className="w-6 h-6" />
@@ -46,7 +46,7 @@ export function ProtectedRoute() {
       {/* Sidebar */}
       <aside
         className={`
-          fixed top-0 left-0 h-screen w-64 bg-brand-green text-white z-40 flex flex-col
+          fixed top-0 left-0 h-screen w-64 bg-brand-tealDeep text-white z-40 flex flex-col
           transition-transform duration-300 ease-in-out
           md:relative md:translate-x-0
           ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'}
