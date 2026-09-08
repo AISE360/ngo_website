@@ -1,0 +1,83 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; overflow-x: hidden; }
+  body {
+    @apply font-body text-brand-charcoal;
+    background: #FFFBF6;
+    -webkit-font-smoothing: antialiased;
+    font-size: 16px; line-height: 1.7; overflow-x: hidden;
+  }
+  h1,h2,h3 { @apply font-display; letter-spacing: -0.015em; }
+  ::selection { background: rgba(232,106,94,.28); color: #0A3542; }
+}
+
+@layer components {
+  .section { @apply py-16 md:py-24 px-5 sm:px-6 lg:px-8; }
+  .container-lg { @apply max-w-7xl mx-auto; }
+  .container-md { @apply max-w-5xl mx-auto; }
+
+  .eyebrow {
+    @apply inline-flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.22em] text-brand-coralDark mb-4;
+  }
+  .eyebrow::before { content: ''; @apply w-8 h-[2px] bg-brand-coral rounded-full inline-block; }
+  .eyebrow-center { @apply justify-center; }
+  .eyebrow-light { @apply text-brand-coralLight; }
+
+  .card { @apply bg-white rounded-3xl border border-brand-sandDark/60; box-shadow: 0 4px 24px 0 rgba(14,76,94,.07); transition: all .45s cubic-bezier(.4,0,.2,1); }
+  .card:hover { box-shadow: 0 24px 60px -12px rgba(14,76,94,.22); transform: translateY(-6px); }
+
+  .input-field { @apply w-full rounded-2xl border border-brand-sandDark bg-white px-4 py-3.5 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-brand-coral/30 focus:border-brand-coral transition-all text-brand-charcoal; }
+  .label { @apply block text-sm font-semibold text-brand-charcoal mb-2; }
+  .error-msg { @apply text-red-500 text-xs mt-1.5; }
+
+  /* Parallax helpers — Antara-style cinematic bands */
+  .parallax-band { position: relative; overflow: hidden; }
+  .parallax-bg {
+    position: absolute; inset: -12% 0; width: 100%; height: 124%;
+    object-fit: cover; will-change: transform;
+  }
+  @media (max-width: 768px) {
+    .parallax-bg { inset: 0; height: 100%; }
+  }
+  .parallax-scrim-teal { background: linear-gradient(180deg, rgba(10,53,66,.72) 0%, rgba(10,53,66,.55) 45%, rgba(10,53,66,.82) 100%); }
+  .parallax-scrim-coral { background: linear-gradient(135deg, rgba(201,79,68,.88) 0%, rgba(14,76,94,.88) 100%); }
+  .parallax-fixed { background-attachment: fixed; background-size: cover; background-position: center; }
+  @media (max-width: 768px) { .parallax-fixed { background-attachment: scroll; } }
+
+  .img-frame { @apply rounded-3xl overflow-hidden; position: relative; }
+  .img-frame img { transition: transform .8s cubic-bezier(.4,0,.2,1); }
+  .img-frame:hover img { transform: scale(1.05); }
+
+  .gold-divider { @apply h-px; background: linear-gradient(90deg, transparent, rgba(217,164,65,.5), transparent); }
+  .dot-pattern { background-image: radial-gradient(circle at 1px 1px, rgba(14,76,94,.14) 1px, transparent 0); background-size: 26px 26px; }
+
+  .glass { background: rgba(255,255,255,.78); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); }
+  .glass-dark { background: rgba(10,53,66,.82); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); }
+  .glass-card { background: #fff; border-radius: 1.25rem; border: 1px solid rgba(239,224,207,.7); box-shadow: 0 4px 24px 0 rgba(14,76,94,.07); }
+  .skeleton { border-radius: 0.75rem; background: linear-gradient(90deg, #f0e9dc 25%, #e6dccb 50%, #f0e9dc 75%); background-size: 200% 100%; animation: shimmer 2s infinite; }
+  @keyframes shimmer { 0% { background-position: -200% 0; } 100% { background-position: 200% 0; } }
+
+  .data-table { @apply w-full text-sm text-left; }
+  .data-table thead tr { @apply bg-gray-50 border-b border-gray-200; }
+  .data-table thead th { @apply px-4 py-3 font-semibold text-gray-500 text-xs uppercase tracking-wider; }
+  .data-table tbody tr { @apply border-b border-gray-100 hover:bg-brand-cream transition-colors; }
+  .data-table tbody td { @apply px-4 py-3.5; }
+  .admin-sidebar { @apply fixed top-0 left-0 h-full w-64 bg-brand-tealDeep text-white z-40 flex flex-col; }
+  .admin-main { @apply min-h-screen bg-gray-50; }
+
+  ::-webkit-scrollbar { width: 8px; }
+  ::-webkit-scrollbar-track { background: #F9EFE4; }
+  ::-webkit-scrollbar-thumb { @apply bg-brand-teal/30 rounded-full; }
+}
+
+@layer utilities {
+  .display-xl { font-size: clamp(2.6rem, 5.6vw, 4.6rem); line-height: 1.05; }
+  .display-lg { font-size: clamp(2rem, 4.2vw, 3.2rem); line-height: 1.12; }
+  .display-md { font-size: clamp(1.6rem, 3vw, 2.4rem); line-height: 1.2; }
+  .btn-no-flash { -webkit-tap-highlight-color: transparent; }
+  .text-balance { text-wrap: balance; }
+}
