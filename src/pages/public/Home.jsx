@@ -74,8 +74,8 @@ export default function Home() {
                 <div className="absolute inset-0 bg-gradient-to-t from-brand-navy/90 via-brand-navy/35 to-brand-navy/30" />
                 <div className="absolute inset-0 flex items-end pb-28 md:pb-32">
                   <div className="container-lg px-6 w-full">
-                    <p className="inline-flex items-center gap-2 text-[11px] font-bold tracking-[0.24em] uppercase text-brand-coralLight bg-white/10 backdrop-blur px-4 py-2 rounded-full border border-white/15 mb-5">
-                      <Sparkles className="w-3.5 h-3.5" /> {s.kicker}
+                    <p className="inline-flex items-center gap-2 text-[11px] font-bold tracking-[0.24em] uppercase text-white bg-brand-navy/70 backdrop-blur px-4 py-2 rounded-full border border-white/25 mb-5 shadow-lg">
+                      <Sparkles className="w-3.5 h-3.5 text-brand-coralLight" /> {s.kicker}
                     </p>
                     <h1 className="font-display display-xl text-white max-w-3xl text-balance">{s.title}</h1>
                     <p className="text-white/70 text-lg mt-4 max-w-xl">{s.sub}</p>
@@ -98,7 +98,7 @@ export default function Home() {
             <span className="text-brand-coralDark font-semibold">Thoughtful Hearts Foundation</span> delivers grassroots care at scale in Kondhwa, Pune —
             in hospitals, classrooms, labs and livelihood halls — <em>with the community, for the community.</em>
           </p>
-          <p className="text-xs tracking-[0.22em] font-bold text-brand-slate/60 mt-4 uppercase" data-aos="fade-up" data-aos-delay="100">{ORG.tagline}</p>
+          <p className="text-xs tracking-[0.22em] font-bold text-brand-slate mt-4 uppercase" data-aos="fade-up" data-aos-delay="100">{ORG.tagline}</p>
         </div>
       </section>
 
@@ -165,7 +165,7 @@ export default function Home() {
                 <Link key={p.slug} to={`/programs/${p.slug}`} className="card overflow-hidden group" data-aos="fade-up" data-aos-delay={(i % 3) * 100}>
                   <div className="h-56 overflow-hidden relative">
                     <img src={HOME_PROGRAM_IMAGES[p.slug] || p.hero} alt={p.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" loading="lazy" />
-                    <span className="absolute bottom-4 left-4 text-[11px] font-bold uppercase tracking-[0.16em] bg-white/92 backdrop-blur px-3 py-1.5 rounded-full text-brand-tealDeep">{p.short}</span>
+                    <span className="absolute bottom-4 left-4 text-[11px] font-bold uppercase tracking-[0.16em] bg-white backdrop-blur px-3 py-1.5 rounded-full text-brand-tealDeep shadow">{p.short}</span>
                   </div>
                   <div className="p-6">
                     <span className="w-11 h-11 rounded-2xl flex items-center justify-center mb-4" style={{ background: `${p.color}18`, color: p.color }}><Icon className="w-5 h-5" /></span>

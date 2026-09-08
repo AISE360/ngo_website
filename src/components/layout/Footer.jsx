@@ -46,7 +46,7 @@ export function Footer() {
         </div>
 
         <div>
-          <h4 className="text-xs font-bold tracking-[0.2em] uppercase text-white/50 mb-5">Our Work</h4>
+          <h4 className="text-xs font-bold tracking-[0.2em] uppercase text-white/70 mb-5">Our Work</h4>
           <ul className="space-y-3 text-sm">
             {[
               ['/programs/medical-support', 'Medical & Patient Support'],
@@ -61,7 +61,7 @@ export function Footer() {
         </div>
 
         <div>
-          <h4 className="text-xs font-bold tracking-[0.2em] uppercase text-white/50 mb-5">Quick Links</h4>
+          <h4 className="text-xs font-bold tracking-[0.2em] uppercase text-white/70 mb-5">Quick Links</h4>
           <ul className="space-y-3 text-sm">
             {[
               ['/about', 'About Us'], ['/gallery', 'Gallery'], ['/get-involved', 'Volunteer & CSR'],
@@ -73,7 +73,7 @@ export function Footer() {
         </div>
 
         <div>
-          <h4 className="text-xs font-bold tracking-[0.2em] uppercase text-white/50 mb-5">Stay in touch</h4>
+          <h4 className="text-xs font-bold tracking-[0.2em] uppercase text-white/70 mb-5">Stay in touch</h4>
           <ul className="space-y-3 text-sm text-white/65">
             <li className="flex gap-2.5"><Phone className="w-4 h-4 mt-0.5 text-brand-coralLight" /> {ORG.phone}</li>
             <li className="flex gap-2.5"><Mail className="w-4 h-4 mt-0.5 text-brand-coralLight" /> {ORG.email}</li>

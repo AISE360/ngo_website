@@ -20,7 +20,7 @@ export default {
           sand:       '#F9EFE4',
           sandDark:   '#EFE0CF',
           charcoal:   '#24313A',
-          slate:      '#5A6D78',
+          slate:      '#43575F',
           gold:       '#D9A441',
           // legacy aliases (old Al-Huda theme → mapped)
           green:   '#0E4C5E',

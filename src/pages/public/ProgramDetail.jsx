@@ -52,7 +52,7 @@ export default function ProgramDetail() {
                 </div>
               ))}
             </div>
-            <p className="text-xs text-brand-slate/60 mt-4">* Placeholder counters — editable via admin / Supabase `impact_stats`. Replace with audited numbers before launch.</p>
+            <p className="text-xs text-brand-slate mt-4">* Placeholder counters — editable via admin / Supabase `impact_stats`. Replace with audited numbers before launch.</p>
           </div>
           <aside className="space-y-5" data-aos="fade-left">
             <div className="card p-7 !bg-brand-tealDeep !border-0">

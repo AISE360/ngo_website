@@ -25,7 +25,7 @@
   }
   .eyebrow::before { content: ''; @apply w-8 h-[2px] bg-brand-coral rounded-full inline-block; }
   .eyebrow-center { @apply justify-center; }
-  .eyebrow-light { @apply text-brand-coralLight; }
+  .eyebrow-light { @apply text-white; text-shadow: 0 1px 12px rgba(0,0,0,.35); }
 
   .card { @apply bg-white rounded-3xl border border-brand-sandDark/60; box-shadow: 0 4px 24px 0 rgba(14,76,94,.07); transition: all .45s cubic-bezier(.4,0,.2,1); }
   .card:hover { box-shadow: 0 24px 60px -12px rgba(14,76,94,.22); transform: translateY(-6px); }
@@ -43,7 +43,7 @@
   @media (max-width: 768px) {
     .parallax-bg { inset: 0; height: 100%; }
   }
-  .parallax-scrim-teal { background: linear-gradient(180deg, rgba(10,53,66,.72) 0%, rgba(10,53,66,.55) 45%, rgba(10,53,66,.82) 100%); }
+  .parallax-scrim-teal { background: linear-gradient(180deg, rgba(10,53,66,.78) 0%, rgba(10,53,66,.62) 45%, rgba(10,53,66,.86) 100%); }
   .parallax-scrim-coral { background: linear-gradient(135deg, rgba(201,79,68,.88) 0%, rgba(14,76,94,.88) 100%); }
   .parallax-fixed { background-attachment: fixed; background-size: cover; background-position: center; }
   @media (max-width: 768px) { .parallax-fixed { background-attachment: scroll; } }

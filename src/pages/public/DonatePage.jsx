@@ -126,7 +126,7 @@ export default function DonatePage() {
             <Button type="submit" variant="coral" size="lg" className="w-full mt-7" loading={paying}>
               <HeartHandshake className="w-5 h-5" /> Donate ₹{Number(amount || 0).toLocaleString('en-IN')} {form.watch('frequency') === 'monthly' ? '/ month' : ''}
             </Button>
-            <p className="flex items-center justify-center gap-1.5 text-xs text-brand-slate/60 mt-4"><ShieldCheck className="w-3.5 h-3.5" /> Secured by Razorpay • UPI / Cards / Netbanking • 80G note (placeholder — update with actual reg.)</p>
+            <p className="flex items-center justify-center gap-1.5 text-xs text-brand-slate mt-4"><ShieldCheck className="w-3.5 h-3.5" /> Secured by Razorpay • UPI / Cards / Netbanking • 80G note (placeholder — update with actual reg.)</p>
           </form>
 
           <aside className="lg:col-span-2 space-y-5" data-aos="fade-left">
