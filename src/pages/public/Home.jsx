@@ -8,6 +8,7 @@ import { Button } from '../../components/ui/Button'
 import { SectionHeading } from '../../components/ui/SectionHeading'
 import { ParallaxBand } from '../../components/effects/Parallax'
 import { PROGRAMS, IMPACT_STATS, TESTIMONIALS, POSTS, ORG } from '../../data/content'
+import { supabase } from '../../lib/supabaseClient'
 import 'swiper/css'
 import 'swiper/css/pagination'
 import 'swiper/css/effect-fade'
@@ -80,6 +81,17 @@ function Stat({ end, suffix, label, delay }) {
 }
 
 export default function Home() {
+  // Live counters from Supabase (admin → Counters), fallback to bundled values
+  const [stats, setStats] = useState(IMPACT_STATS)
+  useEffect(() => {
+    let live = true
+    supabase.from('impact_stats').select('label,value,suffix').eq('is_active', true).order('sort_order')
+      .then(({ data, error }) => {
+        if (live && !error && data && data.length) setStats(data.map((s) => ({ value: Number(s.value) || 0, suffix: s.suffix || '+', label: s.label })))
+      })
+    return () => { live = false }
+  }, [])
+
   return (
     <div className="bg-brand-cream">
       {/* ── HERO slider (Antara-style full-bleed) ── */}
@@ -125,7 +137,7 @@ export default function Home() {
       <section className="bg-brand-tealDeep relative overflow-hidden">
         <div className="absolute -top-24 -right-24 w-96 h-96 bg-brand-coral/15 rounded-full blur-3xl" />
         <div className="container-lg px-6 py-16 grid grid-cols-2 lg:grid-cols-4 gap-10">
-          {IMPACT_STATS.map((s, i) => <Stat key={i} {...s} delay={i * 100} />)}
+          {stats.slice(0, 4).map((s, i) => <Stat key={s.label + i} {...s} delay={i * 100} />)}
         </div>
       </section>
 
