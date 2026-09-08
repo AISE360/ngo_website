@@ -1,19 +1,20 @@
 import { NavLink, useNavigate } from 'react-router-dom'
 import {
-  LayoutDashboard, Users, FileText, UserCheck, HeartHandshake,
-  DollarSign, LogOut, ChevronRight
+  LayoutDashboard, DollarSign, HandHeart, Mail,
+  LayoutGrid, Images, Gauge, Newspaper, LogOut, ChevronRight
 } from 'lucide-react'
 import { useAuthContext } from '../../context/AuthContext'
 import toast from 'react-hot-toast'
-import logo from '../../assets/logo.webp'
 
 const navItems = [
-  { to: '/admin/dashboard',      icon: LayoutDashboard, label: 'Dashboard' },
-  { to: '/admin/members',        icon: Users,           label: 'Members' },
-  { to: '/admin/cases',          icon: FileText,        label: 'Cases' },
-  { to: '/admin/beneficiaries',  icon: UserCheck,       label: 'Beneficiaries' },
-  { to: '/admin/sponsors',       icon: HeartHandshake,  label: 'Sponsors' },
-  { to: '/admin/donations',      icon: DollarSign,      label: 'Donations' },
+  { to: '/admin/dashboard',   icon: LayoutDashboard, label: 'Dashboard' },
+  { to: '/admin/donations',   icon: DollarSign,      label: 'Donations' },
+  { to: '/admin/volunteers',  icon: HandHeart,       label: 'Volunteers' },
+  { to: '/admin/messages',    icon: Mail,            label: 'Messages' },
+  { to: '/admin/programs',    icon: LayoutGrid,      label: 'Programs' },
+  { to: '/admin/gallery',     icon: Images,          label: 'Gallery' },
+  { to: '/admin/counters',    icon: Gauge,           label: 'Counters' },
+  { to: '/admin/blog',        icon: Newspaper,       label: 'Blog' },
 ]
 
 export function AdminSidebar({ onMobileClose }) {
@@ -31,10 +32,10 @@ export function AdminSidebar({ onMobileClose }) {
       {/* Logo */}
       <div className="px-5 py-5 border-b border-white/10">
         <div className="flex items-center gap-3">
-          <img src={logo} alt="Al-Huda" className="h-10 w-10 rounded-lg object-contain bg-white p-0.5" />
+          <img src="/logo.png" alt="Thoughtful Hearts" className="h-10 w-10 rounded-lg object-cover bg-white p-0.5" />
           <div>
-            <p className="font-display font-bold text-white text-sm leading-tight">Al-Huda Admin</p>
-            <p className="text-xs text-brand-gold leading-tight">Welfare Society</p>
+            <p className="font-display font-bold text-white text-sm leading-tight">Thoughtful Hearts</p>
+            <p className="text-[11px] tracking-[0.2em] text-brand-coralLight leading-tight font-bold">FOUNDATION</p>
           </div>
         </div>
       </div>
@@ -49,7 +50,7 @@ export function AdminSidebar({ onMobileClose }) {
             className={({ isActive }) =>
               `flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium transition-all duration-200 group btn-no-flash ${
                 isActive
-                  ? 'bg-brand-gold text-white shadow-md'
+                  ? 'bg-brand-coral text-white shadow-md'
                   : 'text-green-200 hover:bg-white/10 hover:text-white'
               }`
             }
@@ -64,7 +65,7 @@ export function AdminSidebar({ onMobileClose }) {
       {/* User + Logout */}
       <div className="px-4 py-4 border-t border-white/10">
         <div className="flex items-center gap-3 mb-3">
-          <div className="w-8 h-8 rounded-full bg-brand-gold flex items-center justify-center text-xs font-bold text-white">
+          <div className="w-8 h-8 rounded-full bg-brand-coral flex items-center justify-center text-xs font-bold text-white">
             {user?.email?.[0]?.toUpperCase() ?? 'A'}
           </div>
           <div className="flex-1 min-w-0">
@@ -83,4 +84,3 @@ export function AdminSidebar({ onMobileClose }) {
     </div>
   )
 }
-

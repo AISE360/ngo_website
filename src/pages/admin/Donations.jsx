@@ -9,7 +9,7 @@ import { formatINR } from '../../utils/formatCurrency'
 import { formatDate } from '../../utils/formatDate'
 
 const STATUS_OPTIONS = ['all', 'success', 'pending', 'failed']
-const PURPOSE_OPTIONS = ['all', 'general', 'education', 'health', 'marriage', 'sponsor']
+const PURPOSE_OPTIONS = ['all', 'general', 'medical-support', 'vocational-training', 'school-outreach', 'tech-coding', 'art-workshops']
 
 export default function Donations() {
   const [statusF,  setStatusF]  = useState('all')

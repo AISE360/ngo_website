@@ -14,7 +14,7 @@ export function useDonations(filters = {}) {
     try {
       let query = supabase
         .from('donations')
-        .select('*, cases(case_type, status)')
+        .select('*')
         .order('created_at', { ascending: false })
 
       if (filterStatus)  query = query.eq('status', filterStatus)
@@ -59,7 +59,7 @@ export function useDonations(filters = {}) {
       p_currency:      payload.currency ?? 'INR',
     })
     if (!error && data) {
-      const { data: newRow } = await supabase.from('donations').select('*, cases(case_type, status)').eq('id', data.id).single()
+      const { data: newRow } = await supabase.from('donations').select('*').eq('id', data.id).single()
       if (newRow) setDonations(prev => [newRow, ...prev])
     }
     return { data, error }

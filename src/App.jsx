@@ -16,11 +16,13 @@ import Contact from './pages/public/Contact'
 
 import AdminLogin from './pages/admin/AdminLogin'
 import Dashboard from './pages/admin/Dashboard'
-import Members from './pages/admin/Members'
-import Cases from './pages/admin/Cases'
-import Beneficiaries from './pages/admin/Beneficiaries'
-import Sponsors from './pages/admin/Sponsors'
 import Donations from './pages/admin/Donations'
+import Volunteers from './pages/admin/Volunteers'
+import Messages from './pages/admin/Messages'
+import ProgramsAdmin from './pages/admin/Programs'
+import GalleryAdmin from './pages/admin/GalleryAdmin'
+import ImpactStats from './pages/admin/ImpactStats'
+import BlogPosts from './pages/admin/BlogPosts'
 
 function Legal({ title }) {
   return (
@@ -57,11 +59,13 @@ export default function App() {
           <Route element={<ProtectedRoute />}>
             <Route path="/admin" element={<Navigate to="/admin/dashboard" replace />} />
             <Route path="/admin/dashboard" element={<Dashboard />} />
-            <Route path="/admin/members" element={<Members />} />
-            <Route path="/admin/cases" element={<Cases />} />
-            <Route path="/admin/beneficiaries" element={<Beneficiaries />} />
-            <Route path="/admin/sponsors" element={<Sponsors />} />
             <Route path="/admin/donations" element={<Donations />} />
+            <Route path="/admin/volunteers" element={<Volunteers />} />
+            <Route path="/admin/messages" element={<Messages />} />
+            <Route path="/admin/programs" element={<ProgramsAdmin />} />
+            <Route path="/admin/gallery" element={<GalleryAdmin />} />
+            <Route path="/admin/counters" element={<ImpactStats />} />
+            <Route path="/admin/blog" element={<BlogPosts />} />
           </Route>
 
           <Route path="*" element={<Navigate to="/" replace />} />
