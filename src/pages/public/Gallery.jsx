@@ -39,7 +39,7 @@ export default function Gallery() {
               </button>
             ))}
           </div>
-          <SectionHeading eyebrow={`${items.length} photos`} title={FILTERS.find((f) => f.id === filter)?.label + ' — field album'} />
+          <SectionHeading eyebrow={`${items.length} photos`} title={FILTERS.find((f) => f.id === filter)?.label + ': field album'} />
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
             {items.map((g, i) => (
               <button key={i} onClick={() => setLightbox(g)} className="img-frame aspect-[4/3] text-left group" data-aos="fade-up" data-aos-delay={(i % 3) * 80}>

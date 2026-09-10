@@ -29,7 +29,7 @@ export default function Contact() {
       toast.success('Message sent! We reply within 24 hours.')
       form.reset()
     } catch {
-      toast.success('Received! (offline preview — connect Supabase to persist)')
+      toast.success('Received! (offline preview: connect Supabase to persist)')
     }
   }
 
@@ -38,7 +38,7 @@ export default function Contact() {
       <ParallaxBand src="/field/field-12.jpg" height="min-h-[44vh]" speed={0.2}>
         <div className="container-lg px-6 py-16" data-aos="fade-up">
           <p className="eyebrow eyebrow-light">Contact</p>
-          <h1 className="font-display display-xl text-white">Come say salaam in Kondhwa</h1>
+          <h1 className="font-display display-xl text-white">Contact Us</h1>
         </div>
       </ParallaxBand>
 

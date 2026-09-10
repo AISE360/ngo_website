@@ -11,7 +11,7 @@ export default function Programs() {
         <div className="container-lg px-6 py-20" data-aos="fade-up">
           <p className="eyebrow eyebrow-light">Our Work</p>
           <h1 className="font-display display-xl text-white max-w-3xl">Five field-first programs in Kondhwa</h1>
-          <p className="text-white/70 text-lg mt-4 max-w-2xl">Hospitals, stitching halls, classrooms, a coding lab and art tables — this is where your donation works.</p>
+          <p className="text-white/70 text-lg mt-4 max-w-2xl">Hospitals, stitching halls, classrooms, a coding lab and art tables: this is where your donation works.</p>
         </div>
       </ParallaxBand>
 

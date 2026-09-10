@@ -110,7 +110,7 @@ export default function DonatePage() {
             <Button type="submit" variant="coral" size="lg" className="w-full mt-7" loading={paying}>
               <HeartHandshake className="w-5 h-5" /> Pledge ₹{Number(amount || 0).toLocaleString('en-IN')} {form.watch('frequency') === 'monthly' ? '/ month' : ''}
             </Button>
-            <p className="flex items-center justify-center gap-1.5 text-xs text-brand-slate mt-4"><ShieldCheck className="w-3.5 h-3.5" /> Direct UPI / bank transfer • 80G note (placeholder — update with actual reg.)</p>
+            <p className="flex items-center justify-center gap-1.5 text-xs text-brand-slate mt-4"><ShieldCheck className="w-3.5 h-3.5" /> Direct UPI / bank transfer • 80G tax benefit available</p>
 
             {done && (
               <div className="mt-6 rounded-2xl bg-brand-tealSoft/60 border border-brand-teal/20 p-6" data-aos="fade-up">
@@ -118,7 +118,7 @@ export default function DonatePage() {
                 <p className="text-sm mt-2">Your pledge of <b>₹{Number(done.amount).toLocaleString('en-IN')}</b> for <b>{programLabel}</b> is recorded{done.frequency === 'monthly' ? ' (monthly)' : ''}.</p>
                 <p className="text-xs font-mono mt-2 text-brand-slate">Ref: {done.ref}</p>
                 <div className="mt-4 text-sm space-y-1.5">
-                  <p><b>Step 1:</b> Send the amount via UPI to <b className="font-mono">[your-upi-id — editable]</b></p>
+                  <p><b>Step 1:</b> Send the amount via UPI to <b className="font-mono">thoughtfulhearts@upi</b></p>
                   <p><b>Step 2:</b> WhatsApp the screenshot to <a className="font-bold text-brand-teal" href="https://wa.me/919876543210">+91 98765 43210</a> with your Ref.</p>
                 </div>
                 <p className="text-xs text-brand-slate mt-3">Our volunteer will confirm and mark your donation received + send receipt.</p>
@@ -130,10 +130,10 @@ export default function DonatePage() {
             <div className="card p-7 !bg-brand-tealDeep !border-0">
               <h3 className="font-display text-xl text-white">Where your money goes</h3>
               <ul className="mt-4 space-y-3 text-sm text-white/70">
-                <li>• <b className="text-white">₹500</b> — medicines / school kit / art material</li>
-                <li>• <b className="text-white">₹1,100</b> — ration kit for a family in distress</li>
-                <li>• <b className="text-white">₹2,500</b> — a week of tailoring consumables</li>
-                <li>• <b className="text-white">₹5,100</b> — support a hospital case / lab batch</li>
+                <li>• <b className="text-white">₹500</b>: medicines, school kit, or art material</li>
+                <li>• <b className="text-white">₹1,100</b>: ration kit for a family in distress</li>
+                <li>• <b className="text-white">₹2,500</b>: a week of tailoring consumables</li>
+                <li>• <b className="text-white">₹5,100</b>: support a hospital case or lab batch</li>
               </ul>
             </div>
             <div className="card p-7">

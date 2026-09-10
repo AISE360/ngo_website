@@ -23,7 +23,6 @@
   .eyebrow {
     @apply inline-flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.22em] text-brand-coralDark mb-4;
   }
-  .eyebrow::before { content: ''; @apply w-8 h-[2px] bg-brand-coral rounded-full inline-block; }
   .eyebrow-center { @apply justify-center; }
   .eyebrow-light { @apply text-white; text-shadow: 0 1px 12px rgba(0,0,0,.35); }
 

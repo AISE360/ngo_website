@@ -42,7 +42,7 @@ export default function GetInvolved() {
       toast.success('Thank you! We will call you within 48 hours.')
       vForm.reset()
     } catch {
-      toast.success('Noted! (offline preview — connect Supabase to persist)')
+      toast.success('Noted! (offline preview: connect Supabase to persist)')
     }
   }
 
@@ -52,11 +52,12 @@ export default function GetInvolved() {
         org_name: data.org, contact_person: data.contact, email: data.email, phone: data.phone, message: data.message || null,
       })
       if (error) throw error
+      // fire-and-forget notification
       supabase.functions.invoke('whatsapp-notify', { body: { type: 'csr', ...data } }).catch(() => {})
       toast.success('Inquiry received! Our partnerships lead will reach out.')
       cForm.reset()
     } catch {
-      toast.success('Received! (offline preview — connect Supabase to persist)')
+      toast.success('Received! (offline preview: connect Supabase to persist)')
     }
   }
 
@@ -85,7 +86,7 @@ export default function GetInvolved() {
 
           {tab === 'volunteer' ? (
             <div className="card p-7 md:p-10" data-aos="fade-up">
-              <SectionHeading eyebrow="Volunteer" title="Weekend mentors, field buddies, skilled help" lead="Teaching, hospital visits, photography, design, fundraising — tell us your strength." />
+              <SectionHeading eyebrow="Volunteer" title="Weekend mentors, field buddies, skilled help" lead="Teaching, hospital visits, photography, design, fundraising: tell us your strength." />
               <form onSubmit={vForm.handleSubmit(onVolunteer)} className="grid sm:grid-cols-2 gap-4">
                 <div><label className="label">Full name *</label><input className="input-field" {...vForm.register('name')} placeholder="Your name" /><p className="error-msg">{vForm.formState.errors.name?.message}</p></div>
                 <div><label className="label">Phone / WhatsApp *</label><input className="input-field" {...vForm.register('phone')} placeholder="+91…" /><p className="error-msg">{vForm.formState.errors.phone?.message}</p></div>

@@ -131,8 +131,7 @@ export default function Home() {
       <section className="bg-white border-b border-brand-sandDark/60">
         <div className="container-lg px-6 py-10 text-center">
           <p className="font-display text-xl md:text-2xl text-brand-tealDeep leading-relaxed max-w-4xl mx-auto" data-aos="fade-up">
-            <span className="text-brand-coralDark font-semibold">Thoughtful Hearts Foundation</span> delivers grassroots care at scale in Kondhwa, Pune —
-            in hospitals, classrooms, labs and livelihood halls — <em>with the community, for the community.</em>
+            <span className="text-brand-coralDark font-semibold">Thoughtful Hearts Foundation</span> delivers grassroots care at scale in Kondhwa, Pune, in hospitals, classrooms, labs and livelihood halls: <em>with the community, for the community.</em>
           </p>
           <p className="text-xs tracking-[0.22em] font-bold text-brand-slate mt-4 uppercase" data-aos="fade-up" data-aos-delay="100">{ORG.tagline}</p>
         </div>
@@ -141,8 +140,12 @@ export default function Home() {
       {/* ── Impact stats ── */}
       <section className="bg-brand-tealDeep relative overflow-hidden">
         <div className="absolute -top-24 -right-24 w-96 h-96 bg-brand-coral/15 rounded-full blur-3xl" />
-        <div className="container-lg px-6 py-16 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 justify-center">
-          {stats.map((s, i) => <Stat key={s.id || s.label + i} {...s} delay={i * 100} />)}
+        <div className="container-lg px-6 py-16 flex flex-wrap items-center justify-center gap-8 sm:gap-12 md:gap-16">
+          {stats.map((s, i) => (
+            <div key={s.id || s.label + i} className="flex-1 min-w-[140px] sm:min-w-[170px] max-w-[220px]">
+              <Stat {...s} delay={i * 100} />
+            </div>
+          ))}
         </div>
       </section>
 
@@ -152,7 +155,7 @@ export default function Home() {
           <div className="card !rounded-3xl p-8 md:p-10 bg-brand-cream !border-0" data-aos="fade-right">
             <p className="eyebrow">Our Vision</p>
             <h2 className="font-display display-md text-brand-tealDeep">Every family deserves an equal start to a healthy, skilled life.</h2>
-            <p className="text-brand-slate mt-4">Health, learning and livelihood — without debt, without distance, without despair.</p>
+            <p className="text-brand-slate mt-4">Health, learning and livelihood without debt, without distance, without despair.</p>
           </div>
           <div className="card !rounded-3xl p-8 md:p-10 bg-brand-tealDeep !border-0" data-aos="fade-left">
             <p className="eyebrow eyebrow-light">Our Mission</p>
@@ -161,12 +164,12 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Who / What / Where — Antara 3-card pattern */}
+        {/* Who / What / Where */}
         <div className="container-lg grid md:grid-cols-3 gap-6 mt-6">
           {[
             { img: U('photo-1593113598332-cd288d649433', 900), tag: 'Who we are', text: 'A Kondhwa-based social service team of volunteers, mentors & field workers.', to: '/about' },
-            { img: U('photo-1427504494785-3a9ca7044f45', 900), tag: 'What we do', text: '5 programs: medical aid, tailoring, schools, coding & art — all field-first.', to: '/programs' },
-            { img: U('photo-1488521787991-ed7bbaae773c', 900), tag: 'Where we work', text: 'Shivneri Nagar–Kondhwa Khurd, partner schools & hospitals across Pune.', to: '/contact' },
+            { img: U('photo-1427504494785-3a9ca7044f45', 900), tag: 'What we do', text: '5 programs: medical aid, tailoring, schools, coding & art, all field-first.', to: '/programs' },
+            { img: U('photo-1488521787991-ed7bbaae773c', 900), tag: 'Where we work', text: 'Shivneri Nagar, Kondhwa Khurd, partner schools & hospitals across Pune.', to: '/contact' },
           ].map((c, i) => (
             <Link key={i} to={c.to} className="card overflow-hidden group" data-aos="fade-up" data-aos-delay={i * 100}>
               <div className="h-52 overflow-hidden"><img src={c.img} alt={c.tag} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" loading="lazy" /></div>
@@ -185,7 +188,7 @@ export default function Home() {
         <div className="container-lg px-6 py-20 max-w-3xl" data-aos="fade-up">
           <p className="eyebrow eyebrow-light">Field diaries</p>
           <h2 className="font-display display-lg text-white text-balance">Care is a knock on the door, a visit to the ward, a follow-up call.</h2>
-          <p className="text-white/70 mt-4 text-lg">See real field photos in our gallery — hospital visits and ration support for families in distress.</p>
+          <p className="text-white/70 mt-4 text-lg">See real field photos in our gallery: hospital visits and ration support for families in distress.</p>
           <Link to="/programs/medical-support" className="inline-block mt-7"><Button variant="white" size="lg">Support patients <ArrowRight className="w-4 h-4" /></Button></Link>
         </div>
       </ParallaxBand>
@@ -193,7 +196,7 @@ export default function Home() {
       {/* ── Programs grid ── */}
       <section className="section bg-brand-cream">
         <div className="container-lg">
-          <SectionHeading center eyebrow="Our Work" title="Five programs, one promise — show up" lead="Each program has its own page with photos, impact numbers and a dedicated donate button." />
+          <SectionHeading center eyebrow="Our Work" title="Five programs, one promise: show up" lead="Each program has its own page with photos, impact numbers and a dedicated donate button." />
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {PROGRAMS.map((p, i) => {
               const Icon = ICONS[p.category] || Sparkles
@@ -216,7 +219,7 @@ export default function Home() {
             <div className="card !bg-brand-coral p-8 flex flex-col justify-center !border-0" data-aos="fade-up" data-aos-delay="200">
               <HeartHandshake className="w-10 h-10 text-white/90 mb-4" />
               <h3 className="font-display text-2xl text-white">Not sure where to give?</h3>
-              <p className="text-white/75 mt-2 text-sm">Give to the general fund — we route it to the most urgent case.</p>
+              <p className="text-white/75 mt-2 text-sm">Give to the general fund: we route it to the most urgent case.</p>
               <Link to="/donate" className="mt-6"><Button variant="white" size="md" className="w-full">Donate to general fund</Button></Link>
             </div>
           </div>

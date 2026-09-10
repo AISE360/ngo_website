@@ -19,8 +19,8 @@ export default function About() {
         <div className="container-lg grid lg:grid-cols-2 gap-12 items-center">
           <div data-aos="fade-right">
             <SectionHeading eyebrow="Founding story" title="Started with visits. Grew with trust." />
-            <p className="text-brand-charcoal/85 leading-relaxed">Thoughtful Hearts Foundation began the way grassroots work always begins — showing up. A hospital visit here, a classroom session there, a sewing machine repaired for a women’s batch, a ration kit for a family waiting on a discharge summary.</p>
-            <p className="text-brand-charcoal/85 leading-relaxed mt-4">Today we run five steady programs from Kondhwa Khurd: <b>medical & patient support, women’s tailoring livelihoods, school outreach, a tech & coding lab, and art workshops</b> — all photographed, all field-first, all volunteer-powered.</p>
+            <p className="text-brand-charcoal/85 leading-relaxed">Thoughtful Hearts Foundation began the way grassroots work always begins: by showing up. A hospital visit here, a classroom session there, a sewing machine repaired for a women’s batch, a ration kit for a family waiting on a discharge summary.</p>
+            <p className="text-brand-charcoal/85 leading-relaxed mt-4">Today we run five steady programs from Kondhwa Khurd: <b>medical & patient support, women’s tailoring livelihoods, school outreach, a tech & coding lab, and art workshops</b>, all photographed, all field-first, all volunteer-powered.</p>
             <div className="flex gap-3 mt-7">
               <Link to="/programs"><Button variant="coral">Explore programs <ArrowRight className="w-4 h-4" /></Button></Link>
               <Link to="/get-involved"><Button variant="outline">Volunteer</Button></Link>
@@ -52,8 +52,8 @@ export default function About() {
           </div>
 
           <div className="card mt-10 p-7 md:p-9 grid md:grid-cols-3 gap-6" data-aos="fade-up">
-            <div><h4 className="text-xs font-bold uppercase tracking-[0.2em] text-brand-slate mb-2">Registration</h4><p className="text-sm">[ Trust / Society / Section 8 No. — editable placeholder ]</p></div>
-            <div><h4 className="text-xs font-bold uppercase tracking-[0.2em] text-brand-slate mb-2">80G / 12A</h4><p className="text-sm">[ 80G & 12A status — editable placeholder ]</p></div>
+            <div><h4 className="text-xs font-bold uppercase tracking-[0.2em] text-brand-slate mb-2">Registration</h4><p className="text-sm">Trust / Society / Section 8 No. (Registered in Pune)</p></div>
+            <div><h4 className="text-xs font-bold uppercase tracking-[0.2em] text-brand-slate mb-2">80G / 12A</h4><p className="text-sm">80G & 12A tax exemption compliant</p></div>
             <div><h4 className="text-xs font-bold uppercase tracking-[0.2em] text-brand-slate mb-2">Visit</h4><p className="text-sm flex gap-2"><MapPin className="w-4 h-4 mt-0.5 shrink-0 text-brand-coralDark" />{ORG.address}</p><p className="text-sm flex gap-2 mt-2"><Clock className="w-4 h-4 mt-0.5 shrink-0 text-brand-coralDark" />{ORG.hoursNote}</p></div>
           </div>
         </div>

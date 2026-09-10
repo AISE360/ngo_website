@@ -29,7 +29,7 @@ export const PROGRAMS = [
       { value: 60, suffix: '+', label: 'Follow-up cases' },
     ],
     description:
-      'We stand beside patients and families during treatment — hospital visits, financial help for medicines and procedures, emotional support, oxygen-equipment assistance and follow-up care coordination in Kondhwa and across Pune.',
+      'We stand beside patients and families during treatment: hospital visits, financial help for medicines and procedures, emotional support, oxygen-equipment assistance and follow-up care coordination in Kondhwa and across Pune.',
     points: [
       'Hospital visits & patient counselling',
       'Financial support for treatment, medicines & diagnostics',
@@ -52,7 +52,7 @@ export const PROGRAMS = [
       { value: 45, suffix: '%', label: 'Earning after training*' },
     ],
     description:
-      'Our women’s tailoring and stitching unit teaches block-printing, embroidery, cutting and machine stitching — practical income-generating skills in a supportive classroom with machines, mentors and design inputs.',
+      'Our women’s tailoring and stitching unit teaches block-printing, embroidery, cutting and machine stitching: practical income-generating skills in a supportive classroom with machines, mentors and design inputs.',
     points: [
       'Machine stitching, cutting & finishing',
       'Block printing, embroidery & fashion sketching',
@@ -74,7 +74,7 @@ export const PROGRAMS = [
       { value: 40, suffix: '+', label: 'Awareness sessions' },
     ],
     description:
-      'We conduct sessions inside partner schools — motivational talks (“Dream Big, Work Hard, Achieve More”), counselling, awareness and guidance for girls’ classrooms in and around Kondhwa.',
+      'We conduct sessions inside partner schools: motivational talks (“Dream Big, Work Hard, Achieve More”), counselling, awareness and guidance for girls’ classrooms in and around Kondhwa.',
     points: [
       'In-school motivational & counselling sessions',
       'Awareness talks on health, safety & careers',
@@ -96,7 +96,7 @@ export const PROGRAMS = [
       { value: 20, suffix: '+', label: 'Mentor-led projects' },
     ],
     description:
-      'A small computer-lab program teaching digital literacy and programming fundamentals to youth — whiteboard concepts, hands-on systems, doubt-solving and project guidance toward internships and jobs.',
+      'A small computer-lab program teaching digital literacy and programming fundamentals to youth: whiteboard concepts, hands-on systems, doubt-solving and project guidance toward internships and jobs.',
     points: [
       'Computer fundamentals & typing',
       'Programming basics with whiteboard + lab practice',
@@ -118,7 +118,7 @@ export const PROGRAMS = [
       { value: 100, suffix: '%', label: 'Free & inclusive' },
     ],
     description:
-      'Art and craft sessions for children and young learners — sketching, painting, embroidery-hoop art and fashion illustration that build confidence, focus and joy.',
+      'Art and craft sessions for children and young learners: sketching, painting, embroidery-hoop art and fashion illustration that build confidence, focus and joy.',
     points: [
       'Sketching, painting & colour theory basics',
       'Embroidery-hoop & textile art',
@@ -129,9 +129,9 @@ export const PROGRAMS = [
 ]
 
 export const GALLERY = [
-  { src: '/field/field-1.jpg', category: 'livelihood', caption: 'Tailoring unit — machine practice' },
+  { src: '/field/field-1.jpg', category: 'livelihood', caption: 'Tailoring unit: machine practice' },
   { src: '/field/field-2.jpg', category: 'livelihood', caption: 'Block-print guidance, one-on-one' },
-  { src: '/field/field-3.jpg', category: 'medical', caption: 'Hospital visit — patient support' },
+  { src: '/field/field-3.jpg', category: 'medical', caption: 'Hospital visit: patient support' },
   { src: '/field/field-4.jpg', category: 'art', caption: 'Embroidery-hoop artwork' },
   { src: '/field/field-5.jpg', category: 'medical', caption: 'Bedside visit & family counselling' },
   { src: '/field/field-6.jpg', category: 'community', caption: 'Ration kits for families' },
@@ -139,10 +139,10 @@ export const GALLERY = [
   { src: '/field/field-8.jpg', category: 'education', caption: 'Classroom counselling session' },
   { src: '/field/field-9.jpg', category: 'community', caption: 'Ration support at centre' },
   { src: '/field/field-10.jpg', category: 'art', caption: 'Fashion sketching practice' },
-  { src: '/field/field-11.jpg', category: 'livelihood', caption: 'Stitching hall — batch work' },
-  { src: '/field/field-12.jpg', category: 'education', caption: 'School outreach — girls’ classroom' },
-  { src: '/field/field-13.jpg', category: 'tech', caption: 'Coding lab — whiteboard concepts' },
-  { src: '/field/field-14.jpg', category: 'art', caption: 'Art workshop — group learning' },
+  { src: '/field/field-11.jpg', category: 'livelihood', caption: 'Stitching hall: batch work' },
+  { src: '/field/field-12.jpg', category: 'education', caption: 'School outreach: girls’ classroom' },
+  { src: '/field/field-13.jpg', category: 'tech', caption: 'Coding lab: whiteboard concepts' },
+  { src: '/field/field-14.jpg', category: 'art', caption: 'Art workshop: group learning' },
   { src: '/field/field-15.jpg', category: 'livelihood', caption: 'Cutting & finishing table' },
   { src: '/field/field-16.jpg', category: 'tech', caption: 'Lab mentoring & doubts' },
   { src: '/field/field-17.jpg', category: 'education', caption: 'Awareness talk in school' },
@@ -167,7 +167,7 @@ export const TESTIMONIALS = [
     role: 'Vocational training',
   },
   {
-    quote: 'The classroom session made our girls think bigger — “Dream Big, Work Hard” is still written on our board.',
+    quote: 'The classroom session made our girls think bigger: “Dream Big, Work Hard” is still written on our board.',
     name: 'Partner school teacher',
     role: 'School outreach',
   },
@@ -180,7 +180,7 @@ export const POSTS = [
     date: '2026-07-12',
     tag: 'Livelihood',
     image: '/field/field-1.jpg',
-    excerpt: 'Block printing, embroidery and machine practice — how our women’s unit builds income skills step by step.',
+    excerpt: 'Block printing, embroidery and machine practice: how our women’s unit builds income skills step by step.',
   },
   {
     slug: 'school-dream-big-session',
